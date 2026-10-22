@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fretur Dinamico | Transporte Executivo, Turismo e Fretamento em São Paulo</title>
-  <meta name="description" content="fretur Dinamico oferece transporte executivo, transfer para aeroportos, fretamento para eventos, turismo e viagens em grupo com conforto, segurança e pontualidade em São Paulo.">
+  <title>Fretur | Transporte Executivo, Turismo e Fretamento em São Paulo</title>
+  <meta name="description" content="Fretur oferece transporte executivo, transfer para aeroportos, fretamento para eventos, turismo e viagens em grupo com conforto, segurança e pontualidade em São Paulo.">
   <meta name="robots" content="index, follow">
-  <meta name="author" content="fretur Dinamico">
+  <meta name="author" content="Fretur">
   <meta name="theme-color" content="#0e2a47">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
-  <meta property="og:site_name" content="fretur Dinamico">
-  <meta property="og:title" content="fretur Dinamico | Transporte Executivo, Turismo e Fretamento">
+  <meta property="og:site_name" content="Fretur">
+  <meta property="og:title" content="Fretur | Transporte Executivo, Turismo e Fretamento">
   <meta property="og:description" content="Transfer, turismo, receptivo, fretamento corporativo e transporte para eventos em São Paulo com atendimento ágil pelo WhatsApp.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="fretur Dinamico">
+  <meta name="twitter:title" content="Fretur">
   <meta name="twitter:description" content="Transporte executivo, turismo e fretamento em São Paulo com foco em conforto, segurança e pontualidade.">
-  <meta property="og:image" content="https://freturdinamico.com.br/images/bg_fretur.jpg">
-  <meta name="twitter:image" content="https://freturdinamico.com.br/images/bg_fretur.jpg">
-  <link rel="preload" as="image" href="images/bg_fretur.jpg">
+  <meta property="og:image" content="https://fretur.com.br/images/bus_hero.jpg">
+  <meta name="twitter:image" content="https://fretur.com.br/images/bus_hero.jpg">
+  <link rel="preload" as="image" href="images/bus_hero.jpg">
   <script>
     document.documentElement.classList.add("js");
   </script>
@@ -26,7 +26,7 @@
     {
       "@context": "https://schema.org",
       "@type": "TravelAgency",
-      "name": "Fretur Dinamico",
+      "name": "Fretur",
       "description": "Empresa de transporte executivo, turismo receptivo, fretamento e viagens em grupo em São Paulo.",
       "telephone": "+55 11 94780-8247",
       "address": {
@@ -37,7 +37,7 @@
         "addressCountry": "BR"
       },
       "areaServed": "São Paulo e região",
-      "url": "https://freturdinamico.com.br"
+      "url": "https://fretur.com.br"
     }
   </script>
   <style>
@@ -183,7 +183,7 @@
       background:
         linear-gradient(90deg, rgba(8,26,45,0.94) 0%, rgba(10,32,56,0.80) 40%, rgba(14,42,71,0.28) 72%, rgba(14,42,71,0.10) 100%),
         linear-gradient(180deg, rgba(8,26,45,0.30) 0%, rgba(8,26,45,0.55) 100%),
-        url("images/bg_fretur.jpg") 52% center / cover no-repeat,
+        url("images/bus_hero.jpg") 60% 85% / cover no-repeat,
         var(--navy);
       color:#fff;
       min-height:640px;
@@ -615,10 +615,13 @@
     .fab svg{width:30px;height:30px;}
 
     /* ===== Imagens ===== */
-    .tour{background:transparent;}
+    .tour-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;}
     .tour-photo{margin:0;border-radius:32px;overflow:hidden;box-shadow:var(--shadow);}
-    .tour-photo img{width:100%;height:auto;aspect-ratio:2640/864;object-fit:cover;}
-    .tour-action{display:grid;gap:18px;justify-items:start;}
+    .tour-photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;}
+    .tour-copy{display:grid;gap:18px;justify-items:start;}
+    .tour-copy h2{font-size:clamp(30px,4vw,46px);line-height:1.04;letter-spacing:-0.03em;max-width:12ch;}
+    .tour-copy p{color:var(--ink-soft);max-width:46ch;}
+    @media (max-width:900px){.tour-grid{grid-template-columns:1fr;gap:28px;}}
 
     .highlight-box{padding:0;overflow:hidden;}
     .highlight-photo{margin:0;}
@@ -654,7 +657,7 @@
     .cta{
       background:
         linear-gradient(135deg, rgba(10,32,56,0.94) 0%, rgba(29,77,128,0.86) 100%),
-        url("images/van_fretur01.jpg") center / cover no-repeat,
+        url("images/onibus_frente.jpg") center / cover no-repeat,
         var(--navy);
     }
 
@@ -668,22 +671,21 @@
         padding:84px 0 72px;
         background:
           linear-gradient(180deg, rgba(8,26,45,0.90) 0%, rgba(8,26,45,0.78) 100%),
-          url("images/bg_fretur.jpg") 70% center / cover no-repeat,
+          url("images/bus_hero.jpg") 80% center / cover no-repeat,
           var(--navy);
       }
     }
     @media (max-width:640px){
       .benefit-layout .benefit-grid{grid-template-columns:1fr;}
       .tour-photo{border-radius:24px;}
-      .tour-photo img{aspect-ratio:16/9;object-position:60% center;}
     }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="fretur Dinamico">
-        <strong>Fretur Dinamico</strong>
+      <a class="brand" href="#top" aria-label="Fretur">
+        <strong>Fretur</strong>
         <span>Turismo, fretamento e transporte executivo</span>
       </a>
       <nav class="nav-links" aria-label="Navegação principal">
@@ -692,7 +694,7 @@
         <a href="#vantagens">Vantagens</a>
         <a href="#quem-somos">Quem somos</a>
       </nav>
-      <a class="btn btn-wa wa-btn" href="#" data-msg="Olá! Vim pelo site da fretur Dinamico e gostaria de solicitar um orçamento.">
+      <a class="btn btn-wa wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/><path d="M8.5 9.5c.3 2.6 2.4 4.7 5 5" stroke-linecap="round"/></svg>
         WhatsApp
       </a>
@@ -705,9 +707,9 @@
         <div>
           <span class="eyebrow">Pontualidade, segurança e conforto</span>
           <h1>Transporte executivo e turismo com padrão profissional</h1>
-          <p class="lead">A fretur Dinamico atende traslados corporativos, transfer para aeroportos, fretamento de vans, viagens em grupo, turismo receptivo e eventos sociais em São Paulo com atendimento ágil e direto pelo WhatsApp.</p>
+          <p class="lead">A Fretur atende traslados corporativos, transfer para aeroportos, fretamento de ônibus, viagens em grupo, turismo receptivo e eventos sociais em São Paulo com atendimento ágil e direto pelo WhatsApp.</p>
           <div class="hero-cta">
-            <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Vim pelo site da fretur Dinamico e gostaria de solicitar um orçamento.">
+            <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/></svg>
               Solicitar orçamento
             </a>
@@ -732,13 +734,13 @@
       </div>
     </section>
 
-    <div class="ticker" aria-label="Tipos de atendimento da fretur Dinamico">
+    <div class="ticker" aria-label="Tipos de atendimento da Fretur">
       <div class="wrap ticker-track">
         <span>Grupos corporativos</span>
         <span>Excursões e viagens</span>
         <span>Feiras e congressos</span>
         <span>Contrato mensal</span>
-        <span>Fretamento de vans</span>
+        <span>Fretamento de ônibus</span>
         <span>Turismo receptivo</span>
         <span>Transfer para aeroportos</span>
       </div>
@@ -751,7 +753,7 @@
             <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Nossos serviços</span>
             <h2>Soluções de transporte para turismo, empresas e eventos</h2>
           </div>
-          <p>A estrutura da fretur Dinamico foi pensada para atender desde o passageiro individual até grupos maiores, sempre com foco em organização, conforto e pontualidade.</p>
+          <p>A estrutura da Fretur foi pensada para atender desde o passageiro individual até grupos maiores, sempre com foco em organização, conforto e pontualidade.</p>
         </div>
 
         <div class="services-grid">
@@ -807,22 +809,18 @@
     </section>
 
     <section class="tour" id="turismo">
-      <div class="wrap">
+      <div class="wrap tour-grid">
         <figure class="tour-photo reveal-up">
-          <img src="images/van_fretur.jpg" alt="Van branca da Fretur Dinamico circulando por avenida de São Paulo" width="2640" height="864" loading="lazy" decoding="async">
+          <img src="images/onibus_turismo.jpg" alt="Grupo de passageiros em mirante do litoral em frente ao ônibus executivo de turismo" width="1920" height="1280" loading="lazy" decoding="async">
         </figure>
-        <div class="section-head" style="margin:34px 0 0;">
-          <div>
-            <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Turismo &amp; lazer</span>
-            <h2 style="margin-top:18px;">City tour e passeios com frota premium</h2>
-          </div>
-          <div class="tour-action">
-            <p>Roteiros sob medida para turismo cultural, gastronômico ou de compras, com motoristas que conhecem as melhores rotas e a flexibilidade que o seu grupo precisa.</p>
-            <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de planejar um city tour ou passeio com a fretur Dinamico.">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/></svg>
-              Planejar meu passeio
-            </a>
-          </div>
+        <div class="tour-copy">
+          <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Turismo &amp; lazer</span>
+          <h2>City tour e passeios com frota premium</h2>
+          <p>Roteiros sob medida para turismo cultural, gastronômico ou de compras, com motoristas que conhecem as melhores rotas e a flexibilidade que o seu grupo precisa.</p>
+          <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de planejar um city tour ou passeio com a Fretur.">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/></svg>
+            Planejar meu passeio
+          </a>
         </div>
       </div>
     </section>
@@ -832,15 +830,15 @@
         <div class="highlight-copy">
           <span class="eyebrow">Destaque operacional</span>
           <h2>Especialista em transfer para o Porto de Santos</h2>
-          <p>A fretur Dinamico atende a rota São Paulo ↔ Santos com atenção especial a embarques de cruzeiros, horários portuários e deslocamentos programados para evitar atrasos e imprevistos.</p>
-          <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar um transfer com a fretur Dinamico para o Porto de Santos.">
+          <p>A Fretur atende a rota São Paulo ↔ Santos com atenção especial a embarques de cruzeiros, horários portuários e deslocamentos programados para evitar atrasos e imprevistos.</p>
+          <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar um transfer com a Fretur para o Porto de Santos.">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/></svg>
             Falar sobre transfer
           </a>
         </div>
         <div class="highlight-box">
           <figure class="highlight-photo">
-            <img src="images/van_fretur00.jpg" alt="Grupo de passageiros em mirante da Praia do Guarujá em frente à van executiva" width="1920" height="1280" loading="lazy" decoding="async">
+            <img src="images/onibus_porto_bagagens.jpg" alt="Ônibus executivo com bagageiro aberto e malas em área de embarque" width="1920" height="1280" loading="lazy" decoding="async">
           </figure>
           <ul>
             <li>Monitoramento de horários e janelas de embarque</li>
@@ -859,43 +857,43 @@
             <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Nossa frota</span>
             <h2>Veículos preparados para diferentes perfis de atendimento</h2>
           </div>
-          <p>A fretur Dinamico opera com veículos pensados para viagens executivas, grupos e serviços de receptivo, mantendo padrão de conforto, climatização e segurança.</p>
+          <p>A Fretur opera com veículos pensados para viagens executivas, grupos e serviços de receptivo, mantendo padrão de conforto, climatização e segurança.</p>
         </div>
 
         <div class="fleet-grid">
           <article class="fleet-card reveal-up" style="--reveal-delay:0s;">
             <div class="fleet-visual">
-              <img src="images/van_15_fretur.jpg" alt="Van executiva da Fretur Dinamico com ar-condicionado em avenida de São Paulo" width="1920" height="1280" loading="lazy" decoding="async">
+              <img src="images/onibus_executivo.jpg" alt="Ônibus executivo branco com ar-condicionado em rua de São Paulo" width="1920" height="1280" loading="lazy" decoding="async">
             </div>
             <div class="fleet-copy">
-              <h3>Van executiva</h3>
-              <strong>Até 15 passageiros · Ar-condicionado · Conforto total</strong>
+              <h3>Ônibus executivo</h3>
+              <strong>Grupos · Ar-condicionado · Conforto total</strong>
               <p>Ideal para grupos corporativos, eventos, turismo receptivo e viagens em equipe com mais comodidade.</p>
-              <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para van executiva da fretur Dinamico.">Solicitar orçamento</a>
+              <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para ônibus executivo da Fretur.">Solicitar orçamento</a>
             </div>
           </article>
 
           <article class="fleet-card reveal-up" style="--reveal-delay:.08s;">
             <div class="fleet-visual">
-              <img src="images/sedan_fretur.jpg" alt="Sedan executivo preto com bancos de couro para transfer e atendimento premium" width="1920" height="1280" loading="lazy" decoding="async">
+              <img src="images/sedan.jpg" alt="Sedan executivo preto com bancos de couro para transfer e atendimento premium" width="1920" height="1280" loading="lazy" decoding="async">
             </div>
             <div class="fleet-copy">
               <h3>Sedan executivo</h3>
               <strong>Até 4 passageiros · Atendimento premium · Mais privacidade</strong>
               <p>Recomendado para executivos, transfers individuais, reuniões, recepção de clientes e deslocamentos com perfil mais exclusivo.</p>
-              <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para sedan executivo da fretur Dinamico.">Solicitar orçamento</a>
+              <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para sedan executivo da Fretur.">Solicitar orçamento</a>
             </div>
           </article>
 
           <article class="fleet-card reveal-up" style="--reveal-delay:.16s;">
             <div class="fleet-visual">
-              <img src="images/van_vip_fretur.jpg" alt="Van executiva VIP com porta-malas aberto e bancos de couro" width="1920" height="1280" loading="lazy" decoding="async">
+              <img src="images/onibus_vip.jpg" alt="Traseira do ônibus executivo VIP com compartimento de bagagens" width="1920" height="1280" loading="lazy" decoding="async">
             </div>
             <div class="fleet-copy">
-              <h3>Van executiva VIP</h3>
-              <strong>Até 15 passageiros · Bagagens · Viagens e transfers longos</strong>
+              <h3>Ônibus executivo VIP</h3>
+              <strong>Grupos · Bagagens · Viagens e transfers longos</strong>
               <p>Opção indicada para operações com malas, recepção em aeroportos, deslocamentos para porto e viagens com mais estrutura.</p>
-              <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para van executiva VIP da fretur Dinamico.">Solicitar orçamento</a>
+              <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para ônibus executivo VIP da Fretur.">Solicitar orçamento</a>
             </div>
           </article>
         </div>
@@ -914,7 +912,7 @@
 
         <div class="benefit-layout">
           <figure class="benefit-photo reveal-up">
-            <img src="images/van_fretur02.jpg" alt="Passageiros sorrindo no interior da van executiva durante viagem pelo litoral" width="1920" height="1280" loading="lazy" decoding="async">
+            <img src="images/onibus_interior.jpg" alt="Poltronas confortáveis e climatização no interior do ônibus executivo" width="1920" height="1280" loading="lazy" decoding="async">
             <figcaption>Conforto, climatização e espaço para todo o grupo viajar bem.</figcaption>
           </figure>
           <div class="benefit-grid">
@@ -945,7 +943,7 @@
           <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Quem somos</span>
           <div class="section-head" style="margin-top:18px;margin-bottom:20px;">
             <h2>Excelência em cada detalhe do deslocamento</h2>
-            <p>A Fretur Dinamico atua com foco em mobilidade executiva, turismo e fretamento, entendendo que transportar pessoas exige organização, responsabilidade e atenção à experiência do passageiro.</p>
+            <p>A Fretur atua com foco em mobilidade executiva, turismo e fretamento, entendendo que transportar pessoas exige organização, responsabilidade e atenção à experiência do passageiro.</p>
           </div>
           <p>Nosso objetivo é simplificar deslocamentos para empresas, grupos, famílias e turistas em São Paulo, oferecendo um atendimento que combina pontualidade, segurança e conforto.</p>
           <p>Do transfer executivo ao transporte para eventos sociais, viagens e receptivo, cada operação é conduzida com planejamento, agilidade e cuidado com o tempo de quem contrata.</p>
@@ -953,7 +951,7 @@
 
         <div class="about-stack">
           <figure class="about-photo reveal-up">
-            <img src="images/van_turm_fretur.jpg" alt="Grupo de passageiros sorrindo em frente à van executiva em viagem de turismo" width="1920" height="1280" loading="lazy" decoding="async">
+            <img src="images/onibus_passageiros.jpg" alt="Passageiros sorrindo durante viagem de ônibus pelo litoral" width="1920" height="1280" loading="lazy" decoding="async">
           </figure>
           <article class="about-item">
             <strong>Pontualidade de verdade</strong>
@@ -975,8 +973,8 @@
       <div class="wrap">
         <span class="eyebrow">Fale agora com a equipe</span>
         <h2>Solicite seu orçamento direto pelo WhatsApp</h2>
-        <p>Se você precisa de transporte executivo, transfer, turismo receptivo, fretamento corporativo ou viagem em grupo, a fretur Dinamico pode te atender com rapidez e praticidade.</p>
-        <a class="btn btn-wa wa-btn" href="#" data-msg="Olá! Vim pelo site da fretur Dinamico e gostaria de solicitar um orçamento.">
+        <p>Se você precisa de transporte executivo, transfer, turismo receptivo, fretamento corporativo ou viagem em grupo, a Fretur pode te atender com rapidez e praticidade.</p>
+        <a class="btn btn-wa wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/><path d="M8.5 9.5c.3 2.6 2.4 4.7 5 5" stroke-linecap="round"/></svg>
           Chamar no WhatsApp
         </a>
@@ -987,12 +985,12 @@
   <footer>
     <div class="wrap footer">
       <div class="footer-brand">
-        <strong>Fretur Dinamico</strong>
-        <p>Transporte executivo, turismo, transfer para aeroportos, fretamento de vans e atendimento para eventos em São Paulo.</p>
+        <strong>Fretur</strong>
+        <p>Transporte executivo, turismo, transfer para aeroportos, fretamento de ônibus e atendimento para eventos em São Paulo.</p>
       </div>
       <div class="footer-col">
         <strong>WhatsApp</strong>
-        <a class="wa-btn" href="#" data-msg="Olá! Vim pelo site da fretur Dinamico e gostaria de solicitar um orçamento.">(11) 94780-8247</a>
+        <a class="wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.">(11) 94780-8247</a>
       </div>
       <div class="footer-col">
         <strong>Base de atendimento</strong>
@@ -1005,14 +1003,14 @@
     </div>
   </footer>
 
-  <a class="fab wa-btn" href="#" data-msg="Olá! Vim pelo site da fretur Dinamico e gostaria de solicitar um orçamento." aria-label="Falar com a fretur Dinamico no WhatsApp">
+  <a class="fab wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento." aria-label="Falar com a Fretur no WhatsApp">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/><path d="M8.5 9.5c.3 2.6 2.4 4.7 5 5" stroke-linecap="round"/></svg>
   </a>
 
   <script>
     var WHATSAPP_NUMBER = "5511947808247";
     document.querySelectorAll(".wa-btn").forEach(function(el){
-      var msg = el.getAttribute("data-msg") || "Olá! Vim pelo site da fretur Dinamico e gostaria de solicitar um orçamento.";
+      var msg = el.getAttribute("data-msg") || "Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.";
       el.setAttribute("href", "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg));
       el.setAttribute("target", "_blank");
       el.setAttribute("rel", "noopener");
