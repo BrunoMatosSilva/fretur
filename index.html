@@ -180,20 +180,26 @@
     .hero{
       position:relative;
       overflow:hidden;
-      background:
-        linear-gradient(90deg, rgba(8,26,45,0.94) 0%, rgba(10,32,56,0.80) 40%, rgba(14,42,71,0.28) 72%, rgba(14,42,71,0.10) 100%),
-        linear-gradient(180deg, rgba(8,26,45,0.30) 0%, rgba(8,26,45,0.55) 100%),
-        url("images/bus_hero.jpg") 60% 85% / cover no-repeat,
-        var(--navy);
+      background:var(--navy);
       color:#fff;
       min-height:640px;
       display:flex;
       align-items:center;
       padding:84px 0 72px;
     }
-    .hero .wrap{position:relative;z-index:1;width:100%;}
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:
+        linear-gradient(90deg, rgba(8,26,45,0.94) 0%, rgba(10,32,56,0.80) 40%, rgba(14,42,71,0.28) 72%, rgba(14,42,71,0.10) 100%),
+        linear-gradient(180deg, rgba(8,26,45,0.30) 0%, rgba(8,26,45,0.55) 100%);
+    }
+    .hero .wrap{position:relative;z-index:2;width:100%;}
     .hero::after{
       content:"";
+      z-index:1;
       position:absolute;
       inset:auto -80px -120px auto;
       width:340px;
@@ -283,20 +289,13 @@
       color:#fff;
       border-bottom:1px solid rgba(255,255,255,0.08);
     }
-    .ticker-track{
-      display:flex;
-      gap:28px;
-      overflow:hidden;
-      white-space:nowrap;
-      padding:16px 0;
-      font-size:14px;
-      color:rgba(255,255,255,0.78);
-    }
-    .ticker-track span::before{
-      content:"•";
-      color:var(--gold);
-      margin-right:10px;
-    }
+    .ticker{overflow:hidden;}
+    .ticker-move{display:flex;width:max-content;animation:marquee var(--marquee-dur,32s) linear infinite;}
+    .ticker:hover .ticker-move{animation-play-state:paused;}
+    .ticker-set{display:flex;flex-shrink:0;}
+    .ticker-set span{white-space:nowrap;padding:16px 0 16px 28px;font-size:14px;color:rgba(255,255,255,0.78);}
+    .ticker-set span::before{content:"•";color:var(--gold);margin-right:10px;}
+    @keyframes marquee{to{transform:translateX(-50%);}}
 
     section{padding:86px 0;}
     .section-head{
@@ -624,7 +623,7 @@
     @media (max-width:900px){.tour-grid{grid-template-columns:1fr;gap:28px;}}
 
     .highlight-box{padding:0;overflow:hidden;}
-    .highlight-photo{margin:0;}
+    .highlight-photo{margin:0;overflow:hidden;}
     .highlight-photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;}
     .highlight-box ul{padding:24px 26px 28px 46px;}
 
@@ -654,30 +653,132 @@
     .about-photo{margin:0;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);}
     .about-photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;}
 
-    .cta{
-      background:
-        linear-gradient(135deg, rgba(10,32,56,0.94) 0%, rgba(29,77,128,0.86) 100%),
-        url("images/onibus_frente.jpg") center / cover no-repeat,
-        var(--navy);
+    .cta{position:relative;overflow:hidden;background:var(--navy);}
+    .cta::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:linear-gradient(135deg, rgba(10,32,56,0.92) 0%, rgba(29,77,128,0.82) 100%);
     }
+    .cta .wrap{position:relative;z-index:2;}
+    .cta .parallax-bg img{object-position:78% 85%;}
 
     @media (max-width:980px){
       .benefit-layout{grid-template-columns:1fr;}
       .benefit-photo{min-height:320px;}
     }
     @media (max-width:760px){
-      .hero{
-        min-height:0;
-        padding:84px 0 72px;
-        background:
-          linear-gradient(180deg, rgba(8,26,45,0.90) 0%, rgba(8,26,45,0.78) 100%),
-          url("images/bus_hero.jpg") 80% center / cover no-repeat,
-          var(--navy);
-      }
+      .hero{min-height:0;padding:84px 0 72px;}
+      .hero::before{background:linear-gradient(180deg, rgba(8,26,45,0.90) 0%, rgba(8,26,45,0.78) 100%);}
+      .hero .parallax-bg img{object-position:80% center;}
     }
     @media (max-width:640px){
       .benefit-layout .benefit-grid{grid-template-columns:1fr;}
       .tour-photo{border-radius:24px;}
+    }
+
+    /* ===== Animações e movimento ===== */
+    main{overflow-x:clip;}
+    section[id]{scroll-margin-top:70px;}
+
+    .parallax-bg{position:absolute;left:0;right:0;top:-15%;bottom:-15%;z-index:0;will-change:transform;}
+    .parallax-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+    .hero .parallax-bg img{object-position:60% 85%;animation:kenburns 2.6s cubic-bezier(.2,.7,.2,1) both;}
+    @keyframes kenburns{from{transform:scale(1.14);}to{transform:scale(1);}}
+
+    [data-parallax-img]{transform:translate3d(0,var(--py,0px),0) scale(1.14);will-change:transform;}
+
+    header{transition:background .3s ease, box-shadow .3s ease;}
+    .nav{transition:padding .3s ease;}
+    header.scrolled{background:rgba(8,26,45,0.95);box-shadow:0 10px 30px rgba(0,0,0,0.18);}
+    header.scrolled .nav{padding:10px 0;}
+    .scroll-progress{
+      position:absolute;left:0;bottom:-1px;height:3px;width:100%;
+      background:linear-gradient(90deg,var(--gold),#ffd98a);
+      transform:scaleX(0);transform-origin:left;
+    }
+    .nav-links a{position:relative;padding:6px 0;}
+    .nav-links a::after{
+      content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;
+      background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
+    }
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-links a.active{color:#fff;}
+
+    @keyframes heroIn{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
+    .hero .eyebrow,.hero h1,.hero p.lead,.hero-cta,.hero-meta,.hero-routes{animation:heroIn .85s cubic-bezier(.2,.7,.2,1) both;}
+    .hero .eyebrow{animation-delay:.10s;}
+    .hero h1{animation-delay:.22s;}
+    .hero p.lead{animation-delay:.36s;}
+    .hero-cta{animation-delay:.48s;}
+    .hero-meta{animation-delay:.58s;}
+    .hero-routes{animation-delay:.70s;}
+
+    html.js [data-reveal]{
+      opacity:0;
+      transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease;
+      transition-delay:var(--reveal-delay,0s);
+      will-change:opacity, transform;
+    }
+    html.js [data-reveal="up"]{transform:translateY(34px);}
+    html.js [data-reveal="left"]{transform:translateX(-44px);}
+    html.js [data-reveal="right"]{transform:translateX(44px);}
+    html.js [data-reveal="zoom"]{transform:scale(.92) translateY(18px);}
+    html.js [data-reveal].is-visible,html.js .reveal-up.is-visible{opacity:1;transform:none;}
+    html.js .is-done{
+      transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease, opacity .35s ease;
+      transition-delay:0s;
+      will-change:auto;
+    }
+    html.js .is-done.lift:hover{transform:translateY(-8px);box-shadow:0 26px 54px rgba(14,42,71,0.16);}
+    .card .icon{transition:transform .35s ease, background .35s ease;}
+    .card:hover .icon{background:var(--gold);transform:rotate(-6deg) scale(1.08);}
+
+    .btn{position:relative;overflow:hidden;}
+    .btn-primary::after,.btn-wa::after{
+      content:"";position:absolute;top:0;left:-120%;width:55%;height:100%;
+      background:linear-gradient(100deg,transparent,rgba(255,255,255,0.45),transparent);
+      transform:skewX(-20deg);transition:left .7s ease;pointer-events:none;
+    }
+    .btn-primary:hover::after,.btn-wa:hover::after{left:150%;}
+
+    .fab::before{
+      content:"";position:absolute;inset:0;border-radius:50%;background:var(--wa);
+      z-index:-1;animation:pulse 2.4s ease-out infinite;
+    }
+    @keyframes pulse{0%{transform:scale(1);opacity:.45;}100%{transform:scale(1.75);opacity:0;}}
+
+    .why{position:relative;overflow:hidden;color:#fff;background:var(--navy);}
+    .why::before{
+      content:"";position:absolute;inset:0;z-index:1;
+      background:linear-gradient(180deg,rgba(8,26,45,0.88) 0%,rgba(10,32,56,0.80) 100%);
+    }
+    .why .wrap{position:relative;z-index:2;}
+    .why-head h2{font-size:clamp(30px,4vw,46px);line-height:1.04;letter-spacing:-0.03em;max-width:16ch;margin:18px 0 34px;}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .why-card{
+      padding:30px;border-radius:26px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.16);
+      backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    }
+    .why-num{display:block;font-size:46px;font-weight:800;letter-spacing:-0.04em;line-height:1;color:var(--gold);}
+    .why-num::after{
+      content:"";display:block;height:3px;width:0;margin:14px 0 18px;border-radius:3px;
+      background:var(--gold);transition:width .9s cubic-bezier(.2,.7,.2,1) .35s;
+    }
+    .why-card.is-visible .why-num::after{width:52px;}
+    .why-card h3{font-size:21px;margin-bottom:8px;letter-spacing:-0.02em;}
+    .why-card p{color:rgba(255,255,255,0.82);font-size:15px;}
+    @media (max-width:900px){.why-grid{grid-template-columns:1fr;}}
+
+    @media (prefers-reduced-motion: reduce){
+      .hero .eyebrow,.hero h1,.hero p.lead,.hero-cta,.hero-meta,.hero-routes,.hero .parallax-bg img,.fab::before,.ticker-move{animation:none !important;}
+      html.js [data-reveal]{opacity:1;transform:none;transition:none;}
+      [data-parallax-img]{transform:scale(1.05);}
+      .ticker{overflow-x:auto;}
+      .why-num::after{width:52px;transition:none;}
     }
   </style>
 </head>
@@ -699,10 +800,14 @@
         WhatsApp
       </a>
     </div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   </header>
 
   <main id="top">
     <section class="hero">
+      <div class="parallax-bg" data-parallax="0.8" aria-hidden="true">
+        <img src="images/bus_hero.jpg" alt="" width="1920" height="1280" fetchpriority="high" decoding="async">
+      </div>
       <div class="wrap hero-grid">
         <div>
           <span class="eyebrow">Pontualidade, segurança e conforto</span>
@@ -735,14 +840,16 @@
     </section>
 
     <div class="ticker" aria-label="Tipos de atendimento da Fretur">
-      <div class="wrap ticker-track">
-        <span>Grupos corporativos</span>
-        <span>Excursões e viagens</span>
-        <span>Feiras e congressos</span>
-        <span>Contrato mensal</span>
-        <span>Fretamento de ônibus</span>
-        <span>Turismo receptivo</span>
-        <span>Transfer para aeroportos</span>
+      <div class="ticker-move" id="tickerMove">
+        <div class="ticker-set">
+          <span>Grupos corporativos</span>
+          <span>Excursões e viagens</span>
+          <span>Feiras e congressos</span>
+          <span>Contrato mensal</span>
+          <span>Fretamento de ônibus</span>
+          <span>Turismo receptivo</span>
+          <span>Transfer para aeroportos</span>
+        </div>
       </div>
     </div>
 
@@ -810,8 +917,8 @@
 
     <section class="tour" id="turismo">
       <div class="wrap tour-grid">
-        <figure class="tour-photo reveal-up">
-          <img src="images/onibus_turismo.jpg" alt="Grupo de passageiros em mirante do litoral em frente ao ônibus executivo de turismo" width="1920" height="1280" loading="lazy" decoding="async">
+        <figure class="tour-photo">
+          <img data-parallax-img src="images/onibus_turismo.jpg" alt="Grupo de passageiros em mirante do litoral em frente ao ônibus executivo de turismo" width="1920" height="1280" loading="lazy" decoding="async">
         </figure>
         <div class="tour-copy">
           <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Turismo &amp; lazer</span>
@@ -838,7 +945,7 @@
         </div>
         <div class="highlight-box">
           <figure class="highlight-photo">
-            <img src="images/onibus_porto_bagagens.jpg" alt="Ônibus executivo com bagageiro aberto e malas em área de embarque" width="1920" height="1280" loading="lazy" decoding="async">
+            <img data-parallax-img src="images/onibus_porto_bagagens.jpg" alt="Ônibus executivo com bagageiro aberto e malas em área de embarque" width="1920" height="1280" loading="lazy" decoding="async">
           </figure>
           <ul>
             <li>Monitoramento de horários e janelas de embarque</li>
@@ -846,6 +953,35 @@
             <li>Atendimento com foco em pontualidade e conforto</li>
             <li>Suporte para bagagens e logística de deslocamento</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="why" id="diferenciais">
+      <div class="parallax-bg" data-parallax="0.9" aria-hidden="true">
+        <img src="images/onibus_frente.jpg" alt="" width="1920" height="1280" loading="lazy" decoding="async">
+      </div>
+      <div class="wrap">
+        <div class="why-head">
+          <span class="eyebrow">Por que a Fretur</span>
+          <h2>O que nos diferencia da concorrência</h2>
+        </div>
+        <div class="why-grid">
+          <article class="why-card">
+            <span class="why-num">01</span>
+            <h3>Atendimento premium</h3>
+            <p>Cordialidade e discrição em cada interação, com foco no público mais exigente de São Paulo.</p>
+          </article>
+          <article class="why-card">
+            <span class="why-num">02</span>
+            <h3>Veículos seguros</h3>
+            <p>Veículos revisados e monitorados para uma viagem tranquila do embarque ao desembarque.</p>
+          </article>
+          <article class="why-card">
+            <span class="why-num">03</span>
+            <h3>Conhecimento local</h3>
+            <p>Especialistas em São Paulo, com agilidade mesmo nos horários de pico.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -912,7 +1048,7 @@
 
         <div class="benefit-layout">
           <figure class="benefit-photo reveal-up">
-            <img src="images/onibus_interior.jpg" alt="Poltronas confortáveis e climatização no interior do ônibus executivo" width="1920" height="1280" loading="lazy" decoding="async">
+            <img data-parallax-img src="images/onibus_interior.jpg" alt="Poltronas confortáveis e climatização no interior do ônibus executivo" width="1920" height="1280" loading="lazy" decoding="async">
             <figcaption>Conforto, climatização e espaço para todo o grupo viajar bem.</figcaption>
           </figure>
           <div class="benefit-grid">
@@ -951,7 +1087,7 @@
 
         <div class="about-stack">
           <figure class="about-photo reveal-up">
-            <img src="images/onibus_passageiros.jpg" alt="Passageiros sorrindo durante viagem de ônibus pelo litoral" width="1920" height="1280" loading="lazy" decoding="async">
+            <img data-parallax-img src="images/onibus_passageiros.jpg" alt="Passageiros sorrindo durante viagem de ônibus pelo litoral" width="1920" height="1280" loading="lazy" decoding="async">
           </figure>
           <article class="about-item">
             <strong>Pontualidade de verdade</strong>
@@ -970,6 +1106,9 @@
     </section>
 
     <section class="cta">
+      <div class="parallax-bg" data-parallax="0.9" aria-hidden="true">
+        <img src="images/bus_hero.jpg" alt="" width="1920" height="1280" loading="lazy" decoding="async">
+      </div>
       <div class="wrap">
         <span class="eyebrow">Fale agora com a equipe</span>
         <h2>Solicite seu orçamento direto pelo WhatsApp</h2>
@@ -1016,28 +1155,132 @@
       el.setAttribute("rel", "noopener");
     });
 
-    var revealItems = document.querySelectorAll(".reveal-up");
-    if ("IntersectionObserver" in window) {
-      var revealObserver = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.16,
-        rootMargin: "0px 0px -40px 0px"
-      });
+  </script>
+  <script>
+  (function(){
+    var doc=document, root=doc.documentElement;
+    var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function all(s,c){return Array.prototype.slice.call((c||doc).querySelectorAll(s));}
+    function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
 
-      revealItems.forEach(function(item) {
-        revealObserver.observe(item);
-      });
-    } else {
-      revealItems.forEach(function(item) {
-        item.classList.add("is-visible");
+    /* ---- Faixa em movimento ---- */
+    var move=doc.getElementById("tickerMove");
+    function buildTicker(){
+      if(!move||reduce)return;
+      all(".ticker-set[data-clone]",move).forEach(function(n){n.parentNode.removeChild(n);});
+      var base=move.querySelector(".ticker-set");
+      var w=base.offsetWidth||1;
+      var copies=Math.max(1,Math.ceil(window.innerWidth/w));
+      for(var i=1;i<copies*2;i++){
+        var c=base.cloneNode(true);
+        c.setAttribute("data-clone","");
+        c.setAttribute("aria-hidden","true");
+        move.appendChild(c);
+      }
+      move.style.setProperty("--marquee-dur",((w*copies)/55).toFixed(1)+"s");
+    }
+
+    /* ---- Entrada dos elementos ao rolar ---- */
+    function group(parentSel,types,step,mod){
+      all(parentSel).forEach(function(p){
+        Array.prototype.forEach.call(p.children,function(c,i){
+          if(c.classList.contains("reveal-up")||c.hasAttribute("data-reveal"))return;
+          var t=Array.isArray(types)?(types[i]||types[types.length-1]):types;
+          c.setAttribute("data-reveal",t);
+          var k=mod?i%mod:i;
+          c.style.setProperty("--reveal-delay",(k*step).toFixed(2)+"s");
+        });
       });
     }
+    group(".section-head","up",.12);
+    group(".services-grid","up",.1,3);
+    group(".tour-grid",["left","right"],.1);
+    group(".highlight-grid",["left","right"],.1);
+    group(".why-head","up",.1);
+    group(".why-grid","zoom",.14);
+    group(".about-grid",["left","right"],.1);
+    group(".about-stack","up",.1);
+    group(".cta .wrap","up",.1);
+
+    var items=all(".reveal-up,[data-reveal]");
+    items.forEach(function(el){
+      ["card","fleet-card","benefit","about-item","why-card"].forEach(function(k){
+        if(el.classList.contains(k))el.classList.add("lift");
+      });
+    });
+    function show(el){
+      el.classList.add("is-visible");
+      setTimeout(function(){el.classList.add("is-done");},1400);
+    }
+    if(reduce||!("IntersectionObserver" in window)){
+      items.forEach(function(el){el.classList.add("is-visible","is-done");});
+    }else{
+      var io=new IntersectionObserver(function(es,o){
+        es.forEach(function(e){
+          if(e.isIntersecting){show(e.target);o.unobserve(e.target);}
+        });
+      },{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+      items.forEach(function(el){io.observe(el);});
+    }
+
+    /* ---- Parallax, cabeçalho e menu ativo ---- */
+    var bgs=all("[data-parallax]").map(function(el){
+      return {el:el,parent:el.parentElement,strength:parseFloat(el.getAttribute("data-parallax"))||0.8,vis:true};
+    });
+    var imgs=all("[data-parallax-img]").map(function(el){
+      return {el:el,parent:el.parentElement,vis:true};
+    });
+    if(!reduce&&"IntersectionObserver" in window){
+      var pio=new IntersectionObserver(function(es){
+        es.forEach(function(e){var it=e.target.__p;if(it)it.vis=e.isIntersecting;});
+      },{rootMargin:"20% 0px 20% 0px"});
+      bgs.concat(imgs).forEach(function(it){it.parent.__p=it;pio.observe(it.parent);});
+    }
+    var header=doc.querySelector("header");
+    var bar=doc.getElementById("scrollProgress");
+    var links=all('.nav-links a[href^="#"]').map(function(a){
+      return {a:a,t:doc.querySelector(a.getAttribute("href"))};
+    });
+    var ticking=false;
+    function frame(){
+      ticking=false;
+      var vh=window.innerHeight;
+      var y=window.pageYOffset||root.scrollTop;
+      if(header)header.classList.toggle("scrolled",y>24);
+      if(bar){
+        var max=root.scrollHeight-vh;
+        bar.style.transform="scaleX("+(max>0?clamp(y/max,0,1):0).toFixed(4)+")";
+      }
+      if(!reduce){
+        bgs.forEach(function(it){
+          if(!it.vis)return;
+          var r=it.parent.getBoundingClientRect();
+          var prog=clamp((r.top+r.height/2-vh/2)/(vh/2+r.height/2),-1,1);
+          it.el.style.transform="translate3d(0,"+(-prog*r.height*0.15*it.strength).toFixed(1)+"px,0)";
+        });
+        imgs.forEach(function(it){
+          if(!it.vis)return;
+          var r=it.parent.getBoundingClientRect();
+          var prog=clamp((r.top+r.height/2-vh/2)/(vh/2+r.height/2),-1,1);
+          it.el.style.setProperty("--py",(-prog*16).toFixed(1)+"px");
+        });
+      }
+      var current=null;
+      links.forEach(function(l){
+        if(!l.t)return;
+        var r=l.t.getBoundingClientRect();
+        if(r.top<=140&&r.bottom>140)current=l;
+      });
+      links.forEach(function(l){l.a.classList.toggle("active",l===current);});
+    }
+    function request(){if(!ticking){ticking=true;window.requestAnimationFrame(frame);}}
+    window.addEventListener("scroll",request,{passive:true});
+    var rt;
+    window.addEventListener("resize",function(){request();clearTimeout(rt);rt=setTimeout(buildTicker,200);});
+    window.addEventListener("load",function(){buildTicker();request();});
+    buildTicker();
+    frame();
+  })();
   </script>
 </body>
 </html>
