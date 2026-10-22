@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fretur Dinamico | Transporte Executivo, Turismo e Fretamento em São Paulo</title>
+  <meta name="description" content="fretur Dinamico oferece transporte executivo, transfer para aeroportos, fretamento para eventos, turismo e viagens em grupo com conforto, segurança e pontualidade em São Paulo.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="fretur Dinamico">
+  <meta name="theme-color" content="#0e2a47">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="fretur Dinamico">
+  <meta property="og:title" content="fretur Dinamico | Transporte Executivo, Turismo e Fretamento">
+  <meta property="og:description" content="Transfer, turismo, receptivo, fretamento corporativo e transporte para eventos em São Paulo com atendimento ágil pelo WhatsApp.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="fretur Dinamico">
+  <meta name="twitter:description" content="Transporte executivo, turismo e fretamento em São Paulo com foco em conforto, segurança e pontualidade.">
+  <meta property="og:image" content="https://freturdinamico.com.br/images/bg_fretur.jpg">
+  <meta name="twitter:image" content="https://freturdinamico.com.br/images/bg_fretur.jpg">
+  <link rel="preload" as="image" href="images/bg_fretur.jpg">
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Fretur Dinamico",
+      "description": "Empresa de transporte executivo, turismo receptivo, fretamento e viagens em grupo em São Paulo.",
+      "telephone": "+55 11 94780-8247",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Mundo Novo, 335",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "areaServed": "São Paulo e região",
+      "url": "https://freturdinamico.com.br"
+    }
+  </script>
+  <style>
+    :root{
+      --navy:#0e2a47;
+      --navy-2:#14385f;
+      --navy-3:#1d4d80;
+      --gold:#f4c15d;
+      --gold-soft:#fff4dc;
+      --paper:#f5f8fc;
+      --paper-2:#ffffff;
+      --ink:#112032;
+      --ink-soft:#556577;
+      --line:rgba(17,32,50,0.12);
+      --wa:#25D366;
+      --wa-dark:#1db556;
+      --radius:24px;
+      --shadow:0 18px 48px rgba(14,42,71,0.12);
+      --maxw:1180px;
+      --font-body:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:var(--font-body);
+      color:var(--ink);
+      background:linear-gradient(180deg, #f7fafd 0%, #eef4fa 100%);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    img,svg{display:block;max-width:100%;}
+    a{color:inherit;}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(244,193,93,0.16);
+      color:var(--gold);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      border:1px solid rgba(244,193,93,0.2);
+    }
+    .eyebrow::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--gold);
+    }
+    h1,h2,h3,h4,p{margin:0;}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      border-radius:999px;
+      padding:14px 22px;
+      font-weight:700;
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+      border:1px solid transparent;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px);}
+    .btn-primary{
+      background:var(--gold);
+      color:#2a1a00;
+      box-shadow:0 12px 28px rgba(244,193,93,0.24);
+    }
+    .btn-primary:hover{background:#f0b849;}
+    .btn-secondary{
+      background:transparent;
+      border-color:rgba(255,255,255,0.24);
+      color:#fff;
+    }
+    .btn-secondary:hover{background:rgba(255,255,255,0.08);}
+    .btn-wa{
+      background:var(--wa);
+      color:#08220f;
+      box-shadow:0 12px 28px rgba(37,211,102,0.22);
+    }
+    .btn-wa:hover{background:var(--wa-dark);}
+    .btn svg{width:18px;height:18px;}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:30;
+      backdrop-filter:blur(14px);
+      background:rgba(10,28,48,0.82);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:16px 0;
+    }
+    .brand{
+      text-decoration:none;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .brand strong{
+      color:#fff;
+      font-size:24px;
+      line-height:1;
+      letter-spacing:-0.03em;
+    }
+    .brand span{
+      color:rgba(255,255,255,0.72);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+    .nav-links{
+      display:flex;
+      gap:24px;
+      color:rgba(255,255,255,0.8);
+      font-size:14px;
+      font-weight:600;
+    }
+    .nav-links a{text-decoration:none;}
+    .nav-links a:hover{color:#fff;}
+    @media (max-width:860px){
+      .nav-links{display:none;}
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(90deg, rgba(8,26,45,0.94) 0%, rgba(10,32,56,0.80) 40%, rgba(14,42,71,0.28) 72%, rgba(14,42,71,0.10) 100%),
+        linear-gradient(180deg, rgba(8,26,45,0.30) 0%, rgba(8,26,45,0.55) 100%),
+        url("images/bg_fretur.jpg") 52% center / cover no-repeat,
+        var(--navy);
+      color:#fff;
+      min-height:640px;
+      display:flex;
+      align-items:center;
+      padding:84px 0 72px;
+    }
+    .hero .wrap{position:relative;z-index:1;width:100%;}
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:auto -80px -120px auto;
+      width:340px;
+      height:340px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(244,193,93,0.22) 0%, rgba(244,193,93,0) 72%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:36px;
+      align-items:center;
+    }
+    .hero-grid > div:first-child{max-width:700px;}
+    .hero h1{
+      font-size:clamp(38px, 5.2vw, 60px);
+      line-height:1.04;
+      letter-spacing:-0.04em;
+      max-width:16ch;
+      margin:18px 0 18px;
+    }
+    .hero p.lead{
+      max-width:58ch;
+      color:rgba(255,255,255,0.84);
+      font-size:18px;
+      margin-bottom:28px;
+    }
+    .hero-cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:26px;
+    }
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px 16px;
+      color:rgba(255,255,255,0.72);
+      font-size:13px;
+    }
+    .hero-meta span{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--gold);
+    }
+    .hero-routes{display:grid;gap:12px;}
+    .hero-routes-label{
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--gold);
+    }
+    .hero-chips{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .hero-chips li{
+      padding:9px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.18);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      font-size:13px;
+      font-weight:600;
+      color:rgba(255,255,255,0.92);
+    }
+    @media (max-width:920px){
+      .hero-grid{grid-template-columns:1fr;}
+      .hero h1{max-width:12ch;}
+    }
+
+    .ticker{
+      background:#0a2038;
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .ticker-track{
+      display:flex;
+      gap:28px;
+      overflow:hidden;
+      white-space:nowrap;
+      padding:16px 0;
+      font-size:14px;
+      color:rgba(255,255,255,0.78);
+    }
+    .ticker-track span::before{
+      content:"•";
+      color:var(--gold);
+      margin-right:10px;
+    }
+
+    section{padding:86px 0;}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      align-items:flex-end;
+      margin-bottom:34px;
+    }
+    .section-head h2{
+      font-size:clamp(30px, 4vw, 46px);
+      line-height:1.04;
+      letter-spacing:-0.03em;
+      max-width:12ch;
+    }
+    .section-head p{
+      max-width:46ch;
+      color:var(--ink-soft);
+    }
+    @media (max-width:760px){
+      .section-head{flex-direction:column;align-items:flex-start;}
+    }
+
+    .services{
+      background:var(--paper-2);
+    }
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:26px;
+      box-shadow:0 14px 36px rgba(14,42,71,0.06);
+    }
+    .icon{
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      background:var(--gold-soft);
+      color:var(--navy);
+      margin-bottom:18px;
+    }
+    .icon svg{width:26px;height:26px;}
+    .card h3{
+      font-size:21px;
+      margin-bottom:10px;
+      letter-spacing:-0.02em;
+    }
+    .card p{
+      color:var(--ink-soft);
+      font-size:15px;
+    }
+    @media (max-width:980px){
+      .services-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media (max-width:640px){
+      .services-grid{grid-template-columns:1fr;}
+    }
+
+    .highlight{
+      background:
+        linear-gradient(135deg, #0f2845 0%, #15395e 100%);
+      color:#fff;
+    }
+    .highlight-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:24px;
+      align-items:center;
+    }
+    .highlight-copy h2{
+      font-size:clamp(30px, 4vw, 48px);
+      line-height:1.04;
+      letter-spacing:-0.03em;
+      margin:18px 0 16px;
+      max-width:12ch;
+    }
+    .highlight-copy p{
+      max-width:58ch;
+      color:rgba(255,255,255,0.82);
+      margin-bottom:24px;
+    }
+    .highlight-box{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:28px;
+      padding:26px;
+    }
+    .highlight-box ul{
+      margin:0;
+      padding-left:18px;
+      display:grid;
+      gap:10px;
+      color:rgba(255,255,255,0.82);
+    }
+    @media (max-width:900px){
+      .highlight-grid{grid-template-columns:1fr;}
+    }
+
+    .fleet-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .fleet-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 16px 38px rgba(14,42,71,0.06);
+    }
+    .fleet-visual{
+      position:relative;
+      aspect-ratio:3/2;
+      overflow:hidden;
+      background:#dfe9f4;
+    }
+    .fleet-visual img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .6s cubic-bezier(.2,.7,.2,1);
+    }
+    .fleet-card:hover .fleet-visual img{transform:scale(1.05);}
+    .fleet-copy{
+      padding:22px 22px 24px;
+    }
+    .fleet-copy h3{
+      font-size:22px;
+      margin-bottom:8px;
+    }
+    .fleet-copy p{
+      color:var(--ink-soft);
+      margin-bottom:16px;
+      font-size:15px;
+    }
+    .fleet-copy strong{
+      display:block;
+      color:var(--navy);
+      margin-bottom:14px;
+      font-size:14px;
+    }
+    @media (max-width:980px){
+      .fleet-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media (max-width:640px){
+      .fleet-grid{grid-template-columns:1fr;}
+    }
+
+    .benefits{
+      background:var(--paper-2);
+    }
+    .benefit-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+    .benefit{
+      padding:24px;
+      border-radius:24px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:0 14px 36px rgba(14,42,71,0.05);
+    }
+    .benefit strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:10px;
+    }
+    .benefit p{
+      color:var(--ink-soft);
+      font-size:15px;
+    }
+    html.js .reveal-up{
+      opacity:0;
+      transform:translateY(34px);
+      transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.2,.7,.2,1),
+        box-shadow .25s ease;
+      transition-delay:var(--reveal-delay,0s);
+      will-change:opacity, transform;
+    }
+    html.js .reveal-up.is-visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce){
+      html.js .reveal-up{
+        opacity:1;
+        transform:none;
+        transition:none;
+      }
+    }
+    @media (max-width:980px){
+      .benefit-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media (max-width:640px){
+      .benefit-grid{grid-template-columns:1fr;}
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:24px;
+      align-items:start;
+    }
+    .about-copy p{
+      max-width:62ch;
+      color:var(--ink-soft);
+      margin-bottom:16px;
+      font-size:16px;
+    }
+    .about-stack{
+      display:grid;
+      gap:16px;
+    }
+    .about-item{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:0 14px 34px rgba(14,42,71,0.05);
+    }
+    .about-item strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:8px;
+    }
+    .about-item p{
+      color:var(--ink-soft);
+      font-size:15px;
+    }
+    @media (max-width:900px){
+      .about-grid{grid-template-columns:1fr;}
+    }
+
+    .cta{
+      background:linear-gradient(135deg, var(--navy) 0%, var(--navy-3) 100%);
+      color:#fff;
+      text-align:center;
+    }
+    .cta h2{
+      font-size:clamp(32px, 4vw, 52px);
+      line-height:1.04;
+      letter-spacing:-0.03em;
+      max-width:13ch;
+      margin:18px auto 14px;
+    }
+    .cta p{
+      max-width:54ch;
+      margin:0 auto 28px;
+      color:rgba(255,255,255,0.82);
+      font-size:17px;
+    }
+
+    footer{
+      background:#081a2d;
+      color:#fff;
+      padding:34px 0;
+    }
+    .footer{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      align-items:flex-start;
+    }
+    .footer-brand{
+      max-width:34ch;
+    }
+    .footer-brand strong{
+      display:block;
+      font-size:22px;
+      margin-bottom:8px;
+    }
+    .footer-brand p,
+    .footer-col p,
+    .footer-col a{
+      color:rgba(255,255,255,0.74);
+      text-decoration:none;
+      font-size:14px;
+    }
+    .footer-col strong{
+      display:block;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-bottom:8px;
+    }
+
+    .fab{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      z-index:50;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--wa);
+      color:#08220f;
+      text-decoration:none;
+      box-shadow:0 16px 34px rgba(0,0,0,0.22);
+      transition:transform .15s ease, background .15s ease;
+    }
+    .fab:hover{transform:scale(1.05);background:var(--wa-dark);}
+    .fab svg{width:30px;height:30px;}
+
+    /* ===== Imagens ===== */
+    .tour{background:transparent;}
+    .tour-photo{margin:0;border-radius:32px;overflow:hidden;box-shadow:var(--shadow);}
+    .tour-photo img{width:100%;height:auto;aspect-ratio:2640/864;object-fit:cover;}
+    .tour-action{display:grid;gap:18px;justify-items:start;}
+
+    .highlight-box{padding:0;overflow:hidden;}
+    .highlight-photo{margin:0;}
+    .highlight-photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;}
+    .highlight-box ul{padding:24px 26px 28px 46px;}
+
+    .benefit-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;align-items:stretch;}
+    .benefit-layout .benefit-grid{grid-template-columns:repeat(2,1fr);}
+    .benefit-photo{
+      position:relative;
+      margin:0;
+      min-height:420px;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .benefit-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+    .benefit-photo figcaption{
+      position:absolute;
+      left:16px;right:16px;bottom:16px;
+      padding:14px 18px;
+      border-radius:18px;
+      background:rgba(8,26,45,0.80);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      color:#fff;
+      font-size:14px;
+      font-weight:600;
+    }
+    .about-photo{margin:0;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);}
+    .about-photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;}
+
+    .cta{
+      background:
+        linear-gradient(135deg, rgba(10,32,56,0.94) 0%, rgba(29,77,128,0.86) 100%),
+        url("images/van_fretur01.jpg") center / cover no-repeat,
+        var(--navy);
+    }
+
+    @media (max-width:980px){
+      .benefit-layout{grid-template-columns:1fr;}
+      .benefit-photo{min-height:320px;}
+    }
+    @media (max-width:760px){
+      .hero{
+        min-height:0;
+        padding:84px 0 72px;
+        background:
+          linear-gradient(180deg, rgba(8,26,45,0.90) 0%, rgba(8,26,45,0.78) 100%),
+          url("images/bg_fretur.jpg") 70% center / cover no-repeat,
+          var(--navy);
+      }
+    }
+    @media (max-width:640px){
+      .benefit-layout .benefit-grid{grid-template-columns:1fr;}
+      .tour-photo{border-radius:24px;}
+      .tour-photo img{aspect-ratio:16/9;object-position:60% center;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="fretur Dinamico">
+        <strong>Fretur Dinamico</strong>
+        <span>Turismo, fretamento e transporte executivo</span>
+      </a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#servicos">Serviços</a>
+        <a href="#frota">Frota</a>
+        <a href="#vantagens">Vantagens</a>
+        <a href="#quem-somos">Quem somos</a>
+      </nav>
+      <a class="btn btn-wa wa-btn" href="#" data-msg="Olá! Vim pelo site da fretur Dinamico e gostaria de solicitar um orçamento.">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/><path d="M8.5 9.5c.3 2.6 2.4 4.7 5 5" stroke-linecap="round"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Pontualidade, segurança e conforto</span>
+          <h1>Transporte executivo e turismo com padrão profissional</h1>
+          <p class="lead">A fretur Dinamico atende traslados corporativos, transfer para aeroportos, fretamento de vans, viagens em grupo, turismo receptivo e eventos sociais em São Paulo com atendimento ágil e direto pelo WhatsApp.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Vim pelo site da fretur Dinamico e gostaria de solicitar um orçamento.">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/></svg>
+              Solicitar orçamento
+            </a>
+            <a class="btn btn-secondary" href="#servicos">Ver serviços</a>
+          </div>
+          <div class="hero-meta">
+            <span><span class="dot"></span>São Paulo e região</span>
+            <span><span class="dot"></span>Atendimento corporativo e turístico</span>
+            <span><span class="dot"></span>Contato rápido pelo WhatsApp</span>
+          </div>
+        </div>
+
+        <div class="hero-routes">
+          <span class="hero-routes-label">Rotas e demandas mais solicitadas</span>
+          <ul class="hero-chips">
+            <li>Congonhas, Guarulhos e Viracopos</li>
+            <li>Feiras, congressos e eventos corporativos</li>
+            <li>Porto de Santos e embarques de cruzeiro</li>
+            <li>Passeios, excursões e viagens em grupo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Tipos de atendimento da fretur Dinamico">
+      <div class="wrap ticker-track">
+        <span>Grupos corporativos</span>
+        <span>Excursões e viagens</span>
+        <span>Feiras e congressos</span>
+        <span>Contrato mensal</span>
+        <span>Fretamento de vans</span>
+        <span>Turismo receptivo</span>
+        <span>Transfer para aeroportos</span>
+      </div>
+    </div>
+
+    <section class="services" id="servicos">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Nossos serviços</span>
+            <h2>Soluções de transporte para turismo, empresas e eventos</h2>
+          </div>
+          <p>A estrutura da fretur Dinamico foi pensada para atender desde o passageiro individual até grupos maiores, sempre com foco em organização, conforto e pontualidade.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18h16"/><path d="M6 18V9l6-4 6 4v9"/><circle cx="8" cy="18" r="1.5"/><circle cx="16" cy="18" r="1.5"/></svg>
+            </div>
+            <h3>Transfer e receptivo</h3>
+            <p>Recepção e traslado em aeroportos, hotéis, centros de convenções e pontos estratégicos da cidade com atendimento pontual e organizado.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 17v2M17 17v2M6 8V6h12v2"/></svg>
+            </div>
+            <h3>Fretamento corporativo</h3>
+            <p>Transporte para equipes, clientes e convidados em feiras, congressos, visitas técnicas, eventos empresariais e contratos recorrentes.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16"/></svg>
+            </div>
+            <h3>Turismo e passeios</h3>
+            <p>Roteiros para city tour, turismo receptivo, compras, cultura e lazer com flexibilidade para grupos, famílias e visitantes em São Paulo.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18h18"/><path d="M4 18l4-9 4 4 3-7 5 12"/></svg>
+            </div>
+            <h3>Viagens em grupo</h3>
+            <p>Fretamento para excursões, viagens em família, grupos de amigos e saídas planejadas com logística mais prática e econômica.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 18h14"/><path d="M7 18V8l5-3 5 3v10"/><path d="M9 12h6"/></svg>
+            </div>
+            <h3>Eventos sociais</h3>
+            <p>Atendimento para casamentos, formaturas, shows, festas e celebrações com transporte coordenado para convidados e equipes.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="M8 10h8M8 14h5"/></svg>
+            </div>
+            <h3>Atendimento sob medida</h3>
+            <p>Cada operação é ajustada à sua demanda, com roteiros, horários e tipo de veículo definidos de acordo com o seu grupo e objetivo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tour" id="turismo">
+      <div class="wrap">
+        <figure class="tour-photo reveal-up">
+          <img src="images/van_fretur.jpg" alt="Van branca da Fretur Dinamico circulando por avenida de São Paulo" width="2640" height="864" loading="lazy" decoding="async">
+        </figure>
+        <div class="section-head" style="margin:34px 0 0;">
+          <div>
+            <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Turismo &amp; lazer</span>
+            <h2 style="margin-top:18px;">City tour e passeios com frota premium</h2>
+          </div>
+          <div class="tour-action">
+            <p>Roteiros sob medida para turismo cultural, gastronômico ou de compras, com motoristas que conhecem as melhores rotas e a flexibilidade que o seu grupo precisa.</p>
+            <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de planejar um city tour ou passeio com a fretur Dinamico.">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/></svg>
+              Planejar meu passeio
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlight">
+      <div class="wrap highlight-grid">
+        <div class="highlight-copy">
+          <span class="eyebrow">Destaque operacional</span>
+          <h2>Especialista em transfer para o Porto de Santos</h2>
+          <p>A fretur Dinamico atende a rota São Paulo ↔ Santos com atenção especial a embarques de cruzeiros, horários portuários e deslocamentos programados para evitar atrasos e imprevistos.</p>
+          <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar um transfer com a fretur Dinamico para o Porto de Santos.">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/></svg>
+            Falar sobre transfer
+          </a>
+        </div>
+        <div class="highlight-box">
+          <figure class="highlight-photo">
+            <img src="images/van_fretur00.jpg" alt="Grupo de passageiros em mirante da Praia do Guarujá em frente à van executiva" width="1920" height="1280" loading="lazy" decoding="async">
+          </figure>
+          <ul>
+            <li>Monitoramento de horários e janelas de embarque</li>
+            <li>Saídas para grupos, famílias e passageiros individuais</li>
+            <li>Atendimento com foco em pontualidade e conforto</li>
+            <li>Suporte para bagagens e logística de deslocamento</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="frota">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Nossa frota</span>
+            <h2>Veículos preparados para diferentes perfis de atendimento</h2>
+          </div>
+          <p>A fretur Dinamico opera com veículos pensados para viagens executivas, grupos e serviços de receptivo, mantendo padrão de conforto, climatização e segurança.</p>
+        </div>
+
+        <div class="fleet-grid">
+          <article class="fleet-card reveal-up" style="--reveal-delay:0s;">
+            <div class="fleet-visual">
+              <img src="images/van_15_fretur.jpg" alt="Van executiva da Fretur Dinamico com ar-condicionado em avenida de São Paulo" width="1920" height="1280" loading="lazy" decoding="async">
+            </div>
+            <div class="fleet-copy">
+              <h3>Van executiva</h3>
+              <strong>Até 15 passageiros · Ar-condicionado · Conforto total</strong>
+              <p>Ideal para grupos corporativos, eventos, turismo receptivo e viagens em equipe com mais comodidade.</p>
+              <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para van executiva da fretur Dinamico.">Solicitar orçamento</a>
+            </div>
+          </article>
+
+          <article class="fleet-card reveal-up" style="--reveal-delay:.08s;">
+            <div class="fleet-visual">
+              <img src="images/sedan_fretur.jpg" alt="Sedan executivo preto com bancos de couro para transfer e atendimento premium" width="1920" height="1280" loading="lazy" decoding="async">
+            </div>
+            <div class="fleet-copy">
+              <h3>Sedan executivo</h3>
+              <strong>Até 4 passageiros · Atendimento premium · Mais privacidade</strong>
+              <p>Recomendado para executivos, transfers individuais, reuniões, recepção de clientes e deslocamentos com perfil mais exclusivo.</p>
+              <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para sedan executivo da fretur Dinamico.">Solicitar orçamento</a>
+            </div>
+          </article>
+
+          <article class="fleet-card reveal-up" style="--reveal-delay:.16s;">
+            <div class="fleet-visual">
+              <img src="images/van_vip_fretur.jpg" alt="Van executiva VIP com porta-malas aberto e bancos de couro" width="1920" height="1280" loading="lazy" decoding="async">
+            </div>
+            <div class="fleet-copy">
+              <h3>Van executiva VIP</h3>
+              <strong>Até 15 passageiros · Bagagens · Viagens e transfers longos</strong>
+              <p>Opção indicada para operações com malas, recepção em aeroportos, deslocamentos para porto e viagens com mais estrutura.</p>
+              <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para van executiva VIP da fretur Dinamico.">Solicitar orçamento</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits" id="vantagens">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Vantagens do fretamento</span>
+            <h2>Mais controle, economia e organização para cada trajeto</h2>
+          </div>
+          <p>Para empresas, eventos e viagens em grupo, o fretamento reduz ruídos operacionais e melhora a experiência de todos os passageiros.</p>
+        </div>
+
+        <div class="benefit-layout">
+          <figure class="benefit-photo reveal-up">
+            <img src="images/van_fretur02.jpg" alt="Passageiros sorrindo no interior da van executiva durante viagem pelo litoral" width="1920" height="1280" loading="lazy" decoding="async">
+            <figcaption>Conforto, climatização e espaço para todo o grupo viajar bem.</figcaption>
+          </figure>
+          <div class="benefit-grid">
+          <article class="benefit reveal-up" style="--reveal-delay:0s;">
+            <strong>Custo por pessoa reduzido</strong>
+            <p>Ao concentrar o grupo em um único transporte, o deslocamento fica mais eficiente do que soluções individuais.</p>
+          </article>
+          <article class="benefit reveal-up" style="--reveal-delay:.08s;">
+            <strong>Todos chegam juntos</strong>
+            <p>Evita atrasos, desencontros e problemas de logística em reuniões, eventos, embarques e passeios programados.</p>
+          </article>
+          <article class="benefit reveal-up" style="--reveal-delay:.16s;">
+            <strong>Conforto e segurança</strong>
+            <p>Veículos climatizados, revisados e preparados para oferecer uma experiência mais tranquila do início ao fim.</p>
+          </article>
+          <article class="benefit reveal-up" style="--reveal-delay:.24s;">
+            <strong>Atendimento profissional</strong>
+            <p>Planejamento prévio, definição de rota e suporte mais assertivo para operações corporativas ou turísticas.</p>
+          </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quem-somos">
+      <div class="wrap about-grid">
+        <div class="about-copy">
+          <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Quem somos</span>
+          <div class="section-head" style="margin-top:18px;margin-bottom:20px;">
+            <h2>Excelência em cada detalhe do deslocamento</h2>
+            <p>A Fretur Dinamico atua com foco em mobilidade executiva, turismo e fretamento, entendendo que transportar pessoas exige organização, responsabilidade e atenção à experiência do passageiro.</p>
+          </div>
+          <p>Nosso objetivo é simplificar deslocamentos para empresas, grupos, famílias e turistas em São Paulo, oferecendo um atendimento que combina pontualidade, segurança e conforto.</p>
+          <p>Do transfer executivo ao transporte para eventos sociais, viagens e receptivo, cada operação é conduzida com planejamento, agilidade e cuidado com o tempo de quem contrata.</p>
+        </div>
+
+        <div class="about-stack">
+          <figure class="about-photo reveal-up">
+            <img src="images/van_turm_fretur.jpg" alt="Grupo de passageiros sorrindo em frente à van executiva em viagem de turismo" width="1920" height="1280" loading="lazy" decoding="async">
+          </figure>
+          <article class="about-item">
+            <strong>Pontualidade de verdade</strong>
+            <p>Monitoramento de rotas e horários para reduzir riscos de atraso em aeroportos, eventos, reuniões e embarques.</p>
+          </article>
+          <article class="about-item">
+            <strong>Atendimento profissional</strong>
+            <p>Operação pensada para transmitir organização e confiança, especialmente em demandas corporativas e receptivas.</p>
+          </article>
+          <article class="about-item">
+            <strong>Operação versátil</strong>
+            <p>Capacidade de atender serviços recorrentes, demandas pontuais, viagens e grupos com roteiros personalizados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <span class="eyebrow">Fale agora com a equipe</span>
+        <h2>Solicite seu orçamento direto pelo WhatsApp</h2>
+        <p>Se você precisa de transporte executivo, transfer, turismo receptivo, fretamento corporativo ou viagem em grupo, a fretur Dinamico pode te atender com rapidez e praticidade.</p>
+        <a class="btn btn-wa wa-btn" href="#" data-msg="Olá! Vim pelo site da fretur Dinamico e gostaria de solicitar um orçamento.">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/><path d="M8.5 9.5c.3 2.6 2.4 4.7 5 5" stroke-linecap="round"/></svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer">
+      <div class="footer-brand">
+        <strong>Fretur Dinamico</strong>
+        <p>Transporte executivo, turismo, transfer para aeroportos, fretamento de vans e atendimento para eventos em São Paulo.</p>
+      </div>
+      <div class="footer-col">
+        <strong>WhatsApp</strong>
+        <a class="wa-btn" href="#" data-msg="Olá! Vim pelo site da fretur Dinamico e gostaria de solicitar um orçamento.">(11) 94780-8247</a>
+      </div>
+      <div class="footer-col">
+        <strong>Base de atendimento</strong>
+        <p>R. Mundo Novo, 335<br>São Paulo - SP</p>
+      </div>
+      <div class="footer-col">
+        <strong>Atuação</strong>
+        <p>Corporativo, turismo, eventos, receptivo e viagens em grupo</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="fab wa-btn" href="#" data-msg="Olá! Vim pelo site da fretur Dinamico e gostaria de solicitar um orçamento." aria-label="Falar com a fretur Dinamico no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/><path d="M8.5 9.5c.3 2.6 2.4 4.7 5 5" stroke-linecap="round"/></svg>
+  </a>
+
+  <script>
+    var WHATSAPP_NUMBER = "5511947808247";
+    document.querySelectorAll(".wa-btn").forEach(function(el){
+      var msg = el.getAttribute("data-msg") || "Olá! Vim pelo site da fretur Dinamico e gostaria de solicitar um orçamento.";
+      el.setAttribute("href", "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg));
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
+    });
+
+    var revealItems = document.querySelectorAll(".reveal-up");
+    if ("IntersectionObserver" in window) {
+      var revealObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.16,
+        rootMargin: "0px 0px -40px 0px"
+      });
+
+      revealItems.forEach(function(item) {
+        revealObserver.observe(item);
+      });
+    } else {
+      revealItems.forEach(function(item) {
+        item.classList.add("is-visible");
+      });
+    }
+  </script>
+</body>
+</html>
