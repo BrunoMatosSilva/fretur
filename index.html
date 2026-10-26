@@ -7,18 +7,22 @@
   <meta name="description" content="Fretur oferece transporte executivo, transfer para aeroportos, fretamento para eventos, turismo e viagens em grupo com conforto, segurança e pontualidade em São Paulo.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Fretur">
-  <meta name="theme-color" content="#0e2a47">
+  <meta name="theme-color" content="#181818">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Fretur">
   <meta property="og:title" content="Fretur | Transporte Executivo, Turismo e Fretamento">
   <meta property="og:description" content="Transfer, turismo, receptivo, fretamento corporativo e transporte para eventos em São Paulo com atendimento ágil pelo WhatsApp.">
+  <meta property="og:image" content="https://fretur.com.br/og-fretur.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fretur">
   <meta name="twitter:description" content="Transporte executivo, turismo e fretamento em São Paulo com foco em conforto, segurança e pontualidade.">
-  <meta property="og:image" content="https://fretur.com.br/images/bus_hero.jpg">
-  <meta name="twitter:image" content="https://fretur.com.br/images/bus_hero.jpg">
-  <link rel="preload" as="image" href="images/bus_hero.jpg">
+  <meta name="twitter:image" content="https://fretur.com.br/og-fretur.jpg">
+  <link rel="preload" as="image" href="images/hero-onibus-fretur.jpg" fetchpriority="high">
+  <link rel="preload" as="font" type="font/woff" href="fonts/poppins-700.woff" crossorigin>
+  <link rel="preload" as="font" type="font/woff" href="fonts/poppins-400.woff" crossorigin>
   <script>
     document.documentElement.classList.add("js");
   </script>
@@ -26,686 +30,493 @@
     {
       "@context": "https://schema.org",
       "@type": "TravelAgency",
-      "name": "Fretur",
-      "description": "Empresa de transporte executivo, turismo receptivo, fretamento e viagens em grupo em São Paulo.",
-      "telephone": "+55 11 94780-8247",
+      "name": "Fretur Fretamento e Turismo",
+      "description": "Empresa de transporte executivo, turismo receptivo, fretamento e viagens em grupo em Guarulhos, São Paulo e região.",
+      "telephone": "+55 11 97745-2500",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "R. Mundo Novo, 335",
-        "addressLocality": "São Paulo",
+        "addressLocality": "Guarulhos",
         "addressRegion": "SP",
         "addressCountry": "BR"
       },
-      "areaServed": "São Paulo e região",
+      "areaServed": "Guarulhos, São Paulo e região",
+      "logo": "https://fretur.com.br/images/logo-fretur.png",
+      "image": "https://fretur.com.br/og-fretur.jpg",
       "url": "https://fretur.com.br"
     }
   </script>
   <style>
+    @font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/poppins-400.woff") format("woff");}
+    @font-face{font-family:"Poppins";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/poppins-500.woff") format("woff");}
+    @font-face{font-family:"Poppins";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/poppins-700.woff") format("woff");}
+
     :root{
-      --navy:#0e2a47;
-      --navy-2:#14385f;
-      --navy-3:#1d4d80;
-      --gold:#f4c15d;
-      --gold-soft:#fff4dc;
-      --paper:#f5f8fc;
-      --paper-2:#ffffff;
-      --ink:#112032;
-      --ink-soft:#556577;
-      --line:rgba(17,32,50,0.12);
-      --wa:#25D366;
-      --wa-dark:#1db556;
-      --radius:24px;
-      --shadow:0 18px 48px rgba(14,42,71,0.12);
-      --maxw:1180px;
-      --font-body:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --graphite:#181818;
+      --graphite-2:#232323;
+      --yellow:#FFD229;
+      --yellow-hover:#F5C400;
+      --red:#E30613;
+      --white:#FFFFFF;
+      --soft:#F4F4F4;
+      --muted:#555555;
+      --line:rgba(24,24,24,0.10);
+      --line-dark:rgba(255,255,255,0.12);
+      --tile:rgba(255,210,41,0.32);
+      --radius:18px;
+      --shadow:0 18px 44px rgba(24,24,24,0.10);
+      --maxw:1200px;
+      --font:Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     }
 
     *{box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{
       margin:0;
-      font-family:var(--font-body);
-      color:var(--ink);
-      background:linear-gradient(180deg, #f7fafd 0%, #eef4fa 100%);
-      line-height:1.6;
+      font-family:var(--font);
+      color:var(--graphite);
+      background:var(--white);
+      line-height:1.65;
       -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
     img,svg{display:block;max-width:100%;}
     a{color:inherit;}
+    h1,h2,h3,h4,p,figure{margin:0;}
+    ul{margin:0;padding:0;}
+    button{font-family:inherit;}
     .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+    .ic{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+    .ic-fill{fill:currentColor;stroke:none;}
+    :focus-visible{outline:3px solid var(--yellow);outline-offset:3px;}
+    .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
 
+    /* ===== Rótulos e botões ===== */
     .eyebrow{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      padding:8px 14px;
-      border-radius:999px;
-      background:rgba(244,193,93,0.16);
-      color:var(--gold);
+      gap:12px;
+      margin-bottom:16px;
       font-size:12px;
       font-weight:700;
-      letter-spacing:.12em;
+      letter-spacing:.16em;
       text-transform:uppercase;
-      border:1px solid rgba(244,193,93,0.2);
+      line-height:1.4;
+      color:var(--red);
     }
-    .eyebrow::before{
-      content:"";
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:var(--gold);
-    }
-    h1,h2,h3,h4,p{margin:0;}
+    .eyebrow::before{content:"";width:34px;height:3px;border-radius:3px;background:var(--red);flex:none;}
+    .eyebrow.is-yellow{color:var(--yellow);}
 
     .btn{
+      position:relative;
+      overflow:hidden;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      text-decoration:none;
+      padding:15px 26px;
       border-radius:999px;
-      padding:14px 22px;
+      border:2px solid transparent;
+      text-decoration:none;
       font-weight:700;
-      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-      border:1px solid transparent;
+      font-size:15px;
+      line-height:1.2;
       white-space:nowrap;
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
     }
-    .btn:hover{transform:translateY(-1px);}
-    .btn-primary{
-      background:var(--gold);
-      color:#2a1a00;
-      box-shadow:0 12px 28px rgba(244,193,93,0.24);
+    .btn:hover{transform:translateY(-2px);}
+    .btn .ic{width:18px;height:18px;stroke-width:2.4;transition:transform .25s ease;}
+    .btn:hover .ic{transform:translateX(4px);}
+    .btn-primary{background:var(--yellow);color:var(--graphite);box-shadow:0 12px 28px rgba(255,210,41,0.28);}
+    .btn-primary:hover{background:var(--yellow-hover);}
+    .btn-outline{border-color:rgba(255,255,255,0.55);color:#fff;background:transparent;}
+    .btn-outline:hover{background:rgba(255,255,255,0.10);border-color:#fff;}
+    .btn-sm{padding:11px 20px;font-size:14px;}
+    .btn-primary::after{
+      content:"";position:absolute;top:0;left:-120%;width:55%;height:100%;
+      background:linear-gradient(100deg,transparent,rgba(255,255,255,0.55),transparent);
+      transform:skewX(-20deg);transition:left .7s ease;pointer-events:none;
     }
-    .btn-primary:hover{background:#f0b849;}
-    .btn-secondary{
-      background:transparent;
-      border-color:rgba(255,255,255,0.24);
-      color:#fff;
-    }
-    .btn-secondary:hover{background:rgba(255,255,255,0.08);}
-    .btn-wa{
-      background:var(--wa);
-      color:#08220f;
-      box-shadow:0 12px 28px rgba(37,211,102,0.22);
-    }
-    .btn-wa:hover{background:var(--wa-dark);}
-    .btn svg{width:18px;height:18px;}
+    .btn-primary:hover::after{left:150%;}
 
+    /* ===== Cabeçalho ===== */
     header{
       position:sticky;
       top:0;
-      z-index:30;
+      z-index:40;
+      background:rgba(24,24,24,0.94);
       backdrop-filter:blur(14px);
-      background:rgba(10,28,48,0.82);
-      border-bottom:1px solid rgba(255,255,255,0.08);
+      -webkit-backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line-dark);
+      transition:background .3s ease, box-shadow .3s ease;
     }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:24px;
-      padding:16px 0;
+    header.scrolled{background:rgba(24,24,24,0.98);box-shadow:0 10px 30px rgba(0,0,0,0.30);}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:10px 0;transition:padding .3s ease;}
+    header.scrolled .nav{padding:6px 0;}
+    .brand{display:block;line-height:0;}
+    .brand img{height:56px;width:auto;transition:height .3s ease;}
+    header.scrolled .brand img{height:46px;}
+    .nav-links{display:flex;gap:30px;font-size:14px;font-weight:500;color:rgba(255,255,255,0.84);}
+    .nav-links a{position:relative;padding:6px 0;text-decoration:none;transition:color .2s ease;}
+    .nav-links a::after{
+      content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;
+      background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
     }
-    .brand{
-      text-decoration:none;
-      display:flex;
-      flex-direction:column;
-      gap:4px;
+    .nav-links a:hover,.nav-links a.active{color:#fff;}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .scroll-progress{
+      position:absolute;left:0;bottom:-1px;height:3px;width:100%;
+      background:linear-gradient(90deg,var(--red),var(--yellow));
+      transform:scaleX(0);transform-origin:left;
     }
-    .brand strong{
-      color:#fff;
-      font-size:24px;
-      line-height:1;
-      letter-spacing:-0.03em;
+    .burger{
+      display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--line-dark);
+      background:transparent;color:#fff;cursor:pointer;place-items:center;
     }
-    .brand span{
-      color:rgba(255,255,255,0.72);
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.12em;
+    .burger .ic{width:24px;height:24px;}
+    .burger .i-close{display:none;}
+    .burger[aria-expanded="true"] .i-open{display:none;}
+    .burger[aria-expanded="true"] .i-close{display:block;}
+    .mobile-nav{
+      display:none;
+      background:var(--graphite);
+      border-top:1px solid var(--line-dark);
+      padding:8px 24px 22px;
     }
-    .nav-links{
-      display:flex;
-      gap:24px;
-      color:rgba(255,255,255,0.8);
-      font-size:14px;
-      font-weight:600;
+    .mobile-nav a:not(.btn){
+      display:block;padding:14px 0;color:#fff;text-decoration:none;font-weight:500;
+      border-bottom:1px solid var(--line-dark);
     }
-    .nav-links a{text-decoration:none;}
-    .nav-links a:hover{color:#fff;}
-    @media (max-width:860px){
-      .nav-links{display:none;}
+    .mobile-nav a.active{color:var(--yellow);}
+    .mobile-nav .btn{margin-top:18px;width:100%;}
+    @media (max-width:980px){
+      .nav-links,.nav > .btn{display:none;}
+      .burger{display:grid;}
+      .mobile-nav.open{display:block;}
     }
 
+    /* ===== Hero ===== */
     .hero{
       position:relative;
       overflow:hidden;
-      background:var(--navy);
+      background:var(--graphite);
       color:#fff;
-      min-height:640px;
+      min-height:660px;
       display:flex;
       align-items:center;
-      padding:84px 0 72px;
+      padding:92px 0 84px;
     }
     .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      z-index:1;
+      content:"";position:absolute;inset:0;z-index:1;
       background:
-        linear-gradient(90deg, rgba(8,26,45,0.94) 0%, rgba(10,32,56,0.80) 40%, rgba(14,42,71,0.28) 72%, rgba(14,42,71,0.10) 100%),
-        linear-gradient(180deg, rgba(8,26,45,0.30) 0%, rgba(8,26,45,0.55) 100%);
+        linear-gradient(90deg, rgba(24,24,24,0.96) 0%, rgba(24,24,24,0.86) 34%, rgba(24,24,24,0.30) 62%, rgba(24,24,24,0.04) 100%),
+        linear-gradient(180deg, rgba(24,24,24,0.40) 0%, rgba(24,24,24,0) 28%, rgba(24,24,24,0.45) 100%);
     }
     .hero .wrap{position:relative;z-index:2;width:100%;}
-    .hero::after{
-      content:"";
-      z-index:1;
-      position:absolute;
-      inset:auto -80px -120px auto;
-      width:340px;
-      height:340px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(244,193,93,0.22) 0%, rgba(244,193,93,0) 72%);
-      pointer-events:none;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:36px;
-      align-items:center;
-    }
-    .hero-grid > div:first-child{max-width:700px;}
+    .hero-copy{max-width:660px;}
     .hero h1{
-      font-size:clamp(38px, 5.2vw, 60px);
-      line-height:1.04;
-      letter-spacing:-0.04em;
-      max-width:16ch;
-      margin:18px 0 18px;
-    }
-    .hero p.lead{
-      max-width:58ch;
-      color:rgba(255,255,255,0.84);
-      font-size:18px;
-      margin-bottom:28px;
-    }
-    .hero-cta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin-bottom:26px;
-    }
-    .hero-meta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px 16px;
-      color:rgba(255,255,255,0.72);
-      font-size:13px;
-    }
-    .hero-meta span{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-    }
-    .dot{
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:var(--gold);
-    }
-    .hero-routes{display:grid;gap:12px;}
-    .hero-routes-label{
-      font-size:12px;
+      font-size:clamp(36px, 5.2vw, 64px);
+      line-height:1.06;
+      letter-spacing:-0.03em;
       font-weight:700;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:var(--gold);
+      max-width:15ch;
+      margin-bottom:20px;
     }
-    .hero-chips{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
+    .hero p.lead{max-width:56ch;color:rgba(255,255,255,0.86);font-size:17px;margin-bottom:30px;}
+    .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px;}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:10px 22px;color:rgba(255,255,255,0.78);font-size:13px;margin-bottom:30px;}
+    .hero-meta span{display:inline-flex;align-items:center;gap:8px;}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);flex:none;}
+    .hero-routes-label{display:block;margin-bottom:12px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);}
+    .hero-chips{list-style:none;display:flex;flex-wrap:wrap;gap:10px;}
     .hero-chips li{
-      padding:9px 16px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.10);
-      border:1px solid rgba(255,255,255,0.18);
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-      font-size:13px;
-      font-weight:600;
-      color:rgba(255,255,255,0.92);
+      padding:8px 16px;border-radius:999px;font-size:13px;font-weight:500;color:#fff;
+      background:rgba(24,24,24,0.55);border:1px solid rgba(255,255,255,0.28);
+      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
     }
-    @media (max-width:920px){
-      .hero-grid{grid-template-columns:1fr;}
-      .hero h1{max-width:12ch;}
+    .hero::after{
+      content:"";position:absolute;z-index:1;inset:auto -80px -140px auto;width:380px;height:380px;border-radius:50%;
+      background:radial-gradient(circle, rgba(255,210,41,0.18) 0%, rgba(255,210,41,0) 70%);pointer-events:none;
     }
 
-    .ticker{
-      background:#0a2038;
-      color:#fff;
-      border-bottom:1px solid rgba(255,255,255,0.08);
+    /* ===== Fundos com profundidade (parallax) ===== */
+    .parallax-bg{position:absolute;left:0;right:0;top:-15%;bottom:-15%;z-index:0;will-change:transform;}
+    .parallax-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+    .hero .parallax-bg img{object-position:68% 60%;animation:kenburns 2.6s cubic-bezier(.2,.7,.2,1) both;}
+    @keyframes kenburns{from{transform:scale(1.14);}to{transform:scale(1);}}
+    [data-parallax-img]{transform:translate3d(0,var(--py,0px),0) scale(1.14);will-change:transform;}
+
+    /* ===== Diferenciais (barra) ===== */
+    .features{background:var(--graphite);color:#fff;border-top:1px solid var(--line-dark);}
+    .features-grid{display:grid;grid-template-columns:repeat(4,1fr);}
+    .feature{display:flex;align-items:center;gap:16px;padding:26px 22px;}
+    .feature + .feature{border-left:1px solid var(--line-dark);}
+    .feature-ic{
+      width:52px;height:52px;border-radius:50%;flex:none;display:grid;place-items:center;
+      background:var(--yellow);color:var(--graphite);transition:transform .35s ease;
     }
-    .ticker{overflow:hidden;}
+    .feature:hover .feature-ic{transform:scale(1.1) rotate(-6deg);}
+    .feature p{font-size:14px;font-weight:500;line-height:1.4;color:rgba(255,255,255,0.92);}
+    @media (max-width:980px){
+      .features-grid{grid-template-columns:repeat(2,1fr);}
+      .feature:nth-child(3){border-left:0;}
+      .feature:nth-child(n+3){border-top:1px solid var(--line-dark);}
+    }
+    @media (max-width:520px){
+      .features-grid{grid-template-columns:1fr;}
+      .feature + .feature{border-left:0;border-top:1px solid var(--line-dark);}
+    }
+
+    /* ===== Faixa em movimento ===== */
+    .ticker{background:var(--yellow);color:var(--graphite);overflow:hidden;}
     .ticker-move{display:flex;width:max-content;animation:marquee var(--marquee-dur,32s) linear infinite;}
     .ticker:hover .ticker-move{animation-play-state:paused;}
     .ticker-set{display:flex;flex-shrink:0;}
-    .ticker-set span{white-space:nowrap;padding:16px 0 16px 28px;font-size:14px;color:rgba(255,255,255,0.78);}
-    .ticker-set span::before{content:"•";color:var(--gold);margin-right:10px;}
+    .ticker-set span{white-space:nowrap;padding:15px 0 15px 34px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
+    .ticker-set span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-right:34px;vertical-align:middle;position:relative;top:-1px;}
     @keyframes marquee{to{transform:translateX(-50%);}}
 
-    section{padding:86px 0;}
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      gap:24px;
-      align-items:flex-end;
-      margin-bottom:34px;
+    /* ===== Seções ===== */
+    section{padding:92px 0;}
+    .bg-soft{background:var(--soft);}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:42px;}
+    .section-head h2,.h2{
+      font-size:clamp(28px, 3.6vw, 44px);
+      line-height:1.1;
+      letter-spacing:-0.028em;
+      font-weight:700;
     }
-    .section-head h2{
-      font-size:clamp(30px, 4vw, 46px);
-      line-height:1.04;
-      letter-spacing:-0.03em;
-      max-width:12ch;
-    }
-    .section-head p{
-      max-width:46ch;
-      color:var(--ink-soft);
-    }
-    @media (max-width:760px){
-      .section-head{flex-direction:column;align-items:flex-start;}
-    }
+    .section-head h2{max-width:20ch;}
+    .section-head > p{max-width:44ch;color:var(--muted);font-size:15px;}
+    .on-dark .section-head > p{color:rgba(255,255,255,0.78);}
+    @media (max-width:820px){.section-head{flex-direction:column;align-items:flex-start;gap:16px;}}
+    section[id]{scroll-margin-top:72px;}
+    main{overflow-x:clip;}
 
-    .services{
-      background:var(--paper-2);
-    }
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
+    /* ===== Serviços ===== */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
     .card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:26px;
-      padding:26px;
-      box-shadow:0 14px 36px rgba(14,42,71,0.06);
+      display:flex;gap:18px;align-items:flex-start;
+      padding:26px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+      box-shadow:0 10px 30px rgba(24,24,24,0.05);
     }
     .icon{
-      width:54px;
-      height:54px;
-      display:grid;
-      place-items:center;
-      border-radius:18px;
-      background:var(--gold-soft);
-      color:var(--navy);
-      margin-bottom:18px;
+      width:58px;height:58px;flex:none;border-radius:14px;display:grid;place-items:center;
+      background:var(--tile);color:var(--graphite);transition:transform .35s ease, background .35s ease;
     }
-    .icon svg{width:26px;height:26px;}
-    .card h3{
-      font-size:21px;
-      margin-bottom:10px;
-      letter-spacing:-0.02em;
+    .icon .ic{width:28px;height:28px;}
+    .card:hover .icon{background:var(--yellow);transform:rotate(-6deg) scale(1.08);}
+    .dash{display:block;width:28px;height:3px;border-radius:3px;background:var(--red);margin:4px 0 12px;}
+    .card h3{font-size:18px;line-height:1.3;letter-spacing:-0.01em;margin-bottom:8px;font-weight:700;}
+    .card p{color:var(--muted);font-size:14.5px;line-height:1.6;}
+    @media (max-width:1040px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+    @media (max-width:660px){.services-grid{grid-template-columns:1fr;}.card{padding:22px;}}
+
+    /* ===== Frota ===== */
+    .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .fleet-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 36px rgba(24,24,24,0.07);display:flex;flex-direction:column;}
+    .fleet-visual{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--graphite-2);}
+    .fleet-visual img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1);}
+    .fleet-card:hover .fleet-visual img{transform:scale(1.07);}
+    .fleet-copy{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1;}
+    .fleet-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px;}
+    .fleet-title h3{font-size:22px;letter-spacing:-0.02em;font-weight:700;}
+    .fleet-title .ic{color:var(--red);width:22px;height:22px;stroke-width:2.6;transition:transform .3s ease;}
+    .fleet-card:hover .fleet-title .ic{transform:translateX(5px);}
+    .fleet-copy strong{display:block;font-size:13px;font-weight:700;margin-bottom:12px;}
+    .fleet-copy p{color:var(--muted);font-size:14.5px;margin-bottom:20px;}
+    .fleet-copy .btn{align-self:flex-start;margin-top:auto;}
+    @media (max-width:1040px){.fleet-grid{grid-template-columns:repeat(2,1fr);}}
+    @media (max-width:660px){.fleet-grid{grid-template-columns:1fr;}}
+
+    /* ===== Galeria ===== */
+    .gallery{background:var(--graphite);color:#fff;}
+    .g-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+    .g-chip{
+      cursor:pointer;padding:10px 22px;border-radius:999px;font-size:14px;font-weight:700;
+      color:#fff;background:transparent;border:1px solid rgba(255,255,255,0.28);
+      transition:background .25s ease,color .25s ease,border-color .25s ease,transform .2s ease;
     }
-    .card p{
-      color:var(--ink-soft);
-      font-size:15px;
+    .g-chip:hover{border-color:var(--yellow);}
+    .g-chip[aria-pressed="true"]{background:var(--yellow);border-color:var(--yellow);color:var(--graphite);}
+    .g-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:250px;grid-auto-flow:dense;gap:14px;}
+    .g-item{
+      position:relative;overflow:hidden;padding:0;border:0;border-radius:16px;cursor:zoom-in;
+      background:var(--graphite-2);color:#fff;text-align:left;
+      transition:opacity .45s ease, filter .45s ease, transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease;
     }
-    @media (max-width:980px){
-      .services-grid{grid-template-columns:repeat(2,1fr);}
+    .g-item img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,center);transition:transform .8s cubic-bezier(.2,.7,.2,1);}
+    .g-item:hover img,.g-item:focus-visible img{transform:scale(1.08);}
+    .g-big{grid-column:span 2;grid-row:span 2;}
+    .g-tall{grid-row:span 2;}
+    .g-wide{grid-column:span 2;}
+    .g-tag{
+      position:absolute;left:12px;top:12px;padding:5px 11px;border-radius:999px;
+      background:var(--red);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
     }
+    .g-cap{
+      position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;
+      display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+      background:linear-gradient(0deg, rgba(24,24,24,0.92), rgba(24,24,24,0));
+      font-size:13px;font-weight:500;line-height:1.35;
+      opacity:0;transform:translateY(10px);transition:opacity .35s ease, transform .35s ease;
+    }
+    .g-cap .ic{width:34px;height:34px;padding:8px;border-radius:50%;background:var(--yellow);color:var(--graphite);stroke-width:2.4;}
+    .g-item:hover .g-cap,.g-item:focus-visible .g-cap{opacity:1;transform:none;}
+    @media (hover:none){.g-cap{opacity:1;transform:none;}}
+    html.js .g-item.is-dim{opacity:.16 !important;filter:grayscale(1);transform:scale(.97) !important;pointer-events:none;}
+    @media (max-width:980px){.g-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:210px;}.g-big{grid-column:span 2;}}
     @media (max-width:640px){
-      .services-grid{grid-template-columns:1fr;}
+      .g-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px;gap:10px;}
+      .g-wide{grid-column:span 2;}
+      .g-big{grid-column:span 2;grid-row:span 2;}
+      .g-cap{padding-top:34px;font-size:12px;}
+      .g-cap .ic{display:none;}
     }
 
-    .highlight{
-      background:
-        linear-gradient(135deg, #0f2845 0%, #15395e 100%);
-      color:#fff;
+    /* ===== Lightbox ===== */
+    .lb{
+      position:fixed;inset:0;z-index:100;display:grid;place-items:center;
+      background:rgba(10,10,10,0.94);visibility:hidden;opacity:0;transition:opacity .3s ease, visibility .3s;
     }
-    .highlight-grid{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:24px;
-      align-items:center;
+    .lb.open{visibility:visible;opacity:1;}
+    .lb figure{max-width:min(1100px,88vw);max-height:84vh;display:flex;flex-direction:column;align-items:center;gap:14px;}
+    .lb img{max-width:100%;max-height:72vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,0.6);object-fit:contain;}
+    .lb img.in{animation:lbIn .45s cubic-bezier(.2,.7,.2,1) both;}
+    @keyframes lbIn{from{opacity:0;transform:scale(.94) translateY(10px);}to{opacity:1;transform:none;}}
+    .lb figcaption{color:#fff;font-size:15px;font-weight:500;text-align:center;}
+    .lb-count{position:absolute;left:24px;top:26px;color:rgba(255,255,255,0.7);font-size:13px;font-weight:500;letter-spacing:.08em;}
+    .lb button{
+      position:absolute;width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;
+      background:var(--yellow);color:var(--graphite);display:grid;place-items:center;
+      transition:transform .2s ease, background .2s ease;
     }
-    .highlight-copy h2{
-      font-size:clamp(30px, 4vw, 48px);
-      line-height:1.04;
-      letter-spacing:-0.03em;
-      margin:18px 0 16px;
-      max-width:12ch;
-    }
-    .highlight-copy p{
-      max-width:58ch;
-      color:rgba(255,255,255,0.82);
-      margin-bottom:24px;
-    }
-    .highlight-box{
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.12);
-      border-radius:28px;
-      padding:26px;
-    }
-    .highlight-box ul{
-      margin:0;
-      padding-left:18px;
-      display:grid;
-      gap:10px;
-      color:rgba(255,255,255,0.82);
-    }
-    @media (max-width:900px){
-      .highlight-grid{grid-template-columns:1fr;}
-    }
-
-    .fleet-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-    .fleet-card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:0 16px 38px rgba(14,42,71,0.06);
-    }
-    .fleet-visual{
-      position:relative;
-      aspect-ratio:3/2;
-      overflow:hidden;
-      background:#dfe9f4;
-    }
-    .fleet-visual img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:transform .6s cubic-bezier(.2,.7,.2,1);
-    }
-    .fleet-card:hover .fleet-visual img{transform:scale(1.05);}
-    .fleet-copy{
-      padding:22px 22px 24px;
-    }
-    .fleet-copy h3{
-      font-size:22px;
-      margin-bottom:8px;
-    }
-    .fleet-copy p{
-      color:var(--ink-soft);
-      margin-bottom:16px;
-      font-size:15px;
-    }
-    .fleet-copy strong{
-      display:block;
-      color:var(--navy);
-      margin-bottom:14px;
-      font-size:14px;
-    }
-    @media (max-width:980px){
-      .fleet-grid{grid-template-columns:repeat(2,1fr);}
-    }
+    .lb button:hover{transform:scale(1.08);background:var(--yellow-hover);}
+    .lb button .ic{width:24px;height:24px;stroke-width:2.6;}
+    .lb-close{right:22px;top:18px;}
+    .lb-prev{left:22px;top:50%;margin-top:-26px;}
+    .lb-next{right:22px;top:50%;margin-top:-26px;}
     @media (max-width:640px){
-      .fleet-grid{grid-template-columns:1fr;}
+      .lb-prev,.lb-next{top:auto;bottom:22px;margin-top:0;}
+      .lb-prev{left:calc(50% - 64px);}
+      .lb-next{right:calc(50% - 64px);}
+      .lb img{max-height:62vh;}
     }
 
-    .benefits{
-      background:var(--paper-2);
-    }
-    .benefit-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-    .benefit{
-      padding:24px;
-      border-radius:24px;
-      background:#fff;
-      border:1px solid var(--line);
-      box-shadow:0 14px 36px rgba(14,42,71,0.05);
-    }
-    .benefit strong{
-      display:block;
-      font-size:18px;
-      margin-bottom:10px;
-    }
-    .benefit p{
-      color:var(--ink-soft);
-      font-size:15px;
-    }
-    html.js .reveal-up{
-      opacity:0;
-      transform:translateY(34px);
-      transition:
-        opacity .7s ease,
-        transform .7s cubic-bezier(.2,.7,.2,1),
-        box-shadow .25s ease;
-      transition-delay:var(--reveal-delay,0s);
-      will-change:opacity, transform;
-    }
-    html.js .reveal-up.is-visible{
-      opacity:1;
-      transform:translateY(0);
-    }
-    @media (prefers-reduced-motion: reduce){
-      html.js .reveal-up{
-        opacity:1;
-        transform:none;
-        transition:none;
-      }
-    }
-    @media (max-width:980px){
-      .benefit-grid{grid-template-columns:repeat(2,1fr);}
-    }
-    @media (max-width:640px){
-      .benefit-grid{grid-template-columns:1fr;}
-    }
-
-    .about-grid{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:24px;
-      align-items:start;
-    }
-    .about-copy p{
-      max-width:62ch;
-      color:var(--ink-soft);
-      margin-bottom:16px;
-      font-size:16px;
-    }
-    .about-stack{
-      display:grid;
-      gap:16px;
-    }
-    .about-item{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:22px;
-      box-shadow:0 14px 34px rgba(14,42,71,0.05);
-    }
-    .about-item strong{
-      display:block;
-      font-size:18px;
-      margin-bottom:8px;
-    }
-    .about-item p{
-      color:var(--ink-soft);
-      font-size:15px;
-    }
-    @media (max-width:900px){
-      .about-grid{grid-template-columns:1fr;}
-    }
-
-    .cta{
-      background:linear-gradient(135deg, var(--navy) 0%, var(--navy-3) 100%);
-      color:#fff;
-      text-align:center;
-    }
-    .cta h2{
-      font-size:clamp(32px, 4vw, 52px);
-      line-height:1.04;
-      letter-spacing:-0.03em;
-      max-width:13ch;
-      margin:18px auto 14px;
-    }
-    .cta p{
-      max-width:54ch;
-      margin:0 auto 28px;
-      color:rgba(255,255,255,0.82);
-      font-size:17px;
-    }
-
-    footer{
-      background:#081a2d;
-      color:#fff;
-      padding:34px 0;
-    }
-    .footer{
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-      align-items:flex-start;
-    }
-    .footer-brand{
-      max-width:34ch;
-    }
-    .footer-brand strong{
-      display:block;
-      font-size:22px;
-      margin-bottom:8px;
-    }
-    .footer-brand p,
-    .footer-col p,
-    .footer-col a{
-      color:rgba(255,255,255,0.74);
-      text-decoration:none;
-      font-size:14px;
-    }
-    .footer-col strong{
-      display:block;
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:var(--gold);
-      margin-bottom:8px;
-    }
-
-    .fab{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:50;
-      width:60px;
-      height:60px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      background:var(--wa);
-      color:#08220f;
-      text-decoration:none;
-      box-shadow:0 16px 34px rgba(0,0,0,0.22);
-      transition:transform .15s ease, background .15s ease;
-    }
-    .fab:hover{transform:scale(1.05);background:var(--wa-dark);}
-    .fab svg{width:30px;height:30px;}
-
-    /* ===== Imagens ===== */
-    .tour-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;}
-    .tour-photo{margin:0;border-radius:32px;overflow:hidden;box-shadow:var(--shadow);}
-    .tour-photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;}
+    /* ===== Turismo & lazer ===== */
+    .tour-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center;}
+    .photo{position:relative;margin:0;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);background:var(--graphite-2);}
+    .photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;}
     .tour-copy{display:grid;gap:18px;justify-items:start;}
-    .tour-copy h2{font-size:clamp(30px,4vw,46px);line-height:1.04;letter-spacing:-0.03em;max-width:12ch;}
-    .tour-copy p{color:var(--ink-soft);max-width:46ch;}
-    @media (max-width:900px){.tour-grid{grid-template-columns:1fr;gap:28px;}}
+    .tour-copy p{color:var(--muted);max-width:46ch;}
+    @media (max-width:900px){.tour-grid{grid-template-columns:1fr;gap:30px;}}
 
-    .highlight-box{padding:0;overflow:hidden;}
-    .highlight-photo{margin:0;overflow:hidden;}
-    .highlight-photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;}
-    .highlight-box ul{padding:24px 26px 28px 46px;}
+    /* ===== Porto de Santos ===== */
+    .port-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;}
+    .port-copy h2{margin-bottom:16px;max-width:16ch;}
+    .port-copy p{max-width:56ch;color:var(--muted);margin-bottom:26px;}
+    .port-card{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:var(--shadow);}
+    .port-card .photo{border-radius:0;box-shadow:none;}
+    .check-list{list-style:none;display:grid;gap:12px;padding:24px 26px 28px;}
+    .check-list li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--graphite);}
+    .check-list .ic{width:20px;height:20px;margin-top:3px;color:var(--red);stroke-width:2.8;}
+    @media (max-width:900px){.port-grid{grid-template-columns:1fr;gap:30px;}}
 
-    .benefit-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;align-items:stretch;}
-    .benefit-layout .benefit-grid{grid-template-columns:repeat(2,1fr);}
-    .benefit-photo{
-      position:relative;
-      margin:0;
-      min-height:420px;
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
+    /* ===== Por que a Fretur ===== */
+    .why{position:relative;overflow:hidden;background:var(--graphite);color:#fff;}
+    .why::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(24,24,24,0.90) 0%,rgba(24,24,24,0.82) 100%);}
+    .why .wrap{position:relative;z-index:2;}
+    .why-head{margin-bottom:38px;}
+    .why-head h2{max-width:16ch;}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .why-card{
+      padding:32px;border-radius:var(--radius);
+      background:rgba(24,24,24,0.62);border:1px solid rgba(255,255,255,0.16);
+      backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
     }
+    .why-num{display:block;font-size:48px;font-weight:700;letter-spacing:-0.04em;line-height:1;color:var(--yellow);}
+    .why-num::after{
+      content:"";display:block;height:3px;width:0;margin:16px 0 18px;border-radius:3px;background:var(--red);
+      transition:width .9s cubic-bezier(.2,.7,.2,1) .35s;
+    }
+    .why-card.is-visible .why-num::after{width:56px;}
+    .why-card h3{font-size:20px;letter-spacing:-0.015em;margin-bottom:8px;font-weight:700;}
+    .why-card p{color:rgba(255,255,255,0.82);font-size:14.5px;}
+    @media (max-width:900px){.why-grid{grid-template-columns:1fr;}}
+
+    /* ===== Vantagens ===== */
+    .benefit-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;align-items:stretch;}
+    .benefit-photo{position:relative;margin:0;min-height:430px;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);background:var(--graphite-2);}
     .benefit-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
     .benefit-photo figcaption{
-      position:absolute;
-      left:16px;right:16px;bottom:16px;
-      padding:14px 18px;
-      border-radius:18px;
-      background:rgba(8,26,45,0.80);
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-      color:#fff;
-      font-size:14px;
-      font-weight:600;
+      position:absolute;left:16px;right:16px;bottom:16px;padding:14px 18px;border-radius:14px;
+      background:rgba(24,24,24,0.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+      color:#fff;font-size:14px;font-weight:500;border-left:4px solid var(--red);
     }
-    .about-photo{margin:0;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);}
-    .about-photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;}
+    .benefit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+    .benefit{padding:26px;border-radius:var(--radius);background:#fff;border:1px solid var(--line);box-shadow:0 14px 36px rgba(24,24,24,0.05);}
+    .benefit h3{font-size:17px;line-height:1.35;margin-bottom:8px;font-weight:700;}
+    .benefit p{color:var(--muted);font-size:14.5px;}
+    @media (max-width:980px){.benefit-layout{grid-template-columns:1fr;}.benefit-photo{min-height:340px;}}
+    @media (max-width:640px){.benefit-grid{grid-template-columns:1fr;}}
 
-    .cta{position:relative;overflow:hidden;background:var(--navy);}
-    .cta::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      z-index:1;
-      background:linear-gradient(135deg, rgba(10,32,56,0.92) 0%, rgba(29,77,128,0.82) 100%);
+    /* ===== Quem somos ===== */
+    .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;}
+    .about-copy h2{margin-bottom:22px;max-width:14ch;}
+    .about-copy p{max-width:60ch;color:var(--muted);margin-bottom:16px;font-size:15.5px;}
+    .about-copy p.intro{color:var(--graphite);font-size:16.5px;font-weight:500;}
+    .about-stack{display:grid;gap:16px;}
+    .photo-badge{
+      position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:8px;
+      padding:10px 16px;border-radius:12px;background:var(--yellow);color:var(--graphite);
+      font-size:13px;font-weight:700;line-height:1.3;box-shadow:0 12px 28px rgba(0,0,0,0.28);
     }
+    .photo-badge .ic{width:16px;height:16px;color:var(--red);}
+    .about-item{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:0 14px 34px rgba(24,24,24,0.05);}
+    .about-item strong{display:block;font-size:17px;margin-bottom:6px;}
+    .about-item p{color:var(--muted);font-size:14.5px;}
+    @media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:30px;}}
+
+    /* ===== Chamada final ===== */
+    .cta{position:relative;overflow:hidden;background:var(--graphite);color:#fff;padding:96px 0;}
+    .cta::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(24,24,24,0.94) 0%,rgba(24,24,24,0.78) 100%);}
     .cta .wrap{position:relative;z-index:2;}
-    .cta .parallax-bg img{object-position:78% 85%;}
+    .cta .parallax-bg img{object-position:70% 70%;}
+    .cta-row{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+    .cta-copy{max-width:640px;}
+    .cta h2{font-size:clamp(30px,4vw,48px);line-height:1.08;letter-spacing:-0.03em;font-weight:700;margin-bottom:14px;}
+    .cta p{color:rgba(255,255,255,0.84);font-size:17px;}
+    .btn-lg{padding:18px 34px;font-size:16px;}
 
-    @media (max-width:980px){
-      .benefit-layout{grid-template-columns:1fr;}
-      .benefit-photo{min-height:320px;}
+    /* ===== Rodapé ===== */
+    footer{background:var(--graphite);color:#fff;border-top:1px solid var(--line-dark);padding:56px 0 0;}
+    .footer{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:36px;align-items:start;padding-bottom:44px;}
+    .footer-brand img{height:76px;width:auto;margin-bottom:16px;}
+    .footer-brand p,.footer-col p,.footer-col a{color:rgba(255,255,255,0.74);font-size:14px;text-decoration:none;}
+    .footer-brand p{max-width:34ch;}
+    .footer-col strong{display:block;margin-bottom:14px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);}
+    .footer-col a{display:block;padding:4px 0;transition:color .2s ease;}
+    .footer-col a:hover{color:var(--yellow);}
+    .footer-place{display:flex;gap:12px;align-items:flex-start;}
+    .footer-place .ic{color:var(--yellow);margin-top:2px;}
+    .footer-place b{display:block;color:#fff;font-weight:500;}
+    .footer-contact{display:inline-flex !important;align-items:center;gap:10px;margin-bottom:14px;color:#fff !important;font-weight:700;}
+    .footer-contact .ic{width:34px;height:34px;padding:7px;border-radius:50%;background:var(--yellow);color:var(--graphite);stroke-width:2.2;}
+    .footer-bottom{border-top:1px solid var(--line-dark);padding:20px 0;font-size:13px;color:rgba(255,255,255,0.6);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+    @media (max-width:980px){.footer{grid-template-columns:1fr 1fr;}}
+    @media (max-width:560px){.footer{grid-template-columns:1fr;}}
+
+    .fab{
+      position:fixed;right:22px;bottom:22px;z-index:50;width:60px;height:60px;border-radius:50%;
+      display:grid;place-items:center;background:var(--yellow);color:var(--graphite);text-decoration:none;
+      box-shadow:0 16px 34px rgba(0,0,0,0.28);transition:transform .15s ease, background .15s ease;
     }
-    @media (max-width:760px){
-      .hero{min-height:0;padding:84px 0 72px;}
-      .hero::before{background:linear-gradient(180deg, rgba(8,26,45,0.90) 0%, rgba(8,26,45,0.78) 100%);}
-      .hero .parallax-bg img{object-position:80% center;}
-    }
-    @media (max-width:640px){
-      .benefit-layout .benefit-grid{grid-template-columns:1fr;}
-      .tour-photo{border-radius:24px;}
-    }
+    .fab:hover{transform:scale(1.07);background:var(--yellow-hover);}
+    .fab .ic{width:30px;height:30px;stroke-width:2;}
+    .fab::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--yellow);z-index:-1;animation:pulse 2.4s ease-out infinite;}
+    @keyframes pulse{0%{transform:scale(1);opacity:.5;}100%{transform:scale(1.75);opacity:0;}}
 
-    /* ===== Animações e movimento ===== */
-    main{overflow-x:clip;}
-    section[id]{scroll-margin-top:70px;}
-
-    .parallax-bg{position:absolute;left:0;right:0;top:-15%;bottom:-15%;z-index:0;will-change:transform;}
-    .parallax-bg img{width:100%;height:100%;object-fit:cover;display:block;}
-    .hero .parallax-bg img{object-position:60% 85%;animation:kenburns 2.6s cubic-bezier(.2,.7,.2,1) both;}
-    @keyframes kenburns{from{transform:scale(1.14);}to{transform:scale(1);}}
-
-    [data-parallax-img]{transform:translate3d(0,var(--py,0px),0) scale(1.14);will-change:transform;}
-
-    header{transition:background .3s ease, box-shadow .3s ease;}
-    .nav{transition:padding .3s ease;}
-    header.scrolled{background:rgba(8,26,45,0.95);box-shadow:0 10px 30px rgba(0,0,0,0.18);}
-    header.scrolled .nav{padding:10px 0;}
-    .scroll-progress{
-      position:absolute;left:0;bottom:-1px;height:3px;width:100%;
-      background:linear-gradient(90deg,var(--gold),#ffd98a);
-      transform:scaleX(0);transform-origin:left;
-    }
-    .nav-links a{position:relative;padding:6px 0;}
-    .nav-links a::after{
-      content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;
-      background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
-    }
-    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
-    .nav-links a.active{color:#fff;}
-
+    /* ===== Animações de entrada ===== */
     @keyframes heroIn{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
     .hero .eyebrow,.hero h1,.hero p.lead,.hero-cta,.hero-meta,.hero-routes{animation:heroIn .85s cubic-bezier(.2,.7,.2,1) both;}
     .hero .eyebrow{animation-delay:.10s;}
@@ -725,119 +536,154 @@
     html.js [data-reveal="left"]{transform:translateX(-44px);}
     html.js [data-reveal="right"]{transform:translateX(44px);}
     html.js [data-reveal="zoom"]{transform:scale(.92) translateY(18px);}
-    html.js [data-reveal].is-visible,html.js .reveal-up.is-visible{opacity:1;transform:none;}
+    html.js [data-reveal].is-visible{opacity:1;transform:none;}
     html.js .is-done{
-      transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease, opacity .35s ease;
+      transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease, opacity .35s ease, filter .45s ease;
       transition-delay:0s;
       will-change:auto;
     }
-    html.js .is-done.lift:hover{transform:translateY(-8px);box-shadow:0 26px 54px rgba(14,42,71,0.16);}
-    .card .icon{transition:transform .35s ease, background .35s ease;}
-    .card:hover .icon{background:var(--gold);transform:rotate(-6deg) scale(1.08);}
-
-    .btn{position:relative;overflow:hidden;}
-    .btn-primary::after,.btn-wa::after{
-      content:"";position:absolute;top:0;left:-120%;width:55%;height:100%;
-      background:linear-gradient(100deg,transparent,rgba(255,255,255,0.45),transparent);
-      transform:skewX(-20deg);transition:left .7s ease;pointer-events:none;
-    }
-    .btn-primary:hover::after,.btn-wa:hover::after{left:150%;}
-
-    .fab::before{
-      content:"";position:absolute;inset:0;border-radius:50%;background:var(--wa);
-      z-index:-1;animation:pulse 2.4s ease-out infinite;
-    }
-    @keyframes pulse{0%{transform:scale(1);opacity:.45;}100%{transform:scale(1.75);opacity:0;}}
-
-    .why{position:relative;overflow:hidden;color:#fff;background:var(--navy);}
-    .why::before{
-      content:"";position:absolute;inset:0;z-index:1;
-      background:linear-gradient(180deg,rgba(8,26,45,0.88) 0%,rgba(10,32,56,0.80) 100%);
-    }
-    .why .wrap{position:relative;z-index:2;}
-    .why-head h2{font-size:clamp(30px,4vw,46px);line-height:1.04;letter-spacing:-0.03em;max-width:16ch;margin:18px 0 34px;}
-    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-    .why-card{
-      padding:30px;border-radius:26px;
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.16);
-      backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-    }
-    .why-num{display:block;font-size:46px;font-weight:800;letter-spacing:-0.04em;line-height:1;color:var(--gold);}
-    .why-num::after{
-      content:"";display:block;height:3px;width:0;margin:14px 0 18px;border-radius:3px;
-      background:var(--gold);transition:width .9s cubic-bezier(.2,.7,.2,1) .35s;
-    }
-    .why-card.is-visible .why-num::after{width:52px;}
-    .why-card h3{font-size:21px;margin-bottom:8px;letter-spacing:-0.02em;}
-    .why-card p{color:rgba(255,255,255,0.82);font-size:15px;}
-    @media (max-width:900px){.why-grid{grid-template-columns:1fr;}}
+    html.js .is-done.lift:hover{transform:translateY(-8px);box-shadow:0 26px 54px rgba(24,24,24,0.16);}
 
     @media (prefers-reduced-motion: reduce){
-      .hero .eyebrow,.hero h1,.hero p.lead,.hero-cta,.hero-meta,.hero-routes,.hero .parallax-bg img,.fab::before,.ticker-move{animation:none !important;}
+      html{scroll-behavior:auto;}
+      .hero .eyebrow,.hero h1,.hero p.lead,.hero-cta,.hero-meta,.hero-routes,.hero .parallax-bg img,.fab::before,.ticker-move,.lb img.in{animation:none !important;}
       html.js [data-reveal]{opacity:1;transform:none;transition:none;}
       [data-parallax-img]{transform:scale(1.05);}
       .ticker{overflow-x:auto;}
-      .why-num::after{width:52px;transition:none;}
+      .why-num::after{width:56px;transition:none;}
+      .parallax-bg{top:0;bottom:0;}
+    }
+
+    @media (max-width:760px){
+      section{padding:68px 0;}
+      .hero{min-height:0;padding:64px 0 60px;}
+      .hero::before{background:linear-gradient(180deg,rgba(24,24,24,0.86) 0%,rgba(24,24,24,0.80) 55%,rgba(24,24,24,0.90) 100%);}
+      .hero .parallax-bg img{object-position:80% center;}
+      .hero p.lead{font-size:16px;}
+      .btn-lg,.hero-cta .btn{width:100%;}
+      .brand img{height:48px;}
+      header.scrolled .brand img{height:42px;}
+      .cta{padding:72px 0;}
+      .cta-row{flex-direction:column;align-items:flex-start;}
+      .fab{right:16px;bottom:16px;}
     }
   </style>
 </head>
 <body>
+  <!-- Ícones -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/><path d="M8.7 9.4c.3 2.6 2.3 4.6 4.9 4.9"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+      <symbol id="i-building" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+      <symbol id="i-palm" viewBox="0 0 24 24"><path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4"/><path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3"/><path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35z"/><path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h8M18 6h2M4 12h2M12 12h8M4 18h10M20 18h0"/><circle cx="15" cy="6" r="3"/><circle cx="9" cy="12" r="3"/><circle cx="17" cy="18" r="3"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+      <symbol id="i-armchair" viewBox="0 0 24 24"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/><path d="M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M5 18v2M19 18v2"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></symbol>
+      <symbol id="i-prev" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+    </defs>
+  </svg>
+
   <header>
     <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Fretur">
-        <strong>Fretur</strong>
-        <span>Turismo, fretamento e transporte executivo</span>
+      <a class="brand" href="#inicio" aria-label="Fretur Fretamento e Turismo, ir para o início">
+        <img src="images/logo-fretur.png" alt="Fretur Fretamento e Turismo" width="560" height="346">
       </a>
       <nav class="nav-links" aria-label="Navegação principal">
         <a href="#servicos">Serviços</a>
         <a href="#frota">Frota</a>
         <a href="#vantagens">Vantagens</a>
         <a href="#quem-somos">Quem somos</a>
+        <a href="#contato">Contato</a>
       </nav>
-      <a class="btn btn-wa wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/><path d="M8.5 9.5c.3 2.6 2.4 4.7 5 5" stroke-linecap="round"/></svg>
-        WhatsApp
+      <a class="btn btn-primary btn-sm wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.">
+        Solicitar orçamento
+        <svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg>
       </a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu">
+        <svg class="ic i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="ic i-close" aria-hidden="true"><use href="#i-x"/></svg>
+      </button>
     </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navegação móvel">
+      <a href="#servicos">Serviços</a>
+      <a href="#frota">Frota</a>
+      <a href="#vantagens">Vantagens</a>
+      <a href="#quem-somos">Quem somos</a>
+      <a href="#contato">Contato</a>
+      <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.">Solicitar orçamento</a>
+    </nav>
     <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero" id="inicio">
       <div class="parallax-bg" data-parallax="0.8" aria-hidden="true">
-        <img src="images/bus_hero.jpg" alt="" width="1920" height="1280" fetchpriority="high" decoding="async">
+        <img src="images/hero-onibus-fretur.jpg" alt="" width="1672" height="941" fetchpriority="high" decoding="async">
       </div>
-      <div class="wrap hero-grid">
-        <div>
-          <span class="eyebrow">Pontualidade, segurança e conforto</span>
+      <div class="wrap">
+        <div class="hero-copy">
+          <span class="eyebrow is-yellow">Pontualidade, segurança e conforto</span>
           <h1>Transporte executivo e turismo com padrão profissional</h1>
           <p class="lead">A Fretur atende traslados corporativos, transfer para aeroportos, fretamento de ônibus, viagens em grupo, turismo receptivo e eventos sociais em São Paulo com atendimento ágil e direto pelo WhatsApp.</p>
           <div class="hero-cta">
             <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/></svg>
               Solicitar orçamento
+              <svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg>
             </a>
-            <a class="btn btn-secondary" href="#servicos">Ver serviços</a>
+            <a class="btn btn-outline" href="#servicos">
+              Ver serviços
+              <svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg>
+            </a>
           </div>
           <div class="hero-meta">
             <span><span class="dot"></span>São Paulo e região</span>
             <span><span class="dot"></span>Atendimento corporativo e turístico</span>
             <span><span class="dot"></span>Contato rápido pelo WhatsApp</span>
           </div>
-        </div>
-
-        <div class="hero-routes">
-          <span class="hero-routes-label">Rotas e demandas mais solicitadas</span>
-          <ul class="hero-chips">
-            <li>Congonhas, Guarulhos e Viracopos</li>
-            <li>Feiras, congressos e eventos corporativos</li>
-            <li>Porto de Santos e embarques de cruzeiro</li>
-            <li>Passeios, excursões e viagens em grupo</li>
-          </ul>
+          <div class="hero-routes">
+            <span class="hero-routes-label">Rotas e demandas mais solicitadas</span>
+            <ul class="hero-chips">
+              <li>Congonhas, Guarulhos e Viracopos</li>
+              <li>Feiras, congressos e eventos corporativos</li>
+              <li>Porto de Santos e embarques de cruzeiro</li>
+              <li>Passeios, excursões e viagens em grupo</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
+
+    <div class="features" aria-label="Diferenciais da Fretur">
+      <div class="wrap features-grid">
+        <div class="feature">
+          <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <p>Segurança<br>em primeiro lugar</p>
+        </div>
+        <div class="feature">
+          <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-armchair"/></svg></span>
+          <p>Conforto em<br>todas as viagens</p>
+        </div>
+        <div class="feature">
+          <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <p>Atendimento em<br>Guarulhos e região</p>
+        </div>
+        <div class="feature">
+          <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span>
+          <p>Experiência<br>e pontualidade</p>
+        </div>
+      </div>
+    </div>
 
     <div class="ticker" aria-label="Tipos de atendimento da Fretur">
       <div class="ticker-move" id="tickerMove">
@@ -853,11 +699,11 @@
       </div>
     </div>
 
-    <section class="services" id="servicos">
+    <section id="servicos">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Nossos serviços</span>
+            <span class="eyebrow">Nossos serviços</span>
             <h2>Soluções de transporte para turismo, empresas e eventos</h2>
           </div>
           <p>A estrutura da Fretur foi pensada para atender desde o passageiro individual até grupos maiores, sempre com foco em organização, conforto e pontualidade.</p>
@@ -865,93 +711,225 @@
 
         <div class="services-grid">
           <article class="card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18h16"/><path d="M6 18V9l6-4 6 4v9"/><circle cx="8" cy="18" r="1.5"/><circle cx="16" cy="18" r="1.5"/></svg>
+            <span class="icon"><svg class="ic" aria-hidden="true"><use href="#i-building"/></svg></span>
+            <div>
+              <span class="dash"></span>
+              <h3>Fretamento corporativo</h3>
+              <p>Transporte para equipes, clientes e convidados em feiras, congressos, visitas técnicas, eventos empresariais e contratos recorrentes.</p>
             </div>
-            <h3>Transfer e receptivo</h3>
-            <p>Recepção e traslado em aeroportos, hotéis, centros de convenções e pontos estratégicos da cidade com atendimento pontual e organizado.</p>
           </article>
-
           <article class="card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 17v2M17 17v2M6 8V6h12v2"/></svg>
+            <span class="icon"><svg class="ic" aria-hidden="true"><use href="#i-palm"/></svg></span>
+            <div>
+              <span class="dash"></span>
+              <h3>Turismo e passeios</h3>
+              <p>Roteiros para city tour, turismo receptivo, compras, cultura e lazer com flexibilidade para grupos, famílias e visitantes em São Paulo.</p>
             </div>
-            <h3>Fretamento corporativo</h3>
-            <p>Transporte para equipes, clientes e convidados em feiras, congressos, visitas técnicas, eventos empresariais e contratos recorrentes.</p>
           </article>
-
           <article class="card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16"/></svg>
+            <span class="icon"><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+            <div>
+              <span class="dash"></span>
+              <h3>Eventos sociais</h3>
+              <p>Atendimento para casamentos, formaturas, shows, festas e celebrações com transporte coordenado para convidados e equipes.</p>
             </div>
-            <h3>Turismo e passeios</h3>
-            <p>Roteiros para city tour, turismo receptivo, compras, cultura e lazer com flexibilidade para grupos, famílias e visitantes em São Paulo.</p>
           </article>
-
           <article class="card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18h18"/><path d="M4 18l4-9 4 4 3-7 5 12"/></svg>
+            <span class="icon"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg></span>
+            <div>
+              <span class="dash"></span>
+              <h3>Transfer e receptivo</h3>
+              <p>Recepção e traslado em aeroportos, hotéis, centros de convenções e pontos estratégicos da cidade com atendimento pontual e organizado.</p>
             </div>
-            <h3>Viagens em grupo</h3>
-            <p>Fretamento para excursões, viagens em família, grupos de amigos e saídas planejadas com logística mais prática e econômica.</p>
           </article>
-
           <article class="card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 18h14"/><path d="M7 18V8l5-3 5 3v10"/><path d="M9 12h6"/></svg>
+            <span class="icon"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <div>
+              <span class="dash"></span>
+              <h3>Viagens em grupo</h3>
+              <p>Fretamento para excursões, viagens em família, grupos de amigos e saídas planejadas com logística mais prática e econômica.</p>
             </div>
-            <h3>Eventos sociais</h3>
-            <p>Atendimento para casamentos, formaturas, shows, festas e celebrações com transporte coordenado para convidados e equipes.</p>
           </article>
-
           <article class="card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="M8 10h8M8 14h5"/></svg>
+            <span class="icon"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg></span>
+            <div>
+              <span class="dash"></span>
+              <h3>Atendimento sob medida</h3>
+              <p>Cada operação é ajustada à sua demanda, com roteiros, horários e tipo de veículo definidos de acordo com o seu grupo e objetivo.</p>
             </div>
-            <h3>Atendimento sob medida</h3>
-            <p>Cada operação é ajustada à sua demanda, com roteiros, horários e tipo de veículo definidos de acordo com o seu grupo e objetivo.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="tour" id="turismo">
+    <section class="bg-soft" id="frota">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Nossa frota</span>
+            <h2>Veículos preparados para diferentes perfis de atendimento</h2>
+          </div>
+          <p>A Fretur opera com veículos pensados para viagens executivas, grupos e serviços de receptivo, mantendo padrão de conforto, climatização e segurança.</p>
+        </div>
+
+        <div class="fleet-grid">
+          <article class="fleet-card">
+            <div class="fleet-visual">
+              <img src="images/micro-grafite-1409-rua.jpg" alt="Ônibus executivo grafite e amarelo da Fretur estacionado em rua de Guarulhos" width="1599" height="899" loading="lazy" decoding="async" style="object-position:62% center">
+            </div>
+            <div class="fleet-copy">
+              <div class="fleet-title"><h3>Ônibus executivo</h3><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></div>
+              <strong>Grupos · Ar-condicionado · Conforto total</strong>
+              <p>Ideal para grupos corporativos, eventos, turismo receptivo e viagens em equipe com mais comodidade.</p>
+              <a class="btn btn-primary btn-sm wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para ônibus executivo da Fretur.">Solicitar orçamento</a>
+            </div>
+          </article>
+
+          <article class="fleet-card">
+            <div class="fleet-visual">
+              <img src="images/micro-prata-2211.jpg" alt="Micro-ônibus prata e amarelo da Fretur" width="1280" height="960" loading="lazy" decoding="async">
+            </div>
+            <div class="fleet-copy">
+              <div class="fleet-title"><h3>Micro-ônibus</h3><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></div>
+              <strong>Grupos médios · Poltronas confortáveis · Agilidade</strong>
+              <p>Indicado para grupos menores, traslados corporativos, passeios e excursões que pedem mais agilidade no trânsito, sem abrir mão do conforto.</p>
+              <a class="btn btn-primary btn-sm wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para micro-ônibus da Fretur.">Solicitar orçamento</a>
+            </div>
+          </article>
+
+          <article class="fleet-card">
+            <div class="fleet-visual">
+              <img src="images/sprinter-grafite-1807.jpg" alt="Van executiva grafite com faixas amarelas da Fretur" width="1280" height="960" loading="lazy" decoding="async">
+            </div>
+            <div class="fleet-copy">
+              <div class="fleet-title"><h3>Van executiva</h3><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></div>
+              <strong>Grupos · Bagagens · Viagens e transfers longos</strong>
+              <p>Opção indicada para operações com malas, recepção em aeroportos, deslocamentos para porto e viagens com mais estrutura.</p>
+              <a class="btn btn-primary btn-sm wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para van executiva da Fretur.">Solicitar orçamento</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery on-dark" id="galeria">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow is-yellow">Galeria da frota</span>
+            <h2>Por dentro e por fora</h2>
+          </div>
+          <p>Conheça de perto os veículos que levam o seu grupo. Toque em uma foto para ampliar.</p>
+        </div>
+
+        <div class="g-filters" role="group" aria-label="Filtrar fotos">
+          <button class="g-chip" type="button" data-filter="all" aria-pressed="true">Todas</button>
+          <button class="g-chip" type="button" data-filter="ext" aria-pressed="false">Por fora</button>
+          <button class="g-chip" type="button" data-filter="int" aria-pressed="false">Por dentro</button>
+        </div>
+
+        <div class="g-grid" id="gGrid">
+          <button class="g-item g-big" type="button" data-cat="ext" data-title="Micro-ônibus executivo prata">
+            <img src="images/micro-prata-2211.jpg" alt="Micro-ônibus executivo prata com faixas amarelas e a marca Fretur" width="1280" height="960" loading="lazy" decoding="async">
+            <span class="g-tag">Por fora</span>
+            <span class="g-cap"><span>Micro-ônibus executivo prata</span><svg class="ic" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+          <button class="g-item g-tall" type="button" data-cat="int" data-title="Poltronas em couro com iluminação em LED">
+            <img src="images/interior-led-azul.jpg" alt="Interior com poltronas de couro preto e iluminação em LED azul no teto" width="960" height="1280" loading="lazy" decoding="async">
+            <span class="g-tag">Por dentro</span>
+            <span class="g-cap"><span>Poltronas em couro com iluminação em LED</span><svg class="ic" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+          <button class="g-item" type="button" data-cat="ext" data-title="Van executiva grafite">
+            <img src="images/sprinter-grafite-1807.jpg" alt="Van executiva grafite com faixas amarelas e a marca Fretur" width="1280" height="960" loading="lazy" decoding="async">
+            <span class="g-tag">Por fora</span>
+            <span class="g-cap"><span>Van executiva grafite</span><svg class="ic" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+          <button class="g-item" type="button" data-cat="int" data-title="TV a bordo para a viagem render">
+            <img src="images/interior-tv.jpg" alt="Interior com TV instalada no teto e apoios de cabeça nas cores da marca" width="1280" height="960" loading="lazy" decoding="async">
+            <span class="g-tag">Por dentro</span>
+            <span class="g-cap"><span>TV a bordo para a viagem render</span><svg class="ic" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+          <button class="g-item g-tall" type="button" data-cat="int" data-title="Poltronas amplas com apoio de braço">
+            <img src="images/interior-poltronas-marrom.jpg" alt="Corredor central com fileiras de poltronas marrons e apoio de braço" width="899" height="1599" loading="lazy" decoding="async">
+            <span class="g-tag">Por dentro</span>
+            <span class="g-cap"><span>Poltronas amplas com apoio de braço</span><svg class="ic" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+          <button class="g-item g-wide" type="button" data-cat="ext" data-title="Micro-ônibus executivo na estrada de terra" style="--pos:center 40%">
+            <img src="images/micro-grafite-1409-parque.jpg" alt="Micro-ônibus executivo grafite com a marca Fretur estacionado em área verde" width="1600" height="900" loading="lazy" decoding="async">
+            <span class="g-tag">Por fora</span>
+            <span class="g-cap"><span>Micro-ônibus executivo em passeio</span><svg class="ic" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+          <button class="g-item g-tall" type="button" data-cat="ext" data-title="Traseira: Guarulhos x Zona Sul">
+            <img src="images/sprinter-traseira-1709.jpg" alt="Traseira da van prata com a marca Fretur e a rota Guarulhos x Zona Sul" width="900" height="1600" loading="lazy" decoding="async">
+            <span class="g-tag">Por fora</span>
+            <span class="g-cap"><span>Traseira: Guarulhos x Zona Sul</span><svg class="ic" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+          <button class="g-item g-wide" type="button" data-cat="ext" data-title="Van executiva prata ao entardecer" style="--pos:center 45%">
+            <img src="images/sprinter-prata-1709.jpg" alt="Van executiva prata com faixas amarelas ao entardecer" width="1600" height="900" loading="lazy" decoding="async">
+            <span class="g-tag">Por fora</span>
+            <span class="g-cap"><span>Van executiva prata ao entardecer</span><svg class="ic" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+          <button class="g-item" type="button" data-cat="int" data-title="Couro com costura vermelha">
+            <img src="images/interior-couro-costura-vermelha.jpg" alt="Poltronas de couro preto com costura vermelha e cortinas" width="1280" height="960" loading="lazy" decoding="async">
+            <span class="g-tag">Por dentro</span>
+            <span class="g-cap"><span>Couro com costura vermelha</span><svg class="ic" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+          <button class="g-item" type="button" data-cat="int" data-title="Apoios de cabeça nas cores da marca">
+            <img src="images/interior-apoios-vermelhos.jpg" alt="Interior com apoios de cabeça vermelhos e amarelos e iluminação no teto" width="1600" height="900" loading="lazy" decoding="async">
+            <span class="g-tag">Por dentro</span>
+            <span class="g-cap"><span>Apoios de cabeça nas cores da marca</span><svg class="ic" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+          <button class="g-item" type="button" data-cat="ext" data-title="Micro-ônibus executivo em operação">
+            <img src="images/micro-grafite-1409-rua.jpg" alt="Micro-ônibus executivo grafite com a marca Fretur em rua da cidade" width="1599" height="899" loading="lazy" decoding="async" style="object-position:62% center">
+            <span class="g-tag">Por fora</span>
+            <span class="g-cap"><span>Micro-ônibus executivo em operação</span><svg class="ic" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+          <button class="g-item" type="button" data-cat="int" data-title="Bagageiro espaçoso para as malas">
+            <img src="images/bagageiro.jpg" alt="Bagageiro amplo com piso forrado e iluminação" width="1280" height="960" loading="lazy" decoding="async">
+            <span class="g-tag">Por dentro</span>
+            <span class="g-cap"><span>Bagageiro espaçoso para as malas</span><svg class="ic" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="turismo">
       <div class="wrap tour-grid">
-        <figure class="tour-photo">
-          <img data-parallax-img src="images/onibus_turismo.jpg" alt="Grupo de passageiros em mirante do litoral em frente ao ônibus executivo de turismo" width="1920" height="1280" loading="lazy" decoding="async">
+        <figure class="photo">
+          <img data-parallax-img src="images/micro-grafite-1409-parque.jpg" alt="Micro-ônibus executivo da Fretur estacionado em meio à natureza, pronto para um passeio" width="1600" height="900" loading="lazy" decoding="async">
         </figure>
         <div class="tour-copy">
-          <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Turismo &amp; lazer</span>
-          <h2>City tour e passeios com frota premium</h2>
+          <span class="eyebrow">Turismo &amp; lazer</span>
+          <h2 class="h2">City tour e passeios com frota premium</h2>
           <p>Roteiros sob medida para turismo cultural, gastronômico ou de compras, com motoristas que conhecem as melhores rotas e a flexibilidade que o seu grupo precisa.</p>
           <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de planejar um city tour ou passeio com a Fretur.">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/></svg>
             Planejar meu passeio
+            <svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="highlight">
-      <div class="wrap highlight-grid">
-        <div class="highlight-copy">
+    <section class="bg-soft" id="porto">
+      <div class="wrap port-grid">
+        <div class="port-copy">
           <span class="eyebrow">Destaque operacional</span>
-          <h2>Especialista em transfer para o Porto de Santos</h2>
+          <h2 class="h2">Especialista em transfer para o Porto de Santos</h2>
           <p>A Fretur atende a rota São Paulo ↔ Santos com atenção especial a embarques de cruzeiros, horários portuários e deslocamentos programados para evitar atrasos e imprevistos.</p>
           <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar um transfer com a Fretur para o Porto de Santos.">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/></svg>
             Falar sobre transfer
+            <svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg>
           </a>
         </div>
-        <div class="highlight-box">
-          <figure class="highlight-photo">
-            <img data-parallax-img src="images/onibus_porto_bagagens.jpg" alt="Ônibus executivo com bagageiro aberto e malas em área de embarque" width="1920" height="1280" loading="lazy" decoding="async">
+        <div class="port-card">
+          <figure class="photo">
+            <img data-parallax-img src="images/bagageiro.jpg" alt="Bagageiro amplo e organizado para as malas dos passageiros" width="1280" height="960" loading="lazy" decoding="async">
           </figure>
-          <ul>
-            <li>Monitoramento de horários e janelas de embarque</li>
-            <li>Saídas para grupos, famílias e passageiros individuais</li>
-            <li>Atendimento com foco em pontualidade e conforto</li>
-            <li>Suporte para bagagens e logística de deslocamento</li>
+          <ul class="check-list">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Monitoramento de horários e janelas de embarque</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Saídas para grupos, famílias e passageiros individuais</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Atendimento com foco em pontualidade e conforto</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Suporte para bagagens e logística de deslocamento</li>
           </ul>
         </div>
       </div>
@@ -959,12 +937,12 @@
 
     <section class="why" id="diferenciais">
       <div class="parallax-bg" data-parallax="0.9" aria-hidden="true">
-        <img src="images/onibus_frente.jpg" alt="" width="1920" height="1280" loading="lazy" decoding="async">
+        <img src="images/micro-grafite-1409-rua.jpg" alt="" width="1599" height="899" loading="lazy" decoding="async">
       </div>
       <div class="wrap">
         <div class="why-head">
-          <span class="eyebrow">Por que a Fretur</span>
-          <h2>O que nos diferencia da concorrência</h2>
+          <span class="eyebrow is-yellow">Por que a Fretur</span>
+          <h2 class="h2">O que nos diferencia da concorrência</h2>
         </div>
         <div class="why-grid">
           <article class="why-card">
@@ -986,108 +964,61 @@
       </div>
     </section>
 
-    <section id="frota">
+    <section id="vantagens">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Nossa frota</span>
-            <h2>Veículos preparados para diferentes perfis de atendimento</h2>
-          </div>
-          <p>A Fretur opera com veículos pensados para viagens executivas, grupos e serviços de receptivo, mantendo padrão de conforto, climatização e segurança.</p>
-        </div>
-
-        <div class="fleet-grid">
-          <article class="fleet-card reveal-up" style="--reveal-delay:0s;">
-            <div class="fleet-visual">
-              <img src="images/onibus_executivo.jpg" alt="Ônibus executivo branco com ar-condicionado em rua de São Paulo" width="1920" height="1280" loading="lazy" decoding="async">
-            </div>
-            <div class="fleet-copy">
-              <h3>Ônibus executivo</h3>
-              <strong>Grupos · Ar-condicionado · Conforto total</strong>
-              <p>Ideal para grupos corporativos, eventos, turismo receptivo e viagens em equipe com mais comodidade.</p>
-              <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para ônibus executivo da Fretur.">Solicitar orçamento</a>
-            </div>
-          </article>
-
-          <article class="fleet-card reveal-up" style="--reveal-delay:.08s;">
-            <div class="fleet-visual">
-              <img src="images/sedan.jpg" alt="Sedan executivo preto com bancos de couro para transfer e atendimento premium" width="1920" height="1280" loading="lazy" decoding="async">
-            </div>
-            <div class="fleet-copy">
-              <h3>Sedan executivo</h3>
-              <strong>Até 4 passageiros · Atendimento premium · Mais privacidade</strong>
-              <p>Recomendado para executivos, transfers individuais, reuniões, recepção de clientes e deslocamentos com perfil mais exclusivo.</p>
-              <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para sedan executivo da Fretur.">Solicitar orçamento</a>
-            </div>
-          </article>
-
-          <article class="fleet-card reveal-up" style="--reveal-delay:.16s;">
-            <div class="fleet-visual">
-              <img src="images/onibus_vip.jpg" alt="Traseira do ônibus executivo VIP com compartimento de bagagens" width="1920" height="1280" loading="lazy" decoding="async">
-            </div>
-            <div class="fleet-copy">
-              <h3>Ônibus executivo VIP</h3>
-              <strong>Grupos · Bagagens · Viagens e transfers longos</strong>
-              <p>Opção indicada para operações com malas, recepção em aeroportos, deslocamentos para porto e viagens com mais estrutura.</p>
-              <a class="btn btn-primary wa-btn" href="#" data-msg="Olá! Gostaria de solicitar orçamento para ônibus executivo VIP da Fretur.">Solicitar orçamento</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="benefits" id="vantagens">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Vantagens do fretamento</span>
+            <span class="eyebrow">Vantagens do fretamento</span>
             <h2>Mais controle, economia e organização para cada trajeto</h2>
           </div>
           <p>Para empresas, eventos e viagens em grupo, o fretamento reduz ruídos operacionais e melhora a experiência de todos os passageiros.</p>
         </div>
 
         <div class="benefit-layout">
-          <figure class="benefit-photo reveal-up">
-            <img data-parallax-img src="images/onibus_interior.jpg" alt="Poltronas confortáveis e climatização no interior do ônibus executivo" width="1920" height="1280" loading="lazy" decoding="async">
+          <figure class="benefit-photo">
+            <img data-parallax-img src="images/interior-couro-costura-vermelha.jpg" alt="Interior do veículo com poltronas de couro e costura vermelha, cortinas e iluminação no teto" width="1280" height="960" loading="lazy" decoding="async">
             <figcaption>Conforto, climatização e espaço para todo o grupo viajar bem.</figcaption>
           </figure>
           <div class="benefit-grid">
-          <article class="benefit reveal-up" style="--reveal-delay:0s;">
-            <strong>Custo por pessoa reduzido</strong>
-            <p>Ao concentrar o grupo em um único transporte, o deslocamento fica mais eficiente do que soluções individuais.</p>
-          </article>
-          <article class="benefit reveal-up" style="--reveal-delay:.08s;">
-            <strong>Todos chegam juntos</strong>
-            <p>Evita atrasos, desencontros e problemas de logística em reuniões, eventos, embarques e passeios programados.</p>
-          </article>
-          <article class="benefit reveal-up" style="--reveal-delay:.16s;">
-            <strong>Conforto e segurança</strong>
-            <p>Veículos climatizados, revisados e preparados para oferecer uma experiência mais tranquila do início ao fim.</p>
-          </article>
-          <article class="benefit reveal-up" style="--reveal-delay:.24s;">
-            <strong>Atendimento profissional</strong>
-            <p>Planejamento prévio, definição de rota e suporte mais assertivo para operações corporativas ou turísticas.</p>
-          </article>
+            <article class="benefit">
+              <span class="dash"></span>
+              <h3>Custo por pessoa reduzido</h3>
+              <p>Ao concentrar o grupo em um único transporte, o deslocamento fica mais eficiente do que soluções individuais.</p>
+            </article>
+            <article class="benefit">
+              <span class="dash"></span>
+              <h3>Todos chegam juntos</h3>
+              <p>Evita atrasos, desencontros e problemas de logística em reuniões, eventos, embarques e passeios programados.</p>
+            </article>
+            <article class="benefit">
+              <span class="dash"></span>
+              <h3>Conforto e segurança</h3>
+              <p>Veículos climatizados, revisados e preparados para oferecer uma experiência mais tranquila do início ao fim.</p>
+            </article>
+            <article class="benefit">
+              <span class="dash"></span>
+              <h3>Atendimento profissional</h3>
+              <p>Planejamento prévio, definição de rota e suporte mais assertivo para operações corporativas ou turísticas.</p>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="quem-somos">
+    <section class="bg-soft" id="quem-somos">
       <div class="wrap about-grid">
         <div class="about-copy">
-          <span class="eyebrow" style="color:#9d6b12;background:rgba(244,193,93,0.18);">Quem somos</span>
-          <div class="section-head" style="margin-top:18px;margin-bottom:20px;">
-            <h2>Excelência em cada detalhe do deslocamento</h2>
-            <p>A Fretur atua com foco em mobilidade executiva, turismo e fretamento, entendendo que transportar pessoas exige organização, responsabilidade e atenção à experiência do passageiro.</p>
-          </div>
+          <span class="eyebrow">Quem somos</span>
+          <h2 class="h2">Excelência em cada detalhe do deslocamento</h2>
+          <p class="intro">A Fretur atua com foco em mobilidade executiva, turismo e fretamento, entendendo que transportar pessoas exige organização, responsabilidade e atenção à experiência do passageiro.</p>
           <p>Nosso objetivo é simplificar deslocamentos para empresas, grupos, famílias e turistas em São Paulo, oferecendo um atendimento que combina pontualidade, segurança e conforto.</p>
           <p>Do transfer executivo ao transporte para eventos sociais, viagens e receptivo, cada operação é conduzida com planejamento, agilidade e cuidado com o tempo de quem contrata.</p>
         </div>
 
         <div class="about-stack">
-          <figure class="about-photo reveal-up">
-            <img data-parallax-img src="images/onibus_passageiros.jpg" alt="Passageiros sorrindo durante viagem de ônibus pelo litoral" width="1920" height="1280" loading="lazy" decoding="async">
+          <figure class="photo">
+            <img data-parallax-img src="images/micro-prata-2211.jpg" alt="Micro-ônibus executivo prata da Fretur com o selo 20 anos transportando o povo guarulhense" width="1280" height="960" loading="lazy" decoding="async">
+            <span class="photo-badge"><svg class="ic ic-fill" aria-hidden="true"><use href="#i-star"/></svg>20 anos transportando o povo guarulhense</span>
           </figure>
           <article class="about-item">
             <strong>Pontualidade de verdade</strong>
@@ -1105,16 +1036,18 @@
       </div>
     </section>
 
-    <section class="cta">
+    <section class="cta" id="contato">
       <div class="parallax-bg" data-parallax="0.9" aria-hidden="true">
-        <img src="images/bus_hero.jpg" alt="" width="1920" height="1280" loading="lazy" decoding="async">
+        <img src="images/hero-onibus-fretur.jpg" alt="" width="1672" height="941" loading="lazy" decoding="async">
       </div>
-      <div class="wrap">
-        <span class="eyebrow">Fale agora com a equipe</span>
-        <h2>Solicite seu orçamento direto pelo WhatsApp</h2>
-        <p>Se você precisa de transporte executivo, transfer, turismo receptivo, fretamento corporativo ou viagem em grupo, a Fretur pode te atender com rapidez e praticidade.</p>
-        <a class="btn btn-wa wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/><path d="M8.5 9.5c.3 2.6 2.4 4.7 5 5" stroke-linecap="round"/></svg>
+      <div class="wrap cta-row">
+        <div class="cta-copy">
+          <span class="eyebrow is-yellow">Fale agora com a equipe</span>
+          <h2>Solicite seu orçamento direto pelo WhatsApp</h2>
+          <p>Se você precisa de transporte executivo, transfer, turismo receptivo, fretamento corporativo ou viagem em grupo, a Fretur pode te atender com rapidez e praticidade.</p>
+        </div>
+        <a class="btn btn-primary btn-lg wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.">
+          <svg class="ic" aria-hidden="true" style="width:22px;height:22px"><use href="#i-wa"/></svg>
           Chamar no WhatsApp
         </a>
       </div>
@@ -1124,37 +1057,63 @@
   <footer>
     <div class="wrap footer">
       <div class="footer-brand">
-        <strong>Fretur</strong>
+        <img src="images/logo-fretur.png" alt="Fretur Fretamento e Turismo" width="560" height="346" loading="lazy">
         <p>Transporte executivo, turismo, transfer para aeroportos, fretamento de ônibus e atendimento para eventos em São Paulo.</p>
       </div>
       <div class="footer-col">
-        <strong>WhatsApp</strong>
-        <a class="wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.">(11) 94780-8247</a>
+        <strong>Navegação</strong>
+        <a href="#servicos">Serviços</a>
+        <a href="#frota">Frota</a>
+        <a href="#vantagens">Vantagens</a>
+        <a href="#quem-somos">Quem somos</a>
+        <a href="#contato">Contato</a>
       </div>
       <div class="footer-col">
         <strong>Base de atendimento</strong>
-        <p>R. Mundo Novo, 335<br>São Paulo - SP</p>
+        <div class="footer-place">
+          <svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>
+          <p><b>Guarulhos · SP</b>Pessoas movem grandes histórias.</p>
+        </div>
+        <p style="margin-top:14px"><b style="color:#fff;font-weight:500">Atuação</b><br>Corporativo, turismo, eventos, receptivo e viagens em grupo</p>
       </div>
       <div class="footer-col">
-        <strong>Atuação</strong>
-        <p>Corporativo, turismo, eventos, receptivo e viagens em grupo</p>
+        <strong>WhatsApp</strong>
+        <a class="footer-contact wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.">
+          <svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>
+          (11) 97745-2500
+        </a>
+        <p>Atendimento rápido para orçamentos e reservas.</p>
       </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 Fretur Fretamento e Turismo LTDA. Todos os direitos reservados.</span>
+      <span>Fretamento · Turismo · Traslados</span>
     </div>
   </footer>
 
   <a class="fab wa-btn" href="#" data-msg="Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento." aria-label="Falar com a Fretur no WhatsApp">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/><path d="M8.5 9.5c.3 2.6 2.4 4.7 5 5" stroke-linecap="round"/></svg>
+    <svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>
   </a>
 
+  <div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Galeria de fotos da frota" aria-hidden="true">
+    <span class="lb-count" id="lbCount" aria-live="polite"></span>
+    <button class="lb-close" id="lbClose" type="button" aria-label="Fechar"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button>
+    <button class="lb-prev" id="lbPrev" type="button" aria-label="Foto anterior"><svg class="ic" aria-hidden="true"><use href="#i-prev"/></svg></button>
+    <figure>
+      <img id="lbImg" src="" alt="">
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="lb-next" id="lbNext" type="button" aria-label="Próxima foto"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></button>
+  </div>
+
   <script>
-    var WHATSAPP_NUMBER = "5511947808247";
+    var WHATSAPP_NUMBER = "5511977452500";
     document.querySelectorAll(".wa-btn").forEach(function(el){
       var msg = el.getAttribute("data-msg") || "Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.";
       el.setAttribute("href", "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg));
       el.setAttribute("target", "_blank");
       el.setAttribute("rel", "noopener");
     });
-
   </script>
   <script>
   (function(){
@@ -1184,7 +1143,7 @@
     function group(parentSel,types,step,mod){
       all(parentSel).forEach(function(p){
         Array.prototype.forEach.call(p.children,function(c,i){
-          if(c.classList.contains("reveal-up")||c.hasAttribute("data-reveal"))return;
+          if(c.hasAttribute("data-reveal"))return;
           var t=Array.isArray(types)?(types[i]||types[types.length-1]):types;
           c.setAttribute("data-reveal",t);
           var k=mod?i%mod:i;
@@ -1192,17 +1151,24 @@
         });
       });
     }
+    group(".features-grid","up",.1);
     group(".section-head","up",.12);
     group(".services-grid","up",.1,3);
+    group(".fleet-grid","up",.12,3);
+    group(".g-filters","up",.05);
+    group(".g-grid","zoom",.07,4);
     group(".tour-grid",["left","right"],.1);
-    group(".highlight-grid",["left","right"],.1);
+    group(".port-grid",["left","right"],.1);
     group(".why-head","up",.1);
     group(".why-grid","zoom",.14);
+    group(".benefit-layout",["left","right"],.1);
+    group(".benefit-grid","up",.1,2);
     group(".about-grid",["left","right"],.1);
     group(".about-stack","up",.1);
-    group(".cta .wrap","up",.1);
+    group(".cta-row",["left","right"],.1);
+    group(".footer","up",.1);
 
-    var items=all(".reveal-up,[data-reveal]");
+    var items=all("[data-reveal]");
     items.forEach(function(el){
       ["card","fleet-card","benefit","about-item","why-card"].forEach(function(k){
         if(el.classList.contains(k))el.classList.add("lift");
@@ -1238,7 +1204,7 @@
     }
     var header=doc.querySelector("header");
     var bar=doc.getElementById("scrollProgress");
-    var links=all('.nav-links a[href^="#"]').map(function(a){
+    var links=all('.nav-links a[href^="#"], .mobile-nav a[href^="#"]:not(.btn)').map(function(a){
       return {a:a,t:doc.querySelector(a.getAttribute("href"))};
     });
     var ticking=false;
@@ -1269,9 +1235,9 @@
       links.forEach(function(l){
         if(!l.t)return;
         var r=l.t.getBoundingClientRect();
-        if(r.top<=140&&r.bottom>140)current=l;
+        if(r.top<=140&&r.bottom>140)current=l.a.getAttribute("href");
       });
-      links.forEach(function(l){l.a.classList.toggle("active",l===current);});
+      links.forEach(function(l){l.a.classList.toggle("active",l.a.getAttribute("href")===current);});
     }
     function request(){if(!ticking){ticking=true;window.requestAnimationFrame(frame);}}
     window.addEventListener("scroll",request,{passive:true});
@@ -1280,6 +1246,87 @@
     window.addEventListener("load",function(){buildTicker();request();});
     buildTicker();
     frame();
+
+    /* ---- Menu móvel ---- */
+    var burger=doc.getElementById("burger"), mnav=doc.getElementById("mobileNav");
+    function setMenu(o){
+      burger.setAttribute("aria-expanded",String(o));
+      burger.setAttribute("aria-label",o?"Fechar menu":"Abrir menu");
+      mnav.classList.toggle("open",o);
+    }
+    burger.addEventListener("click",function(){setMenu(burger.getAttribute("aria-expanded")!=="true");});
+    all("a",mnav).forEach(function(a){a.addEventListener("click",function(){setMenu(false);});});
+
+    /* ---- Galeria: filtro e ampliação ---- */
+    var gItems=all("#gGrid .g-item");
+    var chips=all(".g-chip");
+    chips.forEach(function(c){
+      c.addEventListener("click",function(){
+        var f=c.getAttribute("data-filter");
+        chips.forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false");});
+        gItems.forEach(function(it){
+          var on=f==="all"||it.getAttribute("data-cat")===f;
+          it.classList.toggle("is-dim",!on);
+          it.tabIndex=on?0:-1;
+        });
+      });
+    });
+
+    var lb=doc.getElementById("lightbox"), lbImg=doc.getElementById("lbImg"), lbCap=doc.getElementById("lbCap"), lbCount=doc.getElementById("lbCount");
+    var lbClose=doc.getElementById("lbClose"), lbPrev=doc.getElementById("lbPrev"), lbNext=doc.getElementById("lbNext");
+    var list=[], cur=0, lastFocus=null;
+    function visible(){return gItems.filter(function(it){return !it.classList.contains("is-dim");});}
+    function lbShow(i){
+      list=visible();
+      if(!list.length)return;
+      cur=(i+list.length)%list.length;
+      var it=list[cur], img=it.querySelector("img");
+      lbImg.classList.remove("in");
+      lbImg.src=img.getAttribute("src");
+      lbImg.alt=img.getAttribute("alt")||"";
+      lbCap.textContent=it.getAttribute("data-title")||"";
+      lbCount.textContent=(cur+1)+" / "+list.length;
+      void lbImg.offsetWidth;
+      lbImg.classList.add("in");
+    }
+    function openLb(it){
+      lastFocus=doc.activeElement;
+      list=visible();
+      lbShow(list.indexOf(it));
+      lb.classList.add("open");
+      lb.setAttribute("aria-hidden","false");
+      doc.body.style.overflow="hidden";
+      lbClose.focus();
+    }
+    function closeLb(){
+      lb.classList.remove("open");
+      lb.setAttribute("aria-hidden","true");
+      doc.body.style.overflow="";
+      if(lastFocus&&lastFocus.focus)lastFocus.focus();
+    }
+    gItems.forEach(function(it){it.addEventListener("click",function(){openLb(it);});});
+    lbClose.addEventListener("click",closeLb);
+    lbPrev.addEventListener("click",function(){lbShow(cur-1);});
+    lbNext.addEventListener("click",function(){lbShow(cur+1);});
+    lb.addEventListener("click",function(e){if(e.target===lb)closeLb();});
+    doc.addEventListener("keydown",function(e){
+      if(!lb.classList.contains("open"))return;
+      if(e.key==="Escape")closeLb();
+      else if(e.key==="ArrowLeft")lbShow(cur-1);
+      else if(e.key==="ArrowRight")lbShow(cur+1);
+      else if(e.key==="Tab"){
+        var f=[lbClose,lbPrev,lbNext], i=f.indexOf(doc.activeElement);
+        e.preventDefault();
+        f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus();
+      }
+    });
+    var tx=null;
+    lb.addEventListener("touchstart",function(e){tx=e.touches[0].clientX;},{passive:true});
+    lb.addEventListener("touchend",function(e){
+      if(tx===null)return;
+      var dx=e.changedTouches[0].clientX-tx; tx=null;
+      if(Math.abs(dx)>50)lbShow(cur+(dx<0?1:-1));
+    },{passive:true});
   })();
   </script>
 </body>
