@@ -12,7 +12,6 @@ Site da Fretur Fretamento e Turismo. As páginas são geradas no servidor (SSR/I
 
 ```bash
 npm install
-cp .env.example .env.local
 npm run dev
 ```
 
@@ -22,11 +21,11 @@ Abra http://localhost:3000.
 
 | Variável | Valor |
 | --- | --- |
-| `NEXT_PUBLIC_SANITY_PROJECT_ID` | `o6bfdhz4` |
-| `NEXT_PUBLIC_SANITY_DATASET` | `production` |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` 
+| `NEXT_PUBLIC_SANITY_DATASET` 
 | `SANITY_POST_TYPE` | nome do tipo de notícia no Studio (padrão `post`) |
-| `NEXT_PUBLIC_SITE_URL` | `https://fretur.com.br` |
-| `SANITY_REVALIDATE_SECRET` | uma senha longa, usada no webhook |
+| `NEXT_PUBLIC_SITE_URL` | 
+| `SANITY_REVALIDATE_SECRET` 
 
 ## Publicar na Vercel
 
