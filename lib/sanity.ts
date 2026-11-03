@@ -37,6 +37,8 @@ export type PortableBlock = {
 
 export type PostFull = Post & {
   body?: PortableBlock[] | null;
+  /** Preenchido quando o conteúdo é texto simples (campo "text") */
+  bodyText?: string | null;
   imageWidth?: number | null;
   imageHeight?: number | null;
 };
@@ -57,6 +59,7 @@ const CARD_FIELDS = `
 const BODY_FIELDS = `
   "imageWidth": coalesce(mainImage.asset->metadata.dimensions.width, coverImage.asset->metadata.dimensions.width, image.asset->metadata.dimensions.width),
   "imageHeight": coalesce(mainImage.asset->metadata.dimensions.height, coverImage.asset->metadata.dimensions.height, image.asset->metadata.dimensions.height),
+  "bodyText": string(coalesce(body, content)),
   "body": coalesce(body, content)[]{
     ...,
     _type == "image" => {

@@ -116,7 +116,7 @@ export default async function PostPage({ params }: Props) {
             </figure>
           ) : null}
 
-          <PortableBody blocks={post.body} />
+          <PortableBody blocks={post.body} text={post.bodyText} />
 
           <div className="article-share">
             <a

@@ -9,7 +9,7 @@ function safeHref(h?: string): string | null {
 function renderSpans(block: PortableBlock): ReactNode[] {
   const defs = new Map((block.markDefs ?? []).map((d) => [d._key, d]));
   return (block.children ?? []).map((ch, i) => {
-    let node: ReactNode = ch.text ?? "";
+    let node: ReactNode = withBreaks(ch.text ?? "", `s${i}`);
     for (const m of ch.marks ?? []) {
       if (m === "strong") node = <strong key={`${i}-${m}`}>{node}</strong>;
       else if (m === "em") node = <em key={`${i}-${m}`}>{node}</em>;
@@ -35,8 +35,35 @@ function renderSpans(block: PortableBlock): ReactNode[] {
   });
 }
 
+/** Quebras de linha (Shift+Enter no Studio) viram <br />; sem isso o HTML as ignora. */
+function withBreaks(text: string, keyPrefix: string): ReactNode[] {
+  return text.split("\n").flatMap((line, i, arr) =>
+    i < arr.length - 1 ? [line, <br key={`${keyPrefix}-br-${i}`} />] : [line],
+  );
+}
+
+/** Texto simples (campo "text" do Sanity): parágrafos separados por linha em branco. */
+function renderPlainText(text: string): ReactNode[] {
+  return text
+    .split(/\n{2,}/)
+    .map((p) => p.trim())
+    .filter(Boolean)
+    .map((p, i) => <p key={`plain-${i}`}>{withBreaks(p, `plain-${i}`)}</p>);
+}
+
 /** Renderiza o conteúdo (Portable Text) das matérias no servidor, sem dependências extras. */
-export default function PortableBody({ blocks }: { blocks?: PortableBlock[] | null }) {
+export default function PortableBody({
+  blocks,
+  text,
+}: {
+  blocks?: PortableBlock[] | null;
+  /** Usado quando o conteúdo no Sanity é um campo de texto simples em vez de texto rico */
+  text?: string | null;
+}) {
+  if ((!blocks || blocks.length === 0) && text) {
+    return <div className="article-body">{renderPlainText(text)}</div>;
+  }
+
   const out: ReactNode[] = [];
   let list: { type: "ul" | "ol"; items: ReactNode[] } | null = null;
 
