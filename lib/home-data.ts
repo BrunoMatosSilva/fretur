@@ -4,7 +4,7 @@ export type IconName =
   | "i-shield" | "i-armchair" | "i-pin" | "i-clock" | "i-building" | "i-palm" | "i-calendar"
   | "i-plane" | "i-users" | "i-sliders";
 
-export const HERO_META = ["São Paulo e região", "Atendimento corporativo e turístico", "Contato rápido pelo WhatsApp"];
+export const HERO_META = ["São Paulo e região", "Fretado para Empresa: Seg - Sex", "Contato rápido pelo WhatsApp"];
 
 export const HERO_CHIPS = [
   "Congonhas, Guarulhos e Viracopos",
