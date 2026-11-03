@@ -52,6 +52,7 @@ export default function Footer() {
             (11) 97745-2500
           </a>
           <p>Atendimento rápido para orçamentos e reservas.</p>
+          <p style={{ marginTop: 14 }}>Fretado para Empresa: <b>Seg - Sex</b></p>
         </div>
       </div>
 
