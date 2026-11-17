@@ -37,6 +37,8 @@ export default function Footer() {
             <b style={{ color: "#fff", fontWeight: 500 }}>Atuação</b>
             <br />
             Corporativo, turismo, eventos, receptivo e viagens em grupo
+            <br />
+            Veículos cadastrados em todos os órgãos de fiscalização do Brasil
           </p>
         </div>
 
