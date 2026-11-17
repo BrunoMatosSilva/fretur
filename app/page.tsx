@@ -47,8 +47,10 @@ export default async function HomePage() {
             <span className="eyebrow is-yellow">Pontualidade, segurança e conforto</span>
             <h1>Transporte executivo e turismo com padrão profissional</h1>
             <p className="lead">
-              A Fretur atende traslados corporativos, transfer para aeroportos, fretamento de ônibus, viagens em grupo,
-              turismo receptivo e eventos sociais em São Paulo com atendimento ágil e direto pelo WhatsApp.
+              A Fretur realiza traslados corporativos, transfer para aeroportos, viagens em grupo, turismo receptivo e
+              eventos sociais, com micro-ônibus e vans executivos (ônibus sob consulta, com parceiros). Saímos de
+              Guarulhos para São Paulo e para viagens estaduais e interestaduais em qualquer lugar do Brasil, com
+              atendimento ágil e direto pelo WhatsApp.
             </p>
             <div className="hero-cta">
               <a className="btn btn-primary" href={waLink(MSG_ORCAMENTO)} target="_blank" rel="noopener noreferrer">
@@ -140,8 +142,8 @@ export default async function HomePage() {
               <h2>Veículos preparados para diferentes perfis de atendimento</h2>
             </div>
             <p {...rv("up", 1, 0.12)}>
-              A Fretur opera com veículos pensados para viagens executivas, grupos e serviços de receptivo, mantendo
-              padrão de conforto, climatização e segurança.
+              Viagem com conforto e segurança, com motoristas qualificados para o transporte de passageiros. Todos os
+              veículos são executivos e cadastrados nos órgãos de fiscalização.
             </p>
           </div>
 
@@ -149,6 +151,7 @@ export default async function HomePage() {
             {FLEET.map((v, i) => (
               <article className="fleet-card lift" key={v.title} {...rv("up", i, 0.12, 3)}>
                 <div className="fleet-visual">
+                  <span className="fleet-badge">{v.seats} lugares</span>
                   <Image
                     src={v.src}
                     alt={v.alt}
@@ -164,6 +167,11 @@ export default async function HomePage() {
                   </div>
                   <strong>{v.sub}</strong>
                   <p>{v.text}</p>
+                  <ul className="fleet-features">
+                    {v.features.map((f) => (
+                      <li key={f}>{f}</li>
+                    ))}
+                  </ul>
                   <a className="btn btn-primary btn-sm" href={waLink(v.msg)} target="_blank" rel="noopener noreferrer">
                     Solicitar orçamento
                   </a>
@@ -171,6 +179,11 @@ export default async function HomePage() {
               </article>
             ))}
           </div>
+
+          <p className="fleet-note" {...rv("up", 0, 0.1)}>
+            <strong>Precisa de um ônibus maior?</strong> Também atendemos grupos grandes com ônibus convencionais ou
+            executivos, por meio de empresas parceiras. Peça um orçamento pelo WhatsApp.
+          </p>
         </div>
       </section>
 
@@ -337,12 +350,16 @@ export default async function HomePage() {
               exige organização, responsabilidade e atenção à experiência do passageiro.
             </p>
             <p>
-              Nosso objetivo é simplificar deslocamentos para empresas, grupos, famílias e turistas em São Paulo,
-              oferecendo um atendimento que combina pontualidade, segurança e conforto.
+              Nosso objetivo é simplificar deslocamentos para empresas, grupos, famílias e turistas em Guarulhos,
+              São Paulo e em todo o Brasil, oferecendo um atendimento que combina pontualidade, segurança e conforto.
             </p>
             <p>
               Do transfer executivo ao transporte para eventos sociais, viagens e receptivo, cada operação é conduzida
               com planejamento, agilidade e cuidado com o tempo de quem contrata.
+            </p>
+            <p>
+              Somos uma empresa cadastrada em todos os órgãos oficiais de fiscalização das estradas brasileiras, o que
+              nos dá total direito de viajar para qualquer cidade do Brasil.
             </p>
           </div>
 

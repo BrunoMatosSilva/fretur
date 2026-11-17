@@ -3,7 +3,7 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://fretur.com
 export const SITE_NAME = "Fretur Fretamento e Turismo";
 
 export const SITE_DESCRIPTION =
-  "Fretur oferece transporte executivo, transfer para aeroportos, fretamento para eventos, turismo e viagens em grupo com conforto, segurança e pontualidade em São Paulo.";
+  "Fretur oferece transporte executivo, transfer para aeroportos, fretamento para eventos, turismo e viagens em grupo com conforto, segurança e pontualidade em Guarulhos, São Paulo e todo o Brasil.";
 
 export const WHATSAPP_NUMBER = "5511977452500";
 export const WHATSAPP_DEFAULT_MSG = "Olá! Vim pelo site da Fretur e gostaria de solicitar um orçamento.";

@@ -624,3 +624,11 @@
 .related h2{font-size:24px;letter-spacing:-0.02em;margin-bottom:20px;}
 .related .news-list{grid-template-columns:repeat(2,minmax(0,1fr));}
 @media (max-width:640px){.related .news-list{grid-template-columns:1fr;}}
+
+/* ---- Frota: lugares, opcionais e aviso de ônibus ---- */
+.fleet-badge{position:absolute;left:14px;top:14px;z-index:2;padding:6px 14px;border-radius:999px;background:var(--yellow);color:var(--graphite);font-size:12.5px;font-weight:700;box-shadow:0 8px 20px rgba(0,0,0,0.25);}
+.fleet-features{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:8px;}
+.fleet-features li{display:flex;gap:10px;font-size:14px;line-height:1.45;color:var(--graphite);}
+.fleet-features li::before{content:"";flex:none;width:8px;height:8px;margin-top:7px;border-radius:50%;background:var(--red);}
+.fleet-note{margin:28px 0 0;padding:20px 24px;border-radius:var(--radius);background:#fff;border:1px solid var(--line);border-left:4px solid var(--yellow);color:var(--muted);font-size:15px;}
+.fleet-note strong{color:var(--graphite);}

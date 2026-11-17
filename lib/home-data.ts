@@ -4,19 +4,20 @@ export type IconName =
   | "i-shield" | "i-armchair" | "i-pin" | "i-clock" | "i-building" | "i-palm" | "i-calendar"
   | "i-plane" | "i-users" | "i-sliders";
 
-export const HERO_META = ["São Paulo e região", "Fretamento diário", "Contato rápido pelo WhatsApp"];
+export const HERO_META = ["Guarulhos, São Paulo e todo o Brasil", "Atendimento corporativo e turístico", "Contato rápido pelo WhatsApp"];
 
 export const HERO_CHIPS = [
   "Congonhas, Guarulhos e Viracopos",
   "Feiras, congressos e eventos corporativos",
   "Porto de Santos e embarques de cruzeiro",
-  "Passeios, excursões e viagens em grupo",
+  "Viagens estaduais, interestaduais e excursões",
+  "Fretamento diário: Guarulhos → Zona Sul e Alphaville",
 ];
 
 export const FEATURES: { icon: IconName; lines: [string, string] }[] = [
   { icon: "i-shield", lines: ["Segurança", "em primeiro lugar"] },
   { icon: "i-armchair", lines: ["Conforto em", "todas as viagens"] },
-  { icon: "i-pin", lines: ["Atendimento em", "Guarulhos e região"] },
+  { icon: "i-pin", lines: ["Base em Guarulhos,", "viagens por todo o Brasil"] },
   { icon: "i-clock", lines: ["Experiência", "e pontualidade"] },
 ];
 
@@ -25,7 +26,9 @@ export const TICKER = [
   "Excursões e viagens",
   "Feiras e congressos",
   "Contrato mensal",
-  "Fretamento de ônibus",
+  "Ônibus, micro-ônibus e vans executivos",
+  "Fretamento diário",
+  "Viagens interestaduais",
   "Turismo receptivo",
   "Transfer para aeroportos",
 ];
@@ -39,7 +42,7 @@ export const SERVICES: { icon: IconName; title: string; text: string }[] = [
   {
     icon: "i-palm",
     title: "Turismo e passeios",
-    text: "Roteiros para city tour, turismo receptivo, compras, cultura e lazer com flexibilidade para grupos, famílias e visitantes em São Paulo.",
+    text: "Roteiros para city tour, turismo receptivo, compras, cultura e lazer com flexibilidade para grupos, famílias e visitantes em São Paulo e em qualquer cidade do Brasil.",
   },
   {
     icon: "i-calendar",
@@ -53,43 +56,85 @@ export const SERVICES: { icon: IconName; title: string; text: string }[] = [
   },
   {
     icon: "i-users",
-    title: "Viagens em grupo",
-    text: "Fretamento para excursões, viagens em família, grupos de amigos e saídas planejadas com logística mais prática e econômica.",
+    title: "Viagens estaduais e interestaduais",
+    text: "Excursões, viagens em família e grupos de amigos para São Paulo, Rio de Janeiro, Minas Gerais, Paraná e qualquer lugar do Brasil, com logística prática e econômica.",
   },
   {
-    icon: "i-sliders",
-    title: "Atendimento sob medida",
-    text: "Cada operação é ajustada à sua demanda, com roteiros, horários e tipo de veículo definidos de acordo com o seu grupo e objetivo.",
+    icon: "i-clock",
+    title: "Fretamento diário",
+    text: "Transporte diário de Guarulhos para a Zona Sul de São Paulo (Pinheiros, Vila Olímpia, Cidade Jardim, Cidade Monções e Brooklin) e para Alphaville.",
   },
 ];
 
-export const FLEET = [
+export type FleetItem = {
+  title: string;
+  seats: number;
+  sub: string;
+  text: string;
+  features: string[];
+  src: string;
+  alt: string;
+  pos: string;
+  msg: string;
+};
+
+export const FLEET: FleetItem[] = [
   {
-    title: "Ônibus executivo",
-    sub: "Grupos · Ar-condicionado · Conforto total",
-    text: "Ideal para grupos corporativos, eventos, turismo receptivo e viagens em equipe com mais comodidade.",
+    title: "Micro-ônibus executivo 2024",
+    seats: 34,
+    sub: "Grupos médios · Conforto · Agilidade",
+    text: "Indicado para grupos, traslados corporativos, passeios e excursões, com estrutura para viagens curtas e longas.",
+    features: [
+      "Wi-Fi",
+      "Geladeira com copinhos de água para consumo durante a viagem",
+      "DVD e monitores",
+      "Microfone",
+      "Veículo cadastrado em todos os órgãos de fiscalização do Brasil",
+    ],
     src: "/images/micro-grafite-1409-rua.jpg",
-    alt: "Ônibus executivo grafite e amarelo da Fretur estacionado em rua de Guarulhos",
+    alt: "Micro-ônibus executivo 2024 grafite e amarelo da Fretur, com 34 lugares",
     pos: "62% center",
-    msg: "Olá! Gostaria de solicitar orçamento para ônibus executivo da Fretur.",
+    msg: "Olá! Gostaria de solicitar orçamento para o micro-ônibus executivo (34 lugares) da Fretur.",
   },
   {
-    title: "Micro-ônibus",
-    sub: "Grupos médios · Poltronas confortáveis · Agilidade",
-    text: "Indicado para grupos menores, traslados corporativos, passeios e excursões que pedem mais agilidade no trânsito, sem abrir mão do conforto.",
-    src: "/images/micro-prata-2211.jpg",
-    alt: "Micro-ônibus prata e amarelo da Fretur",
-    pos: "center",
-    msg: "Olá! Gostaria de solicitar orçamento para micro-ônibus da Fretur.",
-  },
-  {
-    title: "Van executiva",
-    sub: "Grupos · Bagagens · Viagens e transfers longos",
-    text: "Opção indicada para operações com malas, recepção em aeroportos, deslocamentos para porto e viagens com mais estrutura.",
+    title: "Van executiva 2024",
+    seats: 20,
+    sub: "Grupos · Bagagens · Viagens longas",
+    text: "Van para 20 pessoas, com entretenimento a bordo e o conforto que o seu grupo precisa na estrada.",
+    features: [
+      "Ar-condicionado",
+      "Bancos reclináveis",
+      "Wi-Fi",
+      "TV de 20 polegadas com Netflix e Amazon Prime",
+      "Bluetooth",
+      "Porta automática",
+      "Porta-pacotes",
+      "Seguro de passageiros",
+      "Cadastro em todos os órgãos, para a sua viagem não ter problema com fiscalização",
+    ],
     src: "/images/sprinter-grafite-1807.jpg",
-    alt: "Van executiva grafite com faixas amarelas da Fretur",
+    alt: "Van executiva 2024 grafite com faixas amarelas da Fretur, com 20 lugares",
     pos: "center",
-    msg: "Olá! Gostaria de solicitar orçamento para van executiva da Fretur.",
+    msg: "Olá! Gostaria de solicitar orçamento para a van executiva 2024 (20 lugares) da Fretur.",
+  },
+  {
+    title: "Van super executiva 2025",
+    seats: 18,
+    sub: "Mais espaço · Mais conforto",
+    text: "Van super executiva para 18 pessoas, ideal para traslados e viagens com mais conforto e estrutura.",
+    features: [
+      "Bluetooth",
+      "Ar-condicionado",
+      "Bancos reclináveis",
+      "Porta automática",
+      "Porta-pacotes",
+      "Seguro de passageiros",
+      "Cadastro em todos os órgãos fiscalizadores das estradas brasileiras",
+    ],
+    src: "/images/sprinter-prata-1709.jpg",
+    alt: "Van super executiva 2025 clara com faixas amarelas da Fretur, com 18 lugares",
+    pos: "center",
+    msg: "Olá! Gostaria de solicitar orçamento para a van super executiva 2025 (18 lugares) da Fretur.",
   },
 ];
 
@@ -126,9 +171,9 @@ export const PORT_CHECKS = [
 ];
 
 export const WHY = [
-  { n: "01", title: "Atendimento premium", text: "Cordialidade e discrição em cada interação, com foco no público mais exigente de São Paulo." },
+  { n: "01", title: "Atendimento premium", text: "Cordialidade e discrição em cada interação, com foco no público mais exigente." },
   { n: "02", title: "Veículos seguros", text: "Veículos revisados e monitorados para uma viagem tranquila do embarque ao desembarque." },
-  { n: "03", title: "Conhecimento local", text: "Especialistas em São Paulo, com agilidade mesmo nos horários de pico." },
+  { n: "03", title: "Conhecimento local", text: "Conhecemos as rotas de São Paulo e das principais estradas do Brasil, com agilidade mesmo nos horários de pico." },
 ];
 
 export const BENEFITS = [

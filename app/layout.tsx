@@ -29,7 +29,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Fretur | Transporte Executivo, Turismo e Fretamento em São Paulo",
+    default: "Fretur | Transporte Executivo, Turismo e Fretamento em Guarulhos e todo o Brasil",
     template: "%s | Fretur",
   },
   description: SITE_DESCRIPTION,
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
     siteName: "Fretur",
     title: "Fretur | Transporte Executivo, Turismo e Fretamento",
     description:
-      "Transfer, turismo, receptivo, fretamento corporativo e transporte para eventos em São Paulo com atendimento ágil pelo WhatsApp.",
+      "Transfer, turismo, receptivo, fretamento corporativo e transporte para eventos em Guarulhos, São Paulo e todo o Brasil com atendimento ágil pelo WhatsApp.",
     images: [{ url: "/og-fretur.jpg", width: 1200, height: 630, alt: "Fretur Fretamento e Turismo" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Fretur",
     description:
-      "Transporte executivo, turismo e fretamento em São Paulo com foco em conforto, segurança e pontualidade.",
+      "Transporte executivo, turismo e fretamento em Guarulhos, São Paulo e todo o Brasil com foco em conforto, segurança e pontualidade.",
     images: ["/og-fretur.jpg"],
   },
 };
@@ -61,7 +61,7 @@ const jsonLd = {
   "@type": "TravelAgency",
   name: SITE_NAME,
   description:
-    "Empresa de transporte executivo, turismo receptivo, fretamento e viagens em grupo em Guarulhos, São Paulo e região.",
+    "Empresa de transporte executivo, turismo receptivo, fretamento e viagens estaduais e interestaduais em grupo, com saída de Guarulhos.",
   telephone: "+55 11 97745-2500",
   address: {
     "@type": "PostalAddress",
@@ -69,7 +69,7 @@ const jsonLd = {
     addressRegion: "SP",
     addressCountry: "BR",
   },
-  areaServed: "Guarulhos, São Paulo e região",
+  areaServed: "Brasil",
   logo: `${SITE_URL}/images/logo-fretur.png`,
   image: `${SITE_URL}/og-fretur.jpg`,
   url: SITE_URL,
