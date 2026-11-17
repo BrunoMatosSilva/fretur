@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="footer-brand">
           <Image src="/images/logo-fretur.png" alt="Fretur Fretamento e Turismo" width={560} height={346} />
           <p>
-            Transporte executivo, turismo, transfer para aeroportos, fretamento com micro-ônibus e vans executivos e atendimento para eventos
+            Transporte executivo, turismo, transfer para aeroportos, fretamento com micro-ônibus e vans executivas e atendimento para eventos
             em Guarulhos, São Paulo e todo o Brasil.
           </p>
         </div>

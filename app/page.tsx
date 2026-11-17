@@ -48,7 +48,7 @@ export default async function HomePage() {
             <h1>Transporte executivo e turismo com padrão profissional</h1>
             <p className="lead">
               A Fretur realiza traslados corporativos, transfer para aeroportos, viagens em grupo, turismo receptivo e
-              eventos sociais, com micro-ônibus e vans executivos (ônibus sob consulta, com parceiros). Saímos de
+              eventos sociais, com micro-ônibus e vans executivas (ônibus sob consulta, com parceiros). Saímos de
               Guarulhos para São Paulo e para viagens estaduais e interestaduais em qualquer lugar do Brasil, com
               atendimento ágil e direto pelo WhatsApp.
             </p>

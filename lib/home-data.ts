@@ -26,7 +26,7 @@ export const TICKER = [
   "Excursões e viagens",
   "Feiras e congressos",
   "Contrato mensal",
-  "Ônibus, micro-ônibus e vans executivos",
+  "Ônibus, micro-ônibus e vans executivas",
   "Fretamento diário",
   "Viagens interestaduais",
   "Turismo receptivo",
