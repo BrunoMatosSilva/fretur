@@ -80,7 +80,7 @@ export type FleetItem = {
 
 export const FLEET: FleetItem[] = [
   {
-    title: "Micro-ônibus executivo 2024",
+    title: "Micro-ônibus Executivo 2024",
     seats: 34,
     sub: "Grupos médios · Conforto · Agilidade",
     text: "Indicado para grupos, traslados corporativos, passeios e excursões, com estrutura para viagens curtas e longas.",
@@ -97,7 +97,7 @@ export const FLEET: FleetItem[] = [
     msg: "Olá! Gostaria de solicitar orçamento para o micro-ônibus executivo (34 lugares) da Fretur.",
   },
   {
-    title: "Van executiva 2024",
+    title: "Van Executiva 2024",
     seats: 20,
     sub: "Grupos · Bagagens · Viagens longas",
     text: "Van para 20 pessoas, com entretenimento a bordo e o conforto que o seu grupo precisa na estrada.",
@@ -118,7 +118,7 @@ export const FLEET: FleetItem[] = [
     msg: "Olá! Gostaria de solicitar orçamento para a van executiva 2024 (20 lugares) da Fretur.",
   },
   {
-    title: "Van super executiva 2025",
+    title: "Van Super Executiva 2025",
     seats: 18,
     sub: "Mais espaço · Mais conforto",
     text: "Van super executiva para 18 pessoas, ideal para traslados e viagens com mais conforto e estrutura.",
