@@ -161,6 +161,11 @@ export const GALLERY: GalleryItem[] = [
   { src: "/images/interior-apoios-vermelhos.jpg", alt: "Interior com apoios de cabeça vermelhos e amarelos e iluminação no teto", title: "Apoios de cabeça nas cores da marca", cap: "Apoios de cabeça nas cores da marca", cat: "int", cls: "" },
   { src: "/images/micro-grafite-1409-rua.jpg", alt: "Micro-ônibus executivo grafite com a marca Fretur em rua da cidade", title: "Micro-ônibus executivo em operação", cap: "Micro-ônibus executivo em operação", cat: "ext", cls: "", pos: "62% center" },
   { src: "/images/bagageiro.jpg", alt: "Bagageiro amplo com piso forrado e iluminação", title: "Bagageiro espaçoso para as malas", cap: "Bagageiro espaçoso para as malas", cat: "int", cls: "" },
+  { src: "/images/micro-prata-traseira.jpg", alt: "Traseira do micro-ônibus prata com a marca Fretur, telefone de contato e número 2211", title: "Traseira do micro-ônibus executivo", cap: "Traseira do micro-ônibus executivo", cat: "ext", cls: "g-tall" },
+  { src: "/images/micro-prata-lateral-terra.jpg", alt: "Micro-ônibus executivo prata com faixas amarelas e selo de 20 anos, lateral completa", title: "Micro-ônibus executivo prata, lateral", cap: "Micro-ônibus executivo prata, lateral", cat: "ext", cls: "g-wide", pos: "center 45%" },
+  { src: "/images/micro-prata-frente.jpg", alt: "Frente do micro-ônibus prata com a marca Fretur e faixa amarela no para-choque", title: "Frente do micro-ônibus executivo", cap: "Frente do micro-ônibus executivo", cat: "ext", cls: "g-tall" },
+  { src: "/images/interior-frigobar.jpg", alt: "Frigobar a bordo com tampa aberta entre poltronas de couro e tecido", title: "Frigobar a bordo", cap: "Frigobar a bordo", cat: "int", cls: "" },
+  { src: "/images/interior-usb.jpg", alt: "Entrada USB de carregamento ao lado da poltrona de couro caramelo", title: "Carregador USB junto à poltrona", cap: "Carregador USB junto à poltrona", cat: "int", cls: "" },
 ];
 
 export const PORT_CHECKS = [
