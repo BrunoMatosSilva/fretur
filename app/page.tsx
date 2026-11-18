@@ -48,7 +48,7 @@ export default async function HomePage() {
             <h1>Transporte executivo e turismo com padrão profissional</h1>
             <p className="lead">
               A Fretur realiza traslados corporativos, transfer para aeroportos, viagens em grupo, turismo receptivo e
-              eventos sociais, com micro-ônibus e vans executivas (ônibus sob consulta, com parceiros). Saímos de
+              eventos sociais, com micro-ônibus e vans executivos (ônibus sob consulta, com parceiros). Saímos de
               Guarulhos para São Paulo e para viagens estaduais e interestaduais em qualquer lugar do Brasil, com
               atendimento ágil e direto pelo WhatsApp.
             </p>
@@ -195,7 +195,7 @@ export default async function HomePage() {
               <span className="eyebrow is-yellow">Galeria da frota</span>
               <h2>Por dentro e por fora</h2>
             </div>
-            <p {...rv("up", 1, 0.12)}>Conheça de perto os veículos que levam o seu grupo. Toque em uma foto para ampliar.</p>
+            <p {...rv("up", 1, 0.12)}>Conheça de perto os veículos que levam o seu grupo. Escolha o veículo, deslize para ver as fotos e toque para ampliar.</p>
           </div>
           <Gallery groups={GALLERY_GROUPS} />
         </div>

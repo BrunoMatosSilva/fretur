@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import localFont from "next/font/local";
 import "./globals.css";
 import Sprite from "@/components/Sprite";
@@ -79,7 +80,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={poppins.variable} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.classList.add("js")' }} />
+        <Script id="enable-js-class" strategy="beforeInteractive">
+          document.documentElement.classList.add("js")
+        </Script>
       </head>
       <body>
         <script
