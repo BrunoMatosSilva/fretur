@@ -9,7 +9,7 @@ import {
   BENEFITS,
   FEATURES,
   FLEET,
-  GALLERY,
+  GALLERY_GROUPS,
   HERO_CHIPS,
   HERO_META,
   PORT_CHECKS,
@@ -197,7 +197,7 @@ export default async function HomePage() {
             </div>
             <p {...rv("up", 1, 0.12)}>Conheça de perto os veículos que levam o seu grupo. Toque em uma foto para ampliar.</p>
           </div>
-          <Gallery items={GALLERY} />
+          <Gallery groups={GALLERY_GROUPS} />
         </div>
       </section>
 

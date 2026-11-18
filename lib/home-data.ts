@@ -26,7 +26,7 @@ export const TICKER = [
   "Excursões e viagens",
   "Feiras e congressos",
   "Contrato mensal",
-  "Ônibus, micro-ônibus e vans executivas",
+  "Ônibus, micro-ônibus e vans executivos",
   "Fretamento diário",
   "Viagens interestaduais",
   "Turismo receptivo",
@@ -80,7 +80,7 @@ export type FleetItem = {
 
 export const FLEET: FleetItem[] = [
   {
-    title: "Micro-ônibus Executivo 2024",
+    title: "Micro-ônibus executivo 2024",
     seats: 34,
     sub: "Grupos médios · Conforto · Agilidade",
     text: "Indicado para grupos, traslados corporativos, passeios e excursões, com estrutura para viagens curtas e longas.",
@@ -97,7 +97,7 @@ export const FLEET: FleetItem[] = [
     msg: "Olá! Gostaria de solicitar orçamento para o micro-ônibus executivo (34 lugares) da Fretur.",
   },
   {
-    title: "Van Executiva 2024",
+    title: "Van executiva 2024",
     seats: 20,
     sub: "Grupos · Bagagens · Viagens longas",
     text: "Van para 20 pessoas, com entretenimento a bordo e o conforto que o seu grupo precisa na estrada.",
@@ -118,7 +118,7 @@ export const FLEET: FleetItem[] = [
     msg: "Olá! Gostaria de solicitar orçamento para a van executiva 2024 (20 lugares) da Fretur.",
   },
   {
-    title: "Van Super Executiva 2025",
+    title: "Van super executiva 2025",
     seats: 18,
     sub: "Mais espaço · Mais conforto",
     text: "Van super executiva para 18 pessoas, ideal para traslados e viagens com mais conforto e estrutura.",
@@ -138,34 +138,65 @@ export const FLEET: FleetItem[] = [
   },
 ];
 
-export type GalleryItem = {
+/* Galeria em carrossel, agrupada por veículo.
+   A ordem das fotos segue o guia do cliente (os números entre parênteses são os números do guia).
+   Para incluir uma foto nova: copie para public/images/ e acrescente uma linha na lista do grupo. */
+export type GallerySlide = {
   src: string;
   alt: string;
-  title: string;
   cap: string;
-  cat: "ext" | "int";
-  cls: string;
-  pos?: string;
 };
 
-export const GALLERY: GalleryItem[] = [
-  { src: "/images/micro-prata-2211.jpg", alt: "Micro-ônibus executivo prata com faixas amarelas e a marca Fretur", title: "Micro-ônibus executivo prata", cap: "Micro-ônibus executivo prata", cat: "ext", cls: "g-big" },
-  { src: "/images/interior-led-azul.jpg", alt: "Interior com poltronas de couro preto e iluminação em LED azul no teto", title: "Poltronas em couro com iluminação em LED", cap: "Poltronas em couro com iluminação em LED", cat: "int", cls: "g-tall" },
-  { src: "/images/sprinter-grafite-1807.jpg", alt: "Van executiva grafite com faixas amarelas e a marca Fretur", title: "Van executiva grafite", cap: "Van executiva grafite", cat: "ext", cls: "" },
-  { src: "/images/interior-tv.jpg", alt: "Interior com TV instalada no teto e apoios de cabeça nas cores da marca", title: "TV a bordo para a viagem render", cap: "TV a bordo para a viagem render", cat: "int", cls: "" },
-  { src: "/images/interior-poltronas-marrom.jpg", alt: "Corredor central com fileiras de poltronas marrons e apoio de braço", title: "Poltronas amplas com apoio de braço", cap: "Poltronas amplas com apoio de braço", cat: "int", cls: "g-tall" },
-  { src: "/images/micro-grafite-1409-parque.jpg", alt: "Micro-ônibus executivo grafite com a marca Fretur estacionado em área verde", title: "Micro-ônibus executivo na estrada de terra", cap: "Micro-ônibus executivo em passeio", cat: "ext", cls: "g-wide", pos: "center 40%" },
-  { src: "/images/sprinter-traseira-1709.jpg", alt: "Traseira da van prata com a marca Fretur e a rota Guarulhos x Zona Sul", title: "Traseira: Guarulhos x Zona Sul", cap: "Traseira: Guarulhos x Zona Sul", cat: "ext", cls: "g-tall" },
-  { src: "/images/sprinter-prata-1709.jpg", alt: "Van executiva prata com faixas amarelas ao entardecer", title: "Van executiva prata ao entardecer", cap: "Van executiva prata ao entardecer", cat: "ext", cls: "g-wide", pos: "center 45%" },
-  { src: "/images/interior-couro-costura-vermelha.jpg", alt: "Poltronas de couro preto com costura vermelha e cortinas", title: "Couro com costura vermelha", cap: "Couro com costura vermelha", cat: "int", cls: "" },
-  { src: "/images/interior-apoios-vermelhos.jpg", alt: "Interior com apoios de cabeça vermelhos e amarelos e iluminação no teto", title: "Apoios de cabeça nas cores da marca", cap: "Apoios de cabeça nas cores da marca", cat: "int", cls: "" },
-  { src: "/images/micro-grafite-1409-rua.jpg", alt: "Micro-ônibus executivo grafite com a marca Fretur em rua da cidade", title: "Micro-ônibus executivo em operação", cap: "Micro-ônibus executivo em operação", cat: "ext", cls: "", pos: "62% center" },
-  { src: "/images/bagageiro.jpg", alt: "Bagageiro amplo com piso forrado e iluminação", title: "Bagageiro espaçoso para as malas", cap: "Bagageiro espaçoso para as malas", cat: "int", cls: "" },
-  { src: "/images/micro-prata-traseira.jpg", alt: "Traseira do micro-ônibus prata com a marca Fretur, telefone de contato e número 2211", title: "Traseira do micro-ônibus executivo", cap: "Traseira do micro-ônibus executivo", cat: "ext", cls: "g-tall" },
-  { src: "/images/micro-prata-lateral-terra.jpg", alt: "Micro-ônibus executivo prata com faixas amarelas e selo de 20 anos, lateral completa", title: "Micro-ônibus executivo prata, lateral", cap: "Micro-ônibus executivo prata, lateral", cat: "ext", cls: "g-wide", pos: "center 45%" },
-  { src: "/images/micro-prata-frente.jpg", alt: "Frente do micro-ônibus prata com a marca Fretur e faixa amarela no para-choque", title: "Frente do micro-ônibus executivo", cap: "Frente do micro-ônibus executivo", cat: "ext", cls: "g-tall" },
-  { src: "/images/interior-frigobar.jpg", alt: "Frigobar a bordo com tampa aberta entre poltronas de couro e tecido", title: "Frigobar a bordo", cap: "Frigobar a bordo", cat: "int", cls: "" },
-  { src: "/images/interior-usb.jpg", alt: "Entrada USB de carregamento ao lado da poltrona de couro caramelo", title: "Carregador USB junto à poltrona", cap: "Carregador USB junto à poltrona", cat: "int", cls: "" },
+export type GalleryGroup = {
+  id: string;
+  label: string;
+  slides: GallerySlide[];
+};
+
+export const GALLERY_GROUPS: GalleryGroup[] = [
+  {
+    id: "micro",
+    label: "Micro-ônibus executivo",
+    slides: [
+      { src: "/images/micro-grafite-1409-parque.jpg", alt: "Micro-ônibus executivo grafite da Fretur estacionado em área verde", cap: "Micro-ônibus executivo em passeio" }, // 1
+      { src: "/images/interior-poltronas-marrom.jpg", alt: "Corredor central com fileiras de poltronas marrons e apoio de braço", cap: "Poltronas amplas com apoio de braço" }, // 2
+      { src: "/images/micro-grafite-1409-rua.jpg", alt: "Micro-ônibus executivo grafite da Fretur em rua da cidade", cap: "Micro-ônibus executivo em operação" }, // 3
+      { src: "/images/micro-usb-poltrona.jpg", alt: "Entrada USB ao lado de poltrona de couro caramelo", cap: "Entrada USB junto às poltronas" }, // 4
+      { src: "/images/micro-geladeira.jpg", alt: "Geladeira instalada entre as poltronas, com a porta aberta e iluminada", cap: "Geladeira com água para os passageiros" }, // 7
+      { src: "/images/micro-prata-2211-traseira.jpg", alt: "Traseira do micro-ônibus prata 2211 com a marca e o contato da Fretur", cap: "Traseira com identificação e contato" }, // 14
+      // 15: foto ainda não enviada pelo cliente
+      { src: "/images/micro-prata-2211-frente.jpg", alt: "Frente do micro-ônibus prata e amarelo 2211 da Fretur", cap: "Frente do micro-ônibus executivo" }, // 16
+      { src: "/images/micro-prata-2211.jpg", alt: "Micro-ônibus executivo prata 2211 com faixas amarelas e a marca Fretur", cap: "Micro-ônibus executivo prata" }, // 17
+      { src: "/images/micro-prata-2211-lateral.jpg", alt: "Lateral do micro-ônibus executivo prata com o selo 20 anos", cap: "Vista lateral do micro-ônibus" }, // 18
+      { src: "/images/micro-prata-2211-lateral-arvore.jpg", alt: "Micro-ônibus executivo prata com a marca Fretur, vista lateral", cap: "Micro-ônibus prata em detalhe" }, // 19
+    ],
+  },
+  {
+    id: "van-grafite",
+    label: "Van grafite",
+    slides: [
+      { src: "/images/interior-couro-costura-vermelha.jpg", alt: "Interior da van com poltronas de couro preto com costura vermelha e cortinas", cap: "Couro com costura vermelha" }, // 10
+      { src: "/images/interior-led-azul.jpg", alt: "Interior da van com poltronas de couro e iluminação em LED azul no teto", cap: "Poltronas em couro com iluminação em LED" }, // 12
+      { src: "/images/sprinter-grafite-1807.jpg", alt: "Van executiva grafite com faixas amarelas e a marca Fretur", cap: "Van executiva grafite" }, // 13
+    ],
+  },
+  {
+    id: "van-prata",
+    label: "Van prata",
+    slides: [
+      { src: "/images/interior-apoios-vermelhos.jpg", alt: "Interior com apoios de cabeça vermelhos e amarelos e iluminação no teto", cap: "Apoios de cabeça nas cores da marca" }, // 5
+      { src: "/images/sprinter-prata-1709.jpg", alt: "Van executiva prata com faixas amarelas ao entardecer", cap: "Van executiva prata" }, // 6
+      { src: "/images/interior-tv.jpg", alt: "Interior com TV instalada no teto e apoios de cabeça nas cores da marca", cap: "TV a bordo para a viagem render" }, // 8
+      { src: "/images/sprinter-traseira-1709.jpg", alt: "Traseira da van prata com a marca Fretur e a rota Guarulhos x Zona Sul", cap: "Traseira: Guarulhos x Zona Sul" }, // 9
+    ],
+  },
+  {
+    id: "porta-malas",
+    label: "Porta-malas",
+    slides: [
+      { src: "/images/bagageiro.jpg", alt: "Porta-malas amplo com piso forrado e iluminação", cap: "Porta-malas espaçoso para as malas" }, // 11
+    ],
+  },
 ];
 
 export const PORT_CHECKS = [
