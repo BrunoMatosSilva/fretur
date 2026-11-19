@@ -264,10 +264,13 @@
     .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
     .fleet-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 36px rgba(24,24,24,0.07);display:flex;flex-direction:column;}
     .fleet-visual{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--graphite-2);}
+    .fleet-visual-trigger{width:100%;padding:0;border:0;color:inherit;text-align:left;cursor:pointer;}
+    .fleet-visual-trigger:focus-visible,.fleet-title-trigger:focus-visible{outline:3px solid var(--red);outline-offset:-3px;}
     .fleet-visual img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1);}
     .fleet-card:hover .fleet-visual img{transform:scale(1.07);}
     .fleet-copy{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1;}
     .fleet-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px;}
+    .fleet-title-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0;border:0;background:transparent;color:inherit;text-align:left;cursor:pointer;}
     .fleet-title h3{font-size:22px;letter-spacing:-0.02em;font-weight:700;}
     .fleet-title .ic{color:var(--red);width:22px;height:22px;stroke-width:2.6;transition:transform .3s ease;}
     .fleet-card:hover .fleet-title .ic{transform:translateX(5px);}
@@ -633,16 +636,18 @@
 .fleet-note{margin:28px 0 0;padding:20px 24px;border-radius:var(--radius);background:#fff;border:1px solid var(--line);border-left:4px solid var(--yellow);color:var(--muted);font-size:15px;}
 .fleet-note strong{color:var(--graphite);}
 
-/* ---- Galeria em carrossel ---- */
-.g-count{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:10px;padding:0 6px;border-radius:999px;background:rgba(255,255,255,0.16);font-size:12px;font-weight:700;line-height:1;}
-.g-chip[aria-pressed="true"] .g-count{background:rgba(24,24,24,0.16);}
+/* ---- Carrossel de fotos por veículo ---- */
+.fleet-gallery{position:fixed;inset:0;z-index:110;display:grid;place-items:center;padding:24px;background:rgba(10,10,10,0.94);}
+.fleet-gallery-dialog{width:min(1100px,100%);max-height:calc(100dvh - 48px);overflow-y:auto;}
+.fleet-gallery-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:16px;color:#fff;}
+.fleet-gallery-head h2{font-size:clamp(22px,4vw,32px);line-height:1.2;}
+.fleet-gallery-close{flex:none;width:48px;height:48px;display:grid;place-items:center;border:0;border-radius:50%;background:var(--yellow);color:var(--graphite);cursor:pointer;}
+.fleet-gallery-close .ic{width:22px;height:22px;}
 .gc-stage{position:relative;border-radius:20px;overflow:hidden;background:var(--graphite-2);outline-offset:4px;}
 .gc-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
 .gc-track::-webkit-scrollbar{display:none;}
 .gc-slide{position:relative;flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;aspect-ratio:16/10;}
-.gc-open{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:zoom-in;}
-.gc-cap{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:56px 22px 18px;pointer-events:none;background:linear-gradient(0deg,rgba(24,24,24,0.92),rgba(24,24,24,0));color:#fff;font-size:15px;font-weight:500;line-height:1.35;}
-.gc-cap .ic{width:34px;height:34px;padding:8px;border-radius:50%;background:var(--yellow);color:var(--graphite);stroke-width:2.4;}
+.gc-cap{position:absolute;left:0;right:0;bottom:0;padding:56px 22px 18px;pointer-events:none;background:linear-gradient(0deg,rgba(24,24,24,0.92),rgba(24,24,24,0));color:#fff;font-size:15px;font-weight:500;line-height:1.35;}
 .gc-count{position:absolute;left:16px;top:16px;padding:6px 14px;border-radius:999px;background:rgba(24,24,24,0.78);color:#fff;font-size:13px;font-weight:700;letter-spacing:.04em;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
 .gc-nav{position:absolute;top:50%;z-index:2;width:50px;height:50px;margin-top:-25px;display:grid;place-items:center;border:0;border-radius:50%;background:var(--yellow);color:var(--graphite);cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,0.35);transition:transform .2s ease,background .2s ease;}
 .gc-nav:hover{transform:scale(1.08);background:var(--yellow-hover);}
@@ -654,12 +659,16 @@
 .gc-thumb:hover{opacity:.9;}
 .gc-thumb[aria-current="true"]{opacity:1;border-color:var(--yellow);}
 @media (max-width:640px){
+  .fleet-gallery{padding:12px;}
+  .fleet-gallery-dialog{max-height:calc(100dvh - 24px);}
+  .fleet-gallery-head{margin-bottom:12px;}
+  .fleet-gallery-close{width:42px;height:42px;}
   .gc-slide{aspect-ratio:4/3;}
   .gc-nav{width:42px;height:42px;margin-top:-21px;}
   .gc-prev{left:10px;}
   .gc-next{right:10px;}
   .gc-cap{padding:44px 14px 12px;font-size:13px;}
-  .gc-cap .ic{display:none;}
+  .gc-cap{padding:44px 14px 12px;}
   .gc-thumb{flex-basis:88px;height:62px;}
 }
 @media (prefers-reduced-motion:reduce){.gc-thumb,.gc-nav{transition:none;}}

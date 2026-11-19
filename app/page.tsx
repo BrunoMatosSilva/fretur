@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Icon from "@/components/Icon";
-import Gallery from "@/components/Gallery";
+import Fleet from "@/components/Fleet";
 import Ticker from "@/components/Ticker";
 import { AsideList, FeatureCard, NewsCard } from "@/components/NewsCards";
 import {
@@ -147,57 +147,7 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="fleet-grid">
-            {FLEET.map((v, i) => (
-              <article className="fleet-card lift" key={v.title} {...rv("up", i, 0.12, 3)}>
-                <div className="fleet-visual">
-                  <span className="fleet-badge">{v.seats} lugares</span>
-                  <Image
-                    src={v.src}
-                    alt={v.alt}
-                    fill
-                    sizes="(max-width: 660px) 100vw, (max-width: 1040px) 50vw, 400px"
-                    style={{ objectPosition: v.pos }}
-                  />
-                </div>
-                <div className="fleet-copy">
-                  <div className="fleet-title">
-                    <h3>{v.title}</h3>
-                    <Icon name="i-chev" />
-                  </div>
-                  <strong>{v.sub}</strong>
-                  <p>{v.text}</p>
-                  <ul className="fleet-features">
-                    {v.features.map((f) => (
-                      <li key={f}>{f}</li>
-                    ))}
-                  </ul>
-                  <a className="btn btn-primary btn-sm" href={waLink(v.msg)} target="_blank" rel="noopener noreferrer">
-                    Solicitar orçamento
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <p className="fleet-note" {...rv("up", 0, 0.1)}>
-            <strong>Precisa de um ônibus maior?</strong> Também atendemos grupos grandes com ônibus convencionais ou
-            executivos, por meio de empresas parceiras. Peça um orçamento pelo WhatsApp.
-          </p>
-        </div>
-      </section>
-
-      {/* ===== Galeria ===== */}
-      <section className="gallery on-dark" id="galeria">
-        <div className="wrap">
-          <div className="section-head">
-            <div {...rv("up", 0, 0.12)}>
-              <span className="eyebrow is-yellow">Galeria da frota</span>
-              <h2>Por dentro e por fora</h2>
-            </div>
-            <p {...rv("up", 1, 0.12)}>Conheça de perto os veículos que levam o seu grupo. Escolha o veículo, deslize para ver as fotos e toque para ampliar.</p>
-          </div>
-          <Gallery groups={GALLERY_GROUPS} />
+          <Fleet items={FLEET} groups={GALLERY_GROUPS} />
         </div>
       </section>
 

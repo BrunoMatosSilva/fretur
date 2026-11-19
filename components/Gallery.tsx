@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
 import type { GalleryGroup } from "@/lib/home-data";
 
@@ -9,24 +9,16 @@ function prefersReducedMotion() {
   return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-/** Galeria em carrossel: abas por veículo, setas, miniaturas, deslize no celular e ampliação em tela cheia. */
-export default function Gallery({ groups }: { groups: GalleryGroup[] }) {
-  const [g, setG] = useState(0);
+export default function Gallery({ group, onClose }: { group: GalleryGroup; onClose: () => void }) {
   const [index, setIndex] = useState(0);
-  const [lbOpen, setLbOpen] = useState(false);
-  const [lbIndex, setLbIndex] = useState(0);
-
   const trackRef = useRef<HTMLDivElement>(null);
   const thumbsRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
   const raf = useRef(0);
   const indexRef = useRef(0);
   const lastFocus = useRef<HTMLElement | null>(null);
-  const closeRef = useRef<HTMLButtonElement>(null);
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
-  const touchX = useRef<number | null>(null);
 
-  const group = groups[g];
   const slides = group.slides;
   const total = slides.length;
   indexRef.current = index;
@@ -37,167 +29,139 @@ export default function Gallery({ groups }: { groups: GalleryGroup[] }) {
     el.scrollTo({ left: i * el.clientWidth, behavior: smooth && !prefersReducedMotion() ? "smooth" : "auto" });
   }, []);
 
-  /* Atualiza o número da foto conforme o carrossel é arrastado ou rolado */
+  const step = useCallback(
+    (direction: number) => {
+      const next = (indexRef.current + direction + total) % total;
+      indexRef.current = next;
+      setIndex(next);
+      goTo(next);
+    },
+    [goTo, total],
+  );
+
   const onScroll = () => {
     cancelAnimationFrame(raf.current);
     raf.current = requestAnimationFrame(() => {
       const el = trackRef.current;
       if (!el || !el.clientWidth) return;
-      const i = Math.round(el.scrollLeft / el.clientWidth);
-      setIndex(Math.min(Math.max(i, 0), total - 1));
+      const next = Math.min(Math.max(Math.round(el.scrollLeft / el.clientWidth), 0), total - 1);
+      indexRef.current = next;
+      setIndex(next);
     });
   };
 
-  const step = (d: number) => {
-    const n = index + d;
-    if (n < 0) goTo(total - 1, false);
-    else if (n >= total) goTo(0, false);
-    else goTo(n);
-  };
+  useEffect(() => {
+    lastFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeRef.current?.focus();
 
-  const chooseGroup = (i: number) => {
-    if (i === g) return;
-    setG(i);
-    setIndex(0);
-  };
+    const onKey = (event: globalThis.KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        step(-1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        step(1);
+      } else if (event.key === "Tab") {
+        const focusable = dialogRef.current?.querySelectorAll<HTMLElement>("button:not(:disabled)");
+        if (!focusable?.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    };
 
-  const onStageKey = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (lbOpen) return; // com a foto ampliada aberta, as setas são da ampliação
-    if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      step(-1);
-    } else if (e.key === "ArrowRight") {
-      e.preventDefault();
-      step(1);
-    }
-  };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      cancelAnimationFrame(raf.current);
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKey);
+      lastFocus.current?.focus({ preventScroll: true });
+    };
+  }, [onClose, step]);
 
-  /* Mantém a miniatura da foto atual visível na faixa */
   useEffect(() => {
     const strip = thumbsRef.current;
-    const t = strip?.children[index] as HTMLElement | undefined;
-    if (strip && t) {
+    const thumb = strip?.children[index] as HTMLElement | undefined;
+    if (strip && thumb) {
       strip.scrollTo({
-        left: t.offsetLeft - (strip.clientWidth - t.clientWidth) / 2,
+        left: thumb.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2,
         behavior: prefersReducedMotion() ? "auto" : "smooth",
       });
     }
-  }, [index, g]);
+  }, [index]);
 
-  /* Realinha a foto atual sempre que a largura do carrossel muda (girar o celular, barra de rolagem etc.) */
   useEffect(() => {
-    const el = trackRef.current;
-    if (!el || typeof ResizeObserver === "undefined") return;
-    let width = el.clientWidth;
-    const ro = new ResizeObserver(() => {
-      if (el.clientWidth !== width) {
-        width = el.clientWidth;
+    const element = trackRef.current;
+    if (!element || typeof ResizeObserver === "undefined") return;
+    let width = element.clientWidth;
+    const observer = new ResizeObserver(() => {
+      if (element.clientWidth !== width) {
+        width = element.clientWidth;
         goTo(indexRef.current, false);
       }
     });
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, [g, goTo]);
-
-  /* ---------- Ampliação em tela cheia ---------- */
-  const openLb = (i: number) => {
-    lastFocus.current = document.activeElement as HTMLElement;
-    setLbIndex(i);
-    setLbOpen(true);
-  };
-
-  const closeLb = useCallback(() => {
-    setLbOpen(false);
-    // devolve o foco primeiro e só depois alinha o carrossel (o foco pode mexer na rolagem)
-    lastFocus.current?.focus?.({ preventScroll: true });
-    goTo(lbIndex, false);
-  }, [goTo, lbIndex]);
-
-  const lbGo = useCallback(
-    (d: number) => {
-      setLbIndex((c) => (c + d + total) % total);
-    },
-    [total],
-  );
-
-  useEffect(() => {
-    if (!lbOpen) return;
-    document.body.style.overflow = "hidden";
-    const focusTimer = requestAnimationFrame(() => closeRef.current?.focus());
-    const onKey = (e: globalThis.KeyboardEvent) => {
-      if (e.key === "Escape") closeLb();
-      else if (e.key === "ArrowLeft") {
-        e.preventDefault(); // evita que o navegador role o carrossel de trás
-        lbGo(-1);
-      } else if (e.key === "ArrowRight") {
-        e.preventDefault();
-        lbGo(1);
-      } else if (e.key === "Tab") {
-        const f = [closeRef.current, prevRef.current, nextRef.current].filter(Boolean) as HTMLElement[];
-        const i = f.indexOf(document.activeElement as HTMLElement);
-        e.preventDefault();
-        f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
-      }
-    };
-    document.addEventListener("keydown", onKey);
-    return () => {
-      cancelAnimationFrame(focusTimer);
-      document.body.style.overflow = "";
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [lbOpen, closeLb, lbGo]);
-
-  const lbSlide = slides[lbIndex];
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [goTo]);
 
   return (
-    <div className="gc">
-      <div className="g-filters" role="group" aria-label="Escolher o veículo">
-        {groups.map((gr, i) => (
-          <button
-            key={gr.id}
-            className="g-chip"
-            type="button"
-            aria-pressed={g === i}
-            onClick={() => chooseGroup(i)}
-          >
-            {gr.label}
-            <span className="g-count">{gr.slides.length}</span>
+    <div
+      className="fleet-gallery"
+      onClick={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <div
+        className="fleet-gallery-dialog"
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="fleetGalleryTitle"
+      >
+        <div className="fleet-gallery-head">
+          <div>
+            <span className="eyebrow is-yellow">Fotos do veículo</span>
+            <h2 id="fleetGalleryTitle">{group.label}</h2>
+          </div>
+          <button ref={closeRef} className="fleet-gallery-close" type="button" aria-label="Fechar" onClick={onClose}>
+            <Icon name="i-x" />
           </button>
-        ))}
-      </div>
+        </div>
 
-      {/* key = recria o carrossel ao trocar de veículo, sempre começando na primeira foto */}
-      <div key={group.id}>
         <div
           className="gc-stage"
           role="region"
           aria-roledescription="carrossel"
           aria-label={`Fotos: ${group.label}`}
           tabIndex={0}
-          onKeyDown={onStageKey}
         >
           <div className="gc-track" ref={trackRef} onScroll={onScroll}>
-            {slides.map((s, i) => (
+            {slides.map((slide, i) => (
               <div
                 className="gc-slide"
-                key={s.src}
+                key={slide.src}
                 role="group"
                 aria-roledescription="slide"
                 aria-label={`${i + 1} de ${total}`}
               >
-                <button type="button" className="gc-open" aria-label={`Ampliar: ${s.cap}`} onClick={() => openLb(i)}>
-                  <Image
-                    src={s.src}
-                    alt={s.alt}
-                    fill
-                    sizes="(max-width: 900px) 100vw, 1100px"
-                    style={{ objectFit: "contain" }}
-                  />
-                </button>
-                <span className="gc-cap">
-                  <span>{s.cap}</span>
-                  <Icon name="i-zoom" />
-                </span>
+                <Image
+                  src={slide.src}
+                  alt={slide.alt}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 1100px"
+                  style={{ objectFit: "contain" }}
+                />
+                <span className="gc-cap">{slide.cap}</span>
               </div>
             ))}
           </div>
@@ -220,63 +184,19 @@ export default function Gallery({ groups }: { groups: GalleryGroup[] }) {
 
         {total > 1 ? (
           <div className="gc-thumbs" ref={thumbsRef}>
-            {slides.map((s, i) => (
+            {slides.map((slide, i) => (
               <button
-                key={s.src}
+                key={slide.src}
                 type="button"
                 className="gc-thumb"
-                aria-label={`Ir para a foto ${i + 1}: ${s.cap}`}
+                aria-label={`Ir para a foto ${i + 1}: ${slide.cap}`}
                 aria-current={index === i}
                 onClick={() => goTo(i)}
               >
-                <Image src={s.src} alt="" fill sizes="110px" style={{ objectFit: "cover" }} />
+                <Image src={slide.src} alt="" fill sizes="110px" style={{ objectFit: "cover" }} />
               </button>
             ))}
           </div>
-        ) : null}
-      </div>
-
-      <div
-        className={lbOpen ? "lb open" : "lb"}
-        role="dialog"
-        aria-modal="true"
-        aria-label={`Fotos ampliadas: ${group.label}`}
-        aria-hidden={!lbOpen}
-        onClick={(e) => {
-          if (e.target === e.currentTarget) closeLb();
-        }}
-        onTouchStart={(e) => {
-          touchX.current = e.touches[0].clientX;
-        }}
-        onTouchEnd={(e) => {
-          if (touchX.current === null) return;
-          const dx = e.changedTouches[0].clientX - touchX.current;
-          touchX.current = null;
-          if (Math.abs(dx) > 50) lbGo(dx < 0 ? 1 : -1);
-        }}
-      >
-        <span className="lb-count" aria-live="polite">
-          {lbOpen && lbSlide ? `${lbIndex + 1} / ${total}` : ""}
-        </span>
-        <button ref={closeRef} className="lb-close" type="button" aria-label="Fechar" onClick={closeLb}>
-          <Icon name="i-x" />
-        </button>
-        {total > 1 ? (
-          <button ref={prevRef} className="lb-prev" type="button" aria-label="Foto anterior" onClick={() => lbGo(-1)}>
-            <Icon name="i-prev" />
-          </button>
-        ) : null}
-        <figure>
-          {lbOpen && lbSlide ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img key={lbSlide.src} className="in" src={lbSlide.src} alt={lbSlide.alt} />
-          ) : null}
-          <figcaption>{lbOpen && lbSlide ? lbSlide.cap : ""}</figcaption>
-        </figure>
-        {total > 1 ? (
-          <button ref={nextRef} className="lb-next" type="button" aria-label="Próxima foto" onClick={() => lbGo(1)}>
-            <Icon name="i-chev" />
-          </button>
         ) : null}
       </div>
     </div>

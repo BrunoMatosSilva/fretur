@@ -69,6 +69,7 @@ export const SERVICES: { icon: IconName; title: string; text: string }[] = [
 export type FleetItem = {
   title: string;
   seats: number;
+  galleryGroupId: string;
   sub: string;
   text: string;
   features: string[];
@@ -82,6 +83,7 @@ export const FLEET: FleetItem[] = [
   {
     title: "Micro-ônibus executivo 2024",
     seats: 34,
+    galleryGroupId: "micro",
     sub: "Grupos médios · Conforto · Agilidade",
     text: "Indicado para grupos, traslados corporativos, passeios e excursões, com estrutura para viagens curtas e longas.",
     features: [
@@ -99,6 +101,7 @@ export const FLEET: FleetItem[] = [
   {
     title: "Van executiva 2024",
     seats: 20,
+    galleryGroupId: "van-grafite",
     sub: "Grupos · Bagagens · Viagens longas",
     text: "Van para 20 pessoas, com entretenimento a bordo e o conforto que o seu grupo precisa na estrada.",
     features: [
@@ -120,6 +123,7 @@ export const FLEET: FleetItem[] = [
   {
     title: "Van super executiva 2025",
     seats: 18,
+    galleryGroupId: "van-prata",
     sub: "Mais espaço · Mais conforto",
     text: "Van super executiva para 18 pessoas, ideal para traslados e viagens com mais conforto e estrutura.",
     features: [
