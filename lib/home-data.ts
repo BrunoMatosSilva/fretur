@@ -100,10 +100,10 @@ export const FLEET: FleetItem[] = [
   },
   {
     title: "Van executiva 2024",
-    seats: 20,
+    seats: 18,
     galleryGroupId: "van-grafite",
     sub: "Grupos · Bagagens · Viagens longas",
-    text: "Van para 20 pessoas, com entretenimento a bordo e o conforto que o seu grupo precisa na estrada.",
+    text: "Van para 18 pessoas, com entretenimento a bordo e o conforto que o seu grupo precisa na estrada.",
     features: [
       "Ar-condicionado",
       "Bancos reclináveis",
@@ -116,16 +116,16 @@ export const FLEET: FleetItem[] = [
       "Cadastro em todos os órgãos, para a sua viagem não ter problema com fiscalização",
     ],
     src: "/images/sprinter-grafite-1807.jpg",
-    alt: "Van executiva 2024 grafite com faixas amarelas da Fretur, com 20 lugares",
+    alt: "Van executiva 2024 grafite com faixas amarelas da Fretur, com 18 lugares",
     pos: "center",
-    msg: "Olá! Gostaria de solicitar orçamento para a van executiva 2024 (20 lugares) da Fretur.",
+    msg: "Olá! Gostaria de solicitar orçamento para a van executiva 2024 (18 lugares) da Fretur.",
   },
   {
     title: "Van super executiva 2025",
-    seats: 18,
+    seats: 20,
     galleryGroupId: "van-prata",
     sub: "Mais espaço · Mais conforto",
-    text: "Van super executiva para 18 pessoas, ideal para traslados e viagens com mais conforto e estrutura.",
+    text: "Van super executiva para 20 pessoas, ideal para traslados e viagens com mais conforto e estrutura.",
     features: [
       "Bluetooth",
       "Ar-condicionado",
@@ -136,9 +136,9 @@ export const FLEET: FleetItem[] = [
       "Cadastro em todos os órgãos fiscalizadores das estradas brasileiras",
     ],
     src: "/images/sprinter-prata-1709.jpg",
-    alt: "Van super executiva 2025 clara com faixas amarelas da Fretur, com 18 lugares",
+    alt: "Van super executiva 2025 clara com faixas amarelas da Fretur, com 20 lugares",
     pos: "center",
-    msg: "Olá! Gostaria de solicitar orçamento para a van super executiva 2025 (18 lugares) da Fretur.",
+    msg: "Olá! Gostaria de solicitar orçamento para a van super executiva 2025 (20 lugares) da Fretur.",
   },
 ];
 
